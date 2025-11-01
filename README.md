@@ -2,7 +2,6 @@
 
 <div align="center">
   <img src="https://img.shields.io/badge/Status-Em%20Desenvolvimento-yellow" alt="Status do Projeto">
-  <img src="https://img.shields.io/badge/Licença-MIT-blue" alt="Licença">
   <img src="https://img.shields.io/badge/Versão-1.0.0-green" alt="Versão">
 </div>
 
@@ -73,13 +72,9 @@ Siga estes passos para executar o projeto em sua máquina local:
 
 ## 🌐 Deploy
 
-O portfólio está hospedado no GitHub Pages e pode ser acessado através do link:
+O portfólio está hospedado no Netlify e pode ser acessado através do link:
 
-🔗 [https://euclides-marques.github.io/Portfolio](https://euclides-marques.github.io/Portfolio)
-
-## 📝 Licença
-
-Este projeto está licenciado sob a licença MIT. Consulte o arquivo [LICENSE](LICENSE) para obter mais detalhes.
+🔗 [https://euclidesmarques-dev.netlify.app/](https://euclidesmarques-dev.netlify.app/)
 
 ## 🤝 Contribuição
 
@@ -90,7 +85,7 @@ Contribuições são bem-vindas! Sinta-se à vontade para abrir uma issue ou env
 - **Email:** [euclidesmarques270@gmail.com](mailto:euclidesmarques270@gmail.com)
 - **LinkedIn:** [linkedin.com/in/euclides-marques](https://linkedin.com/in/euclides-marques)
 - **GitHub:** [github.com/Euclides-Marques](https://github.com/Euclides-Marques)
-- **Portfólio:** [euclides-marques.github.io/Portfolio](https://euclides-marques.github.io/Portfolio)
+- **Portfólio:** [https://github.com/Euclides-Marques/Portifolio](https://github.com/Euclides-Marques/Portifolio)
 
 ---
 
