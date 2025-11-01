@@ -6,12 +6,9 @@ document.addEventListener('DOMContentLoaded', function() {
     if (!projectsContainer) return;
     
     const username = 'Euclides-Marques';
-    const reposPerPage = 3; // Number of projects per page
+    const reposPerPage = 3; // Número de projetos por página
     let currentPage = 1;
     let allRepos = [];
-    
-    // Configurações da API do GitHub
-    const apiUrl = `https://api.github.com/users/${username}/repos?sort=updated&per_page=100&type=public`;
 
     // Show loading state
     function showLoading() {
