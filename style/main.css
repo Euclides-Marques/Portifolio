@@ -1106,6 +1106,7 @@ body.modal-open .loading-modal * {
     border-radius: 50%;
     font-size: 1.2rem;
     transition: var(--transition);
+    text-decoration: none;
 }
 
 .social-links a:hover {
