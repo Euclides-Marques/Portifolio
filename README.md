@@ -1,66 +1,99 @@
-# Portfólio Pessoal - Euclides Marques
+# 👨‍💻 Portfólio Profissional - Euclides Marques
 
-Bem-vindo ao meu portfólio pessoal! Este site foi desenvolvido para mostrar minhas habilidades, projetos e experiências como desenvolvedor .NET.
+<div align="center">
+  <img src="https://img.shields.io/badge/Status-Em%20Desenvolvimento-yellow" alt="Status do Projeto">
+  <img src="https://img.shields.io/badge/Licença-MIT-blue" alt="Licença">
+  <img src="https://img.shields.io/badge/Versão-1.0.0-green" alt="Versão">
+</div>
 
-## 📋 Sobre
+## 🚀 Sobre o Projeto
 
-Este portfólio foi criado para apresentar minha trajetória profissional, habilidades técnicas e projetos desenvolvidos. O design é limpo, moderno e responsivo, garantindo uma ótima experiência em qualquer dispositivo.
+Bem-vindo ao meu portfólio profissional! Este projeto foi desenvolvido para apresentar minha jornada como desenvolvedor .NET, destacando minhas habilidades técnicas, projetos relevantes e experiências profissionais. Com um design moderno, responsivo e acessível, o portfólio oferece uma experiência de usuário fluida em qualquer dispositivo.
 
-## 🚀 Tecnologias Utilizadas
+## ✨ Destaques
 
-- HTML5 semântico
-- CSS3 com Flexbox e Grid
-- JavaScript puro (sem frameworks)
-- Ícones do Font Awesome
-- Google Fonts
+- **Design Responsivo** - Adapta-se perfeitamente a qualquer tamanho de tela
+- **Modo Claro/Escuro** - Escolha o tema que melhor se adequar ao seu ambiente
+- **Performance Otimizada** - Carregamento rápido e suave
+- **Acessibilidade** - Desenvolvido seguindo as melhores práticas de acessibilidade web
+- **SEO Otimizado** - Melhor visibilidade nos mecanismos de busca
 
-## ✨ Recursos
+## 🛠️ Tecnologias Utilizadas
 
-- Design responsivo
-- Modo claro/escuro
-- Animações suaves
-- Formulário de contato funcional
-- Navegação suave
-- Otimizado para SEO
+### Frontend
+- HTML5 Semântico
+- CSS3 (Flexbox, Grid, Variáveis CSS)
+- JavaScript Vanilla (ES6+)
+- [Font Awesome](https://fontawesome.com/) - Ícones
+- [Google Fonts](https://fonts.google.com/) - Tipografia
 
-## 🛠️ Como Executar Localmente
+### Ferramentas
+- [Git](https://git-scm.com/) - Controle de versão
+- [GitHub Pages](https://pages.github.com/) - Hospedagem
+- [Visual Studio Code](https://code.visualstudio.com/) - Editor de código
 
-1. Clone o repositório:
-   ```bash
-   git clone https://github.com/Euclides-Marques/Portfolio.git
-   ```
-
-2. Navegue até a pasta do projeto:
-   ```bash
-   cd Portfolio
-   ```
-
-3. Abra o arquivo `index.html` no seu navegador preferido.
-
-## 📂 Estrutura do Projeto
+## 📦 Estrutura do Projeto
 
 ```
 Portfolio/
-├── index.html          # Página principal
-├── style/
-│   └── main.css       # Estilos principais
-├── script/
-│   └── main.js        # Funcionalidades JavaScript
-├── curriculo/
+├── index.html           # Página principal
+├── script/             # Pasta de scripts JavaScript
+│   ├── config.js      # Configurações do site
+│   ├── email.js       # Lógica do formulário de contato
+│   ├── main.js        # Funcionalidades principais
+│   ├── projetos.js    # Lógica da seção de projetos
+│   └── traducao.js    # Lógica de tradução (se houver)
+├── style/             # Pasta de estilos
+│   └── main.css       # Folhas de estilo principais
+├── images/            # Imagens do site
+│   ├── euclidesMarques.png  # Foto de perfil
+│   └── favicon.png    # Ícone da página
+├── curriculo/         # Pasta para documentos
 │   └── CV - Euclides Marques.pdf  # Currículo em PDF
 └── README.md          # Este arquivo
 ```
 
-## 🌐 Publicação
+## 🚀 Como Executar Localmente
 
-Este portfólio está hospedado no GitHub Pages. Acesse em: [https://euclides-marques.github.io/Portfolio](https://euclides-marques.github.io/Portfolio)
+Siga estes passos para executar o projeto em sua máquina local:
+
+1. **Pré-requisitos**
+   - Navegador web moderno (Chrome, Firefox, Edge, etc.)
+   - Git (opcional, apenas para clonar o repositório)
+
+2. **Clonar o repositório**
+   ```bash
+   git clone https://github.com/Euclides-Marques/Portfolio.git
+   cd Portfolio
+   ```
+
+3. **Abrir o projeto**
+   - Abra o arquivo `index.html` em seu navegador preferido
+   - Ou utilize uma extensão como Live Server no VS Code
+
+## 🌐 Deploy
+
+O portfólio está hospedado no GitHub Pages e pode ser acessado através do link:
+
+🔗 [https://euclides-marques.github.io/Portfolio](https://euclides-marques.github.io/Portfolio)
 
 ## 📝 Licença
 
-Este projeto está licenciado sob a Licença MIT - veja o arquivo [LICENSE](LICENSE) para mais detalhes.
+Este projeto está licenciado sob a licença MIT. Consulte o arquivo [LICENSE](LICENSE) para obter mais detalhes.
+
+## 🤝 Contribuição
+
+Contribuições são bem-vindas! Sinta-se à vontade para abrir uma issue ou enviar um pull request com melhorias.
 
 ## 📬 Contato
 
-- Email: euclidesmarques270@gmail.com
-- LinkedIn: [linkedin.com/in/euclides-marques](https://linkedin.com/in/euclides-marques)
-- GitHub: [https://github.com/Euclides-Marques](https://github.com/Euclides-Marques)
+- **Email:** [euclidesmarques270@gmail.com](mailto:euclidesmarques270@gmail.com)
+- **LinkedIn:** [linkedin.com/in/euclides-marques](https://linkedin.com/in/euclides-marques)
+- **GitHub:** [github.com/Euclides-Marques](https://github.com/Euclides-Marques)
+- **Portfólio:** [euclides-marques.github.io/Portfolio](https://euclides-marques.github.io/Portfolio)
+
+---
+
+<div align="center">
+  Feito com ❤️ por Euclides Marques © 2025
+</div>
