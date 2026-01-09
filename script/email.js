@@ -11,7 +11,7 @@ function showToast(message, type = 'success', duration = 5000) {
     // Cria o toast
     const toast = document.createElement('div');
     toast.className = `toast ${type}`;
-    
+
     // Adiciona o ícone baseado no tipo
     let icon = '';
     if (type === 'success') {
@@ -21,38 +21,38 @@ function showToast(message, type = 'success', duration = 5000) {
     } else {
         icon = '<i class="fas fa-info-circle"></i>';
     }
-    
+
     // Cria o botão de fechar
     const closeBtn = document.createElement('button');
     closeBtn.className = 'close-btn';
     closeBtn.innerHTML = '&times;';
     closeBtn.onclick = () => removeToast(toast);
-    
+
     // Adiciona o conteúdo ao toast
     const content = document.createElement('div');
     content.style.display = 'flex';
     content.style.alignItems = 'center';
     content.style.gap = '10px';
     content.innerHTML = `${icon}<span>${message}</span>`;
-    
+
     toast.appendChild(content);
     toast.appendChild(closeBtn);
-    
+
     // Adiciona o toast ao container
     container.appendChild(toast);
-    
+
     // Força o navegador a reconhecer a mudança de estilo
     setTimeout(() => {
         toast.classList.add('show');
     }, 10);
-    
+
     // Remove o toast após a duração especificada
     if (duration > 0) {
         setTimeout(() => {
             removeToast(toast);
         }, duration);
     }
-    
+
     return toast;
 }
 
@@ -72,7 +72,7 @@ function removeToast(toast) {
 }
 
 // Inicialização do EmailJS
-(function() {
+(function () {
     // Verifica se o EmailJS foi carregado corretamente
     if (typeof emailjs === 'undefined') {
         showToast('Erro ao carregar o serviço de e-mail', 'error');
@@ -144,13 +144,13 @@ function removeToast(toast) {
 
             // Envia o email usando EmailJS
             await emailjs.send('service_f6iroa9', 'template_d7lny7m', templateParams);
-            
+
             // Sucesso
             showToast('Mensagem enviada com sucesso! Em breve entrarei em contato.', 'success');
             e.target.reset();
         } catch (error) {
             let errorMessage = 'Ocorreu um erro ao enviar a mensagem. ';
-            
+
             if (error.status === 0) {
                 errorMessage += 'Verifique sua conexão com a internet e tente novamente.';
             } else if (error.message) {
@@ -158,7 +158,7 @@ function removeToast(toast) {
             } else {
                 errorMessage += 'Por favor, tente novamente mais tarde.';
             }
-            
+
             showToast(errorMessage, 'error');
         } finally {
             // Remove a mensagem de carregamento

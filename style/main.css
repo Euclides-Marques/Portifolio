@@ -321,7 +321,9 @@ body.dark-theme {
 }
 
 @keyframes spin {
-    to { transform: rotate(360deg); }
+    to {
+        transform: rotate(360deg);
+    }
 }
 
 .loading-text {
@@ -475,8 +477,15 @@ body.modal-open .loading-modal * {
 }
 
 @keyframes blink {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0; }
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
 }
 
 .hero h2 {
@@ -523,10 +532,12 @@ body.modal-open .loading-modal * {
         transform: translateY(0px);
         box-shadow: 0 5px 15px rgba(0, 123, 255, 0.4);
     }
+
     50% {
         transform: translateY(-10px);
         box-shadow: 0 25px 30px rgba(0, 123, 255, 0.6);
     }
+
     100% {
         transform: translateY(0px);
         box-shadow: 0 5px 15px rgba(0, 123, 255, 0.4);
@@ -553,9 +564,11 @@ body.modal-open .loading-modal * {
     0% {
         background-position: 0% 50%;
     }
+
     50% {
         background-position: 100% 50%;
     }
+
     100% {
         background-position: 0% 50%;
     }
@@ -717,7 +730,9 @@ body.modal-open .loading-modal * {
 }
 
 @keyframes spin {
-    to { transform: rotate(360deg); }
+    to {
+        transform: rotate(360deg);
+    }
 }
 
 .error-message,
@@ -961,7 +976,8 @@ body.modal-open .loading-modal * {
     margin-bottom: 5px;
 }
 
-.contact-item a, .contact-item p {
+.contact-item a,
+.contact-item p {
     color: var(--text-light);
     text-decoration: none;
     transition: var(--transition);
@@ -1160,6 +1176,7 @@ body.modal-open .loading-modal * {
         opacity: 0;
         transform: translateY(30px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);

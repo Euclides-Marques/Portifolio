@@ -1,10 +1,10 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     const projectsContainer = document.querySelector('.projects-grid');
     const paginationContainer = document.createElement('div');
     paginationContainer.className = 'pagination';
-    
+
     if (!projectsContainer) return;
-    
+
     const username = 'Euclides-Marques';
     const reposPerPage = 3; // Número de projetos por página
     let currentPage = 1;
@@ -19,14 +19,14 @@ document.addEventListener('DOMContentLoaded', function() {
             </div>
         `;
     }
-    
+
     // Show initial loading
     showLoading();
 
     // Function to create project card
     function createProjectCard(repo) {
         if (!repo) return '';
-        
+
         // Skip if it's a template repository
         if (repo.is_template) return '';
 
@@ -44,10 +44,10 @@ document.addEventListener('DOMContentLoaded', function() {
         const iconClass = languageIcons[language] || languageIcons['default'];
 
         // Pega a descrição do repositório
-        const description = (repo.description ? 
-                           repo.description.replace(/[^\x00-\x7F]/g, '') : 
-                           `Projeto ${repo.name} desenvolvido com ${language}`);
-        
+        const description = (repo.description ?
+            repo.description.replace(/[^\x00-\x7F]/g, '') :
+            `Projeto ${repo.name} desenvolvido com ${language}`);
+
         // Limita o tamanho da descrição
         const truncatedDesc = description.substring(0, 117) + (description.length > 117 ? '...' : '');
 
@@ -60,7 +60,7 @@ document.addEventListener('DOMContentLoaded', function() {
             'PHP': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg',
             'default': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original-wordmark.svg'
         };
-        
+
         // Mapeia linguagens para cores de fundo (opcional)
         const languageColors = {
             'JavaScript': '#f7df1e',
@@ -109,20 +109,20 @@ document.addEventListener('DOMContentLoaded', function() {
         `;
         paginationContainer.style.display = 'none';
     }
-    
+
     // Function to render pagination controls
     function renderPagination(totalPages) {
         if (totalPages <= 1) {
             paginationContainer.style.display = 'none';
             return;
         }
-        
+
         let paginationHTML = `
             <button class="pagination-btn" ${currentPage === 1 ? 'disabled' : ''} data-page="${currentPage - 1}">
                 <i class="fas fa-chevron-left"></i>
             </button>
         `;
-        
+
         for (let i = 1; i <= totalPages; i++) {
             paginationHTML += `
                 <button class="pagination-btn ${i === currentPage ? 'active' : ''}" data-page="${i}">
@@ -130,16 +130,16 @@ document.addEventListener('DOMContentLoaded', function() {
                 </button>
             `;
         }
-        
+
         paginationHTML += `
             <button class="pagination-btn" ${currentPage === totalPages ? 'disabled' : ''} data-page="${currentPage + 1}">
                 <i class="fas fa-chevron-right"></i>
             </button>
         `;
-        
+
         paginationContainer.innerHTML = paginationHTML;
         paginationContainer.style.display = 'flex';
-        
+
         // Add event listeners to pagination buttons
         document.querySelectorAll('.pagination-btn').forEach(button => {
             button.addEventListener('click', () => {
@@ -151,16 +151,16 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
     }
-    
+
     // Function to display repositories for the current page
     function displayRepos() {
         const startIndex = (currentPage - 1) * reposPerPage;
         const endIndex = startIndex + reposPerPage;
         const paginatedRepos = allRepos.slice(startIndex, endIndex);
-        
+
         const projectsHTML = paginatedRepos.map(repo => createProjectCard(repo)).join('');
         projectsContainer.innerHTML = projectsHTML;
-        
+
         const totalPages = Math.ceil(allRepos.length / reposPerPage);
         renderPagination(totalPages);
     }
@@ -189,16 +189,16 @@ document.addEventListener('DOMContentLoaded', function() {
                     ...repo,
                     description: repo.description || 'Sem descrição disponível'
                 }));
-                
+
                 if (allRepos.length === 0) {
                     showError('Nenhum projeto encontrado no GitHub.');
                     return;
                 }
             }
-            
+
             // Insert pagination container after projects
             projectsContainer.insertAdjacentElement('afterend', paginationContainer);
-            
+
             // Display first page of results
             displayRepos();
         })
