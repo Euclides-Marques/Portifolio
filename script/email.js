@@ -86,7 +86,7 @@ function removeToast(toast) {
     async function enviarEmail(e) {
         e.preventDefault();
 
-        const btnEnviar = document.getElementById('enviar-email');
+        const btnEnviar = e.target.querySelector('button[type="submit"]');
         if (!btnEnviar) {
             return;
         }

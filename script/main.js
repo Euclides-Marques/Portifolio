@@ -4,7 +4,6 @@ document.addEventListener('DOMContentLoaded', function () {
     const menuToggle = document.querySelector('.menu-toggle');
     const navLinks = document.querySelector('.nav-links');
     const backToTop = document.querySelector('.back-to-top');
-    const form = document.getElementById('contactForm');
 
     // Efeito de digitação
     const typingText = document.getElementById('typing-text');
@@ -183,31 +182,6 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         });
     });
-
-    // Envio do formulário de contato
-    if (form) {
-        form.addEventListener('submit', function (e) {
-            e.preventDefault();
-
-            // Aqui você pode adicionar a lógica para enviar o formulário
-            // Por exemplo, usando Fetch API para enviar para um servidor
-
-            // Exemplo de feedback visual
-            const submitButton = form.querySelector('button[type="submit"]');
-            const originalText = submitButton.textContent;
-
-            submitButton.disabled = true;
-            submitButton.textContent = 'Enviando...';
-
-            // Simulação de envio
-            setTimeout(() => {
-                alert('Mensagem enviada com sucesso! Entrarei em contato em breve.');
-                form.reset();
-                submitButton.textContent = originalText;
-                submitButton.disabled = false;
-            }, 1500);
-        });
-    }
 
     // Animações ao rolar a página
     const animateOnScroll = () => {
