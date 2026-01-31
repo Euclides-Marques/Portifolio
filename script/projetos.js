@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', function () {
     if (!projectsContainer) return;
 
     const username = 'Euclides-Marques';
-    const reposPerPage = 3; // Número de projetos por página
+    const reposPerPage = 4; // Número de projetos por página
     let currentPage = 1;
     let allRepos = [];
 
