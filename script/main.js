@@ -270,17 +270,35 @@ document.addEventListener('DOMContentLoaded', function () {
 
     const anosExperiencia = calcularAnosExperiencia();
     const totalCertificacoes = contarCertificacoes();
-
-    animateCounter('total-anos', anosExperiencia);
-    animateCounter('total-certificados', totalCertificacoes);
-
-    const observer = new MutationObserver(() => {
-        atualizarContadorProjetos();
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                animateCounter('total-anos', anosExperiencia);
+                animateCounter('total-certificados', totalCertificacoes);
+                atualizarContadorProjetos();
+                
+                observer.unobserve(entry.target);
+            }
+        });
+    }, {
+        threshold: 0.3
     });
-
+    
+    const estatisticasSection = document.getElementById('estatisticas');
+    if (estatisticasSection) {
+        observer.observe(estatisticasSection);
+    }
+    
+    const projectsObserver = new MutationObserver(() => {
+        if (document.getElementById('total-projetos').textContent !== '0') {
+            atualizarContadorProjetos();
+        }
+    });
+    
     const projectsContainer = document.querySelector('.projects-grid');
     if (projectsContainer) {
-        observer.observe(projectsContainer, { childList: true });
+        projectsObserver.observe(projectsContainer, { childList: true });
     }
 });
 
