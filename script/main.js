@@ -225,6 +225,11 @@ document.addEventListener('DOMContentLoaded', function () {
         return anos;
     }
 
+    function contarCertificacoes() {
+        const courseCards = document.querySelectorAll('.course-card');
+        return courseCards.length;
+    }
+
     function animateCounter(elementId, targetValue, duration = 2500) {
         const element = document.getElementById(elementId);
         if (!element) return;
@@ -251,8 +256,10 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     const anosExperiencia = calcularAnosExperiencia();
+    const totalCertificacoes = contarCertificacoes();
+    
     animateCounter('total-anos', anosExperiencia);
-
+    animateCounter('total-certificados', totalCertificacoes);
     });
 
 document.addEventListener('DOMContentLoaded', function () {
