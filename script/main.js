@@ -294,12 +294,17 @@ document.addEventListener('DOMContentLoaded', function () {
     const anosExperiencia = calcularAnosExperiencia();
     const totalCertificacoes = contarCertificacoes();
 
-    let statsAlreadyAnimated = false;
+    function resetarEstatisticas() {
+        const anosElement = document.getElementById('total-anos');
+        const certsElement = document.getElementById('total-certificados');
+        const projElement = document.getElementById('total-projetos');
+
+        if (anosElement) anosElement.textContent = '0';
+        if (certsElement) certsElement.textContent = '0';
+        if (projElement) projElement.textContent = '0';
+    }
 
     async function iniciarAnimacaoEstatisticas() {
-        if (statsAlreadyAnimated) return;
-        statsAlreadyAnimated = true;
-
         const totalProjetos = await aguardarProjetosCarregados();
 
         animateCounter('total-anos', anosExperiencia);
@@ -313,11 +318,13 @@ document.addEventListener('DOMContentLoaded', function () {
     const statsSection = document.getElementById('estatisticas');
 
     if (statsSection && 'IntersectionObserver' in window) {
-        const statsObserver = new IntersectionObserver((entries, observer) => {
+        const statsObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
+                    resetarEstatisticas();
                     iniciarAnimacaoEstatisticas();
-                    observer.unobserve(entry.target);
+                } else {
+                    resetarEstatisticas();
                 }
             });
         }, {
@@ -326,6 +333,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         statsObserver.observe(statsSection);
     } else {
+        resetarEstatisticas();
         iniciarAnimacaoEstatisticas();
     }
 });
