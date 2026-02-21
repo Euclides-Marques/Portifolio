@@ -8,6 +8,8 @@ document.addEventListener('DOMContentLoaded', function () {
     const reposPerPage = 4;
     let currentPage = 1;
     let allRepos = [];
+    // Tornar allRepos acessível globalmente
+    window.allRepos = allRepos;
 
     function showLoading() {
         projectsContainer.innerHTML = `
@@ -176,6 +178,8 @@ document.addEventListener('DOMContentLoaded', function () {
                     return;
                 }
             }
+
+            window.allRepos = allRepos;
 
             projectsContainer.insertAdjacentElement('afterend', paginationContainer);
 

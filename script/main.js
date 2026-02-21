@@ -215,13 +215,13 @@ document.addEventListener('DOMContentLoaded', function () {
         const anoInicio = 2019;
         const anoFim = 2025;
         const anoAtual = new Date().getFullYear();
-        
+
         let anos = anoAtual - anoInicio + 1;
-        
+
         if (anoAtual > anoFim) {
             anos = anoFim - anoInicio + 1;
         }
-        
+
         return anos;
     }
 
@@ -230,37 +230,59 @@ document.addEventListener('DOMContentLoaded', function () {
         return courseCards.length;
     }
 
+    function contarProjetos() {
+        if (typeof window.allRepos !== 'undefined') {
+            return window.allRepos.length;
+        }
+    }
+
+    function atualizarContadorProjetos() {
+        const totalProjetos = contarProjetos();
+        if (totalProjetos > 0) {
+            animateCounter('total-projetos', totalProjetos);
+        }
+    }
+
     function animateCounter(elementId, targetValue, duration = 2500) {
         const element = document.getElementById(elementId);
         if (!element) return;
-        
+
         const startValue = 0;
         const startTime = performance.now();
-        
+
         function updateCounter(currentTime) {
             const elapsed = currentTime - startTime;
             const progress = Math.min(elapsed / duration, 1);
-            
+
             const currentValue = Math.floor(startValue + (targetValue - startValue) * progress);
-            
+
             element.textContent = currentValue;
-            
+
             if (progress < 1) {
                 requestAnimationFrame(updateCounter);
             } else {
                 element.textContent = targetValue;
             }
         }
-        
+
         requestAnimationFrame(updateCounter);
     }
 
     const anosExperiencia = calcularAnosExperiencia();
     const totalCertificacoes = contarCertificacoes();
-    
+
     animateCounter('total-anos', anosExperiencia);
     animateCounter('total-certificados', totalCertificacoes);
+
+    const observer = new MutationObserver(() => {
+        atualizarContadorProjetos();
     });
+
+    const projectsContainer = document.querySelector('.projects-grid');
+    if (projectsContainer) {
+        observer.observe(projectsContainer, { childList: true });
+    }
+});
 
 document.addEventListener('DOMContentLoaded', function () {
     const year = new Date().getFullYear();
