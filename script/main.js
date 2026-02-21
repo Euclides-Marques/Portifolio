@@ -231,13 +231,36 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     function contarProjetos() {
-        if (typeof window.allRepos !== 'undefined') {
+        if (Array.isArray(window.allRepos)) {
             return window.allRepos.length;
         }
+        return 0;
     }
 
-    function atualizarContadorProjetos() {
-        const totalProjetos = contarProjetos();
+    function aguardarProjetosCarregados(timeoutMs = 5000, intervalMs = 200) {
+        return new Promise(resolve => {
+            const start = performance.now();
+
+            function check() {
+                if (Array.isArray(window.allRepos) && window.allRepos.length > 0) {
+                    resolve(window.allRepos.length);
+                    return;
+                }
+
+                if (performance.now() - start >= timeoutMs) {
+                    resolve(0);
+                    return;
+                }
+
+                setTimeout(check, intervalMs);
+            }
+
+            check();
+        });
+    }
+
+    async function atualizarContadorProjetos() {
+        const totalProjetos = await aguardarProjetosCarregados();
         if (totalProjetos > 0) {
             animateCounter('total-projetos', totalProjetos);
         }
@@ -271,16 +294,39 @@ document.addEventListener('DOMContentLoaded', function () {
     const anosExperiencia = calcularAnosExperiencia();
     const totalCertificacoes = contarCertificacoes();
 
-    animateCounter('total-anos', anosExperiencia);
-    animateCounter('total-certificados', totalCertificacoes);
+    let statsAlreadyAnimated = false;
 
-    const observer = new MutationObserver(() => {
-        atualizarContadorProjetos();
-    });
+    async function iniciarAnimacaoEstatisticas() {
+        if (statsAlreadyAnimated) return;
+        statsAlreadyAnimated = true;
 
-    const projectsContainer = document.querySelector('.projects-grid');
-    if (projectsContainer) {
-        observer.observe(projectsContainer, { childList: true });
+        const totalProjetos = await aguardarProjetosCarregados();
+
+        animateCounter('total-anos', anosExperiencia);
+        animateCounter('total-certificados', totalCertificacoes);
+
+        if (totalProjetos > 0) {
+            animateCounter('total-projetos', totalProjetos);
+        }
+    }
+
+    const statsSection = document.getElementById('estatisticas');
+
+    if (statsSection && 'IntersectionObserver' in window) {
+        const statsObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    iniciarAnimacaoEstatisticas();
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.3
+        });
+
+        statsObserver.observe(statsSection);
+    } else {
+        iniciarAnimacaoEstatisticas();
     }
 });
 
