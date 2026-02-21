@@ -165,6 +165,8 @@ document.addEventListener('DOMContentLoaded', function () {
                 })
                 .sort((a, b) => a.name.localeCompare(b.name));
 
+            window.totalGitHubProjects = allRepos.length;
+
             if (allRepos.length === 0) {
                 allRepos = repos.map(repo => ({
                     ...repo,
@@ -172,6 +174,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 }));
 
                 if (allRepos.length === 0) {
+                    window.totalGitHubProjects = 0;
                     showError('Nenhum projeto encontrado no GitHub.');
                     return;
                 }
@@ -180,6 +183,13 @@ document.addEventListener('DOMContentLoaded', function () {
             projectsContainer.insertAdjacentElement('afterend', paginationContainer);
 
             displayRepos();
+            
+            window.dispatchEvent(new CustomEvent('projectsLoaded', { 
+                detail: { 
+                    totalProjects: allRepos.length,
+                    projects: allRepos
+                } 
+            }));
         })
         .catch(error => {
             console.error('Erro ao carregar projetos:', error);
