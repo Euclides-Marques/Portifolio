@@ -180,6 +180,36 @@ document.addEventListener('DOMContentLoaded', function () {
 
     window.addEventListener('load', animateOnScroll);
     window.addEventListener('scroll', animateOnScroll);
+
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const skillLinks = document.querySelectorAll('.skill-link');
+
+    function filterSkills(category) {
+        skillLinks.forEach(skillLink => {
+            const skillCategory = skillLink.getAttribute('data-category');
+            
+            if (category === 'all' || skillCategory === category) {
+                skillLink.classList.add('visible');
+                skillLink.classList.remove('hidden');
+            } else {
+                skillLink.classList.remove('visible');
+                skillLink.classList.add('hidden');
+            }
+        });
+    }
+
+    filterButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            filterButtons.forEach(btn => btn.classList.remove('active'));
+            
+            button.classList.add('active');
+            
+            const filterValue = button.getAttribute('data-filter');
+            filterSkills(filterValue);
+        });
+    });
+
+    filterSkills('all');
 });
 
 document.addEventListener('DOMContentLoaded', function () {
