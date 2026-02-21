@@ -76,29 +76,8 @@ function removeToast(toast) {
             return;
         }
 
-        const btnText = btnEnviar.innerHTML;
         btnEnviar.disabled = true;
-        btnEnviar.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Enviando...';
-
-        const loadingMessage = document.createElement('div');
-        loadingMessage.id = 'loading-message';
-        loadingMessage.style.cssText = `
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background: rgba(0, 0, 0, 0.8);
-            color: white;
-            padding: 15px 30px;
-            border-radius: 8px;
-            z-index: 9999;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-size: 16px;
-        `;
-        loadingMessage.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Enviando mensagem...';
-        document.body.appendChild(loadingMessage);
+        btnEnviar.classList.add('loading');
 
         try {
             const now = new Date();
@@ -139,12 +118,9 @@ function removeToast(toast) {
 
             showToast(errorMessage, 'error');
         } finally {
-            const loadingMsg = document.getElementById('loading-message');
-            if (loadingMsg) loadingMsg.remove();
-
             if (btnEnviar) {
                 btnEnviar.disabled = false;
-                btnEnviar.innerHTML = btnText;
+                btnEnviar.classList.remove('loading');
             }
         }
     }

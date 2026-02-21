@@ -213,7 +213,7 @@ body.dark-theme {
 
 .btn-primary:hover {
     background: linear-gradient(135deg, var(--primary-dark), var(--primary-color));
-    transform: translateY(-2px);
+    transform: translateY(-2px) scale(1.02);
     box-shadow: var(--shadow-lg);
 }
 
@@ -227,7 +227,7 @@ body.dark-theme {
 .btn-secondary:hover {
     background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
     color: white;
-    transform: translateY(-2px);
+    transform: translateY(-2px) scale(1.02);
     box-shadow: var(--shadow-md);
     border-color: transparent;
 }
@@ -1546,7 +1546,7 @@ body.modal-open .loading-modal * {
 
 .social-links a:hover {
     background-color: var(--primary-color);
-    transform: translateY(-3px);
+    transform: translateY(-3px) scale(1.1);
 }
 
 .footer-bottom {
@@ -1669,6 +1669,36 @@ body.modal-open .loading-modal * {
     width: 100%;
     padding: 12px;
     font-size: 16px;
+    position: relative;
+    overflow: hidden;
+    min-height: 48px;
+    max-height: 48px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+}
+
+.contact-form .btn-primary.loading {
+    color: transparent;
+    pointer-events: none;
+    padding: 12px;
+    min-height: 48px;
+    max-height: 48px;
+}
+
+.contact-form .btn-primary.loading::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    margin: -10px 0 0 -10px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-top-color: white;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
 }
 
 .contact-form .form-group {
