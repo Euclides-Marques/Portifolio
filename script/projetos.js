@@ -12,12 +12,19 @@ document.addEventListener('DOMContentLoaded', function () {
     window.allRepos = allRepos;
 
     function showLoading() {
-        projectsContainer.innerHTML = `
-            <div class="loading-spinner">
-                <div class="spinner"></div>
-                <p>Carregando projetos...</p>
+        const skeletonCards = Array(4).fill('').map(() => `
+            <div class="skeleton-card">
+                <div class="skeleton-image"></div>
+                <div class="skeleton-content">
+                    <div class="skeleton-title"></div>
+                    <div class="skeleton-text"></div>
+                    <div class="skeleton-text"></div>
+                    <div class="skeleton-text" style="width: 40%;"></div>
+                </div>
             </div>
-        `;
+        `).join('');
+        
+        projectsContainer.innerHTML = skeletonCards;
     }
 
     showLoading();
@@ -72,6 +79,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     <div style="display: flex; justify-content: center; align-items: center; width: 100%; height: 200px; background-color: ${bgColor}22; padding: 20px;">
                         <img src="${imageUrl}" 
                              alt="${language} logo"
+                             loading="lazy"
                              style="max-width: 80%; max-height: 80%; object-fit: contain;"
                              onerror="this.onerror=null; this.src='${languageImages['default']}'">
                     </div>
