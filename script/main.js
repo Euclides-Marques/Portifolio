@@ -218,11 +218,11 @@ document.addEventListener('DOMContentLoaded', function () {
                 weekday: 8,
                 saturday: 5
             };
+            this.hasInitialized = false;
             this.init();
         }
 
         init() {
-            this.updateAllStatistics();
             this.setupAutoUpdate();
             this.setupIntersectionObserver();
             this.setupProjectsLoadedListener();
@@ -272,19 +272,22 @@ document.addEventListener('DOMContentLoaded', function () {
             const now = new Date();
             const startDate = new Date(this.startDate);
 
-            let totalHours = 0;
-            let currentDate = new Date(startDate);
-
-            while (currentDate <= now) {
-                const dayOfWeek = currentDate.getDay();
-
+            const totalDays = Math.floor((now - startDate) / (1000 * 60 * 60 * 24));
+            
+            let totalWeeks = Math.floor(totalDays / 7);
+            const remainingDays = totalDays % 7;
+            
+            let totalHours = totalWeeks * (5 * this.workHoursPerDay.weekday + this.workHoursPerDay.saturday);
+            
+            const startDayOfWeek = startDate.getDay();
+            for (let i = 0; i < remainingDays; i++) {
+                const dayOfWeek = (startDayOfWeek + i) % 7;
+                
                 if (dayOfWeek >= 1 && dayOfWeek <= 5) {
                     totalHours += this.workHoursPerDay.weekday;
                 } else if (dayOfWeek === 6) {
                     totalHours += this.workHoursPerDay.saturday;
                 }
-
-                currentDate.setDate(currentDate.getDate() + 1);
             }
 
             return totalHours;
@@ -392,7 +395,8 @@ document.addEventListener('DOMContentLoaded', function () {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         this.updateAllStatistics();
-                        observer.unobserve(entry.target);
+                    } else {
+                        this.hasInitialized = false;
                     }
                 });
             }, {
