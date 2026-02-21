@@ -5,12 +5,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
     if (!projectsContainer) return;
 
-    const username = 'Euclides-Marques';
-    const reposPerPage = 4; // Número de projetos por página
+    const reposPerPage = 4;
     let currentPage = 1;
     let allRepos = [];
 
-    // Show loading state
     function showLoading() {
         projectsContainer.innerHTML = `
             <div class="loading-spinner">
@@ -20,17 +18,13 @@ document.addEventListener('DOMContentLoaded', function () {
         `;
     }
 
-    // Show initial loading
     showLoading();
 
-    // Function to create project card
     function createProjectCard(repo) {
         if (!repo) return '';
 
-        // Skip if it's a template repository
         if (repo.is_template) return '';
 
-        // Map languages to icons
         const languageIcons = {
             'C#': 'fas fa-code',
             'JavaScript': 'fab fa-js',
@@ -43,15 +37,12 @@ document.addEventListener('DOMContentLoaded', function () {
         const language = repo.language || 'Code';
         const iconClass = languageIcons[language] || languageIcons['default'];
 
-        // Pega a descrição do repositório
         const description = (repo.description ?
             repo.description.replace(/[^\x00-\x7F]/g, '') :
             `Projeto ${repo.name} desenvolvido com ${language}`);
 
-        // Limita o tamanho da descrição
         const truncatedDesc = description.substring(0, 117) + (description.length > 117 ? '...' : '');
 
-        // Mapeia linguagens para suas logos oficiais (SVG)
         const languageImages = {
             'JavaScript': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg',
             'HTML': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original-wordmark.svg',
@@ -61,7 +52,6 @@ document.addEventListener('DOMContentLoaded', function () {
             'default': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original-wordmark.svg'
         };
 
-        // Mapeia linguagens para cores de fundo (opcional)
         const languageColors = {
             'JavaScript': '#f7df1e',
             'HTML': '#e34f26',
@@ -71,7 +61,6 @@ document.addEventListener('DOMContentLoaded', function () {
             'default': '#f0f0f0'
         };
 
-        // Usa a imagem e cor correspondentes à linguagem do projeto
         const imageUrl = languageImages[language] || languageImages['default'];
         const bgColor = languageColors[language] || languageColors['default'];
 
@@ -99,7 +88,6 @@ document.addEventListener('DOMContentLoaded', function () {
         `;
     }
 
-    // Function to show error message
     function showError(message) {
         projectsContainer.innerHTML = `
             <div class="error-message">
@@ -110,7 +98,6 @@ document.addEventListener('DOMContentLoaded', function () {
         paginationContainer.style.display = 'none';
     }
 
-    // Function to render pagination controls
     function renderPagination(totalPages) {
         if (totalPages <= 1) {
             paginationContainer.style.display = 'none';
@@ -140,7 +127,6 @@ document.addEventListener('DOMContentLoaded', function () {
         paginationContainer.innerHTML = paginationHTML;
         paginationContainer.style.display = 'flex';
 
-        // Add event listeners to pagination buttons
         document.querySelectorAll('.pagination-btn').forEach(button => {
             button.addEventListener('click', () => {
                 const page = parseInt(button.dataset.page);
@@ -152,7 +138,6 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    // Function to display repositories for the current page
     function displayRepos() {
         const startIndex = (currentPage - 1) * reposPerPage;
         const endIndex = startIndex + reposPerPage;
@@ -165,7 +150,6 @@ document.addEventListener('DOMContentLoaded', function () {
         renderPagination(totalPages);
     }
 
-    // Fetch GitHub repositories sem autenticação
     fetch(apiUrl, fetchOptions)
         .then(response => {
             if (!response.ok) {
@@ -174,17 +158,14 @@ document.addEventListener('DOMContentLoaded', function () {
             return response.json();
         })
         .then(repos => {
-            // Filter and sort repositories
             allRepos = repos
                 .filter(repo => {
-                    // Only exclude if it's a fork and has no description
                     const include = !repo.fork || (repo.description && repo.description.trim() !== '');
                     return include;
                 })
-                .sort((a, b) => a.name.localeCompare(b.name)); // Sort alphabetically by repository name
+                .sort((a, b) => a.name.localeCompare(b.name));
 
             if (allRepos.length === 0) {
-                // Show all repositories even if they don't match all criteria
                 allRepos = repos.map(repo => ({
                     ...repo,
                     description: repo.description || 'Sem descrição disponível'
@@ -196,10 +177,8 @@ document.addEventListener('DOMContentLoaded', function () {
                 }
             }
 
-            // Insert pagination container after projects
             projectsContainer.insertAdjacentElement('afterend', paginationContainer);
 
-            // Display first page of results
             displayRepos();
         })
         .catch(error => {

@@ -1,6 +1,4 @@
-// Função para exibir toast
 function showToast(message, type = 'success', duration = 5000) {
-    // Cria o container de toasts se não existir
     let container = document.querySelector('.toast-container');
     if (!container) {
         container = document.createElement('div');
@@ -8,11 +6,9 @@ function showToast(message, type = 'success', duration = 5000) {
         document.body.appendChild(container);
     }
 
-    // Cria o toast
     const toast = document.createElement('div');
     toast.className = `toast ${type}`;
 
-    // Adiciona o ícone baseado no tipo
     let icon = '';
     if (type === 'success') {
         icon = '<i class="fas fa-check-circle"></i>';
@@ -22,13 +18,11 @@ function showToast(message, type = 'success', duration = 5000) {
         icon = '<i class="fas fa-info-circle"></i>';
     }
 
-    // Cria o botão de fechar
     const closeBtn = document.createElement('button');
     closeBtn.className = 'close-btn';
     closeBtn.innerHTML = '&times;';
     closeBtn.onclick = () => removeToast(toast);
 
-    // Adiciona o conteúdo ao toast
     const content = document.createElement('div');
     content.style.display = 'flex';
     content.style.alignItems = 'center';
@@ -38,15 +32,12 @@ function showToast(message, type = 'success', duration = 5000) {
     toast.appendChild(content);
     toast.appendChild(closeBtn);
 
-    // Adiciona o toast ao container
     container.appendChild(toast);
 
-    // Força o navegador a reconhecer a mudança de estilo
     setTimeout(() => {
         toast.classList.add('show');
     }, 10);
 
-    // Remove o toast após a duração especificada
     if (duration > 0) {
         setTimeout(() => {
             removeToast(toast);
@@ -62,7 +53,6 @@ function removeToast(toast) {
         toast.style.animation = 'fadeOut 0.3s ease-out forwards';
         setTimeout(() => {
             toast.remove();
-            // Remove o container se não houver mais toasts
             const container = document.querySelector('.toast-container');
             if (container && container.children.length === 0) {
                 container.remove();
@@ -71,18 +61,14 @@ function removeToast(toast) {
     }
 }
 
-// Inicialização do EmailJS
 (function () {
-    // Verifica se o EmailJS foi carregado corretamente
     if (typeof emailjs === 'undefined') {
         showToast('Erro ao carregar o serviço de e-mail', 'error');
         return;
     }
 
-    // Inicializa o EmailJS
     emailjs.init('LeqVisNk5rl9UTxYb');
 
-    // Função para enviar o email
     async function enviarEmail(e) {
         e.preventDefault();
 
@@ -91,12 +77,10 @@ function removeToast(toast) {
             return;
         }
 
-        // Mostra o indicador de carregamento
         const btnText = btnEnviar.innerHTML;
         btnEnviar.disabled = true;
         btnEnviar.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Enviando...';
 
-        // Cria a mensagem de carregamento
         const loadingMessage = document.createElement('div');
         loadingMessage.id = 'loading-message';
         loadingMessage.style.cssText = `
@@ -118,7 +102,6 @@ function removeToast(toast) {
         document.body.appendChild(loadingMessage);
 
         try {
-            // Adiciona a data e hora atual
             const now = new Date();
             const timeString = now.toLocaleString('pt-BR', {
                 day: '2-digit',
@@ -128,7 +111,6 @@ function removeToast(toast) {
                 minute: '2-digit'
             });
 
-            // Cria um objeto com os dados do formulário
             const templateParams = {
                 name: e.target.name.value.trim(),
                 email: e.target.email.value.trim(),
@@ -137,15 +119,12 @@ function removeToast(toast) {
                 time: timeString
             };
 
-            // Validação básica
             if (!templateParams.email.includes('@') || !templateParams.email.includes('.')) {
                 throw { message: 'Por favor, insira um email válido' };
             }
 
-            // Envia o email usando EmailJS
             await emailjs.send('service_f6iroa9', 'template_d7lny7m', templateParams);
 
-            // Sucesso
             showToast('Mensagem enviada com sucesso! Em breve entrarei em contato.', 'success');
             e.target.reset();
         } catch (error) {
@@ -161,11 +140,9 @@ function removeToast(toast) {
 
             showToast(errorMessage, 'error');
         } finally {
-            // Remove a mensagem de carregamento
             const loadingMsg = document.getElementById('loading-message');
             if (loadingMsg) loadingMsg.remove();
 
-            // Restaura o botão
             if (btnEnviar) {
                 btnEnviar.disabled = false;
                 btnEnviar.innerHTML = btnText;
@@ -173,7 +150,6 @@ function removeToast(toast) {
         }
     }
 
-    // Inicializa o formulário quando o DOM estiver pronto
     function initForm() {
         const form = document.getElementById('form-contato');
         if (form) {
@@ -183,7 +159,6 @@ function removeToast(toast) {
         }
     }
 
-    // Inicializa quando o DOM estiver pronto
     if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', initForm);
     } else {
