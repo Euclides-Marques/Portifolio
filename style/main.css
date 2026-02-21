@@ -6,7 +6,7 @@
     --primary-light: #3b82f6;
     --accent-color: #7c3aed;
     --accent-light: #8b5cf6;
-    
+
     /* Cores Neutras - Escala Cinza Profissional */
     --gray-50: #f9fafb;
     --gray-100: #f3f4f6;
@@ -18,13 +18,13 @@
     --gray-700: #374151;
     --gray-800: #1f2937;
     --gray-900: #111827;
-    
+
     /* Cores de Texto */
     --text-primary: var(--gray-900);
     --text-secondary: var(--gray-600);
     --text-muted: var(--gray-500);
     --text-light: var(--gray-400);
-    
+
     /* Cores de Fundo */
     --bg-primary: #ffffff;
     --bg-secondary: var(--gray-50);
@@ -32,7 +32,7 @@
     --bg-dark: var(--gray-900);
     --bg-surface: rgba(255, 255, 255, 0.8);
     --bg-glass: rgba(255, 255, 255, 0.1);
-    
+
     /* Bordas e Sombras */
     --border-color: var(--gray-200);
     --border-light: var(--gray-100);
@@ -40,7 +40,7 @@
     --border-radius: 12px;
     --border-radius-lg: 16px;
     --border-radius-xl: 24px;
-    
+
     /* Sombras Profissionais */
     --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
     --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
@@ -48,12 +48,12 @@
     --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
     --shadow-xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
     --shadow-glow: 0 0 20px rgba(37, 99, 235, 0.15);
-    
+
     /* Transições e Animações */
     --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
     --transition: 300ms cubic-bezier(0.4, 0, 0.2, 1);
     --transition-slow: 500ms cubic-bezier(0.4, 0, 0.2, 1);
-    
+
     /* Tipografia */
     --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     --font-mono: 'JetBrains Mono', 'Fira Code', Consolas, monospace;
@@ -531,10 +531,10 @@ body.modal-open .loading-modal * {
     display: flex;
     align-items: center;
     position: relative;
-    background: linear-gradient(135deg, 
-        var(--bg-secondary) 0%, 
-        var(--bg-primary) 50%,
-        var(--bg-secondary) 100%);
+    background: linear-gradient(135deg,
+            var(--bg-secondary) 0%,
+            var(--bg-primary) 50%,
+            var(--bg-secondary) 100%);
 }
 
 .hero::before {
@@ -544,10 +544,10 @@ body.modal-open .loading-modal * {
     right: -10%;
     width: 600px;
     height: 600px;
-    background: radial-gradient(circle, 
-        rgba(37, 99, 235, 0.08) 0%, 
-        rgba(124, 58, 237, 0.04) 50%,
-        transparent 70%);
+    background: radial-gradient(circle,
+            rgba(37, 99, 235, 0.08) 0%,
+            rgba(124, 58, 237, 0.04) 50%,
+            transparent 70%);
     border-radius: 50%;
     z-index: 0;
 }
@@ -559,33 +559,33 @@ body.modal-open .loading-modal * {
     left: -5%;
     width: 400px;
     height: 400px;
-    background: radial-gradient(circle, 
-        rgba(124, 58, 237, 0.06) 0%, 
-        rgba(37, 99, 235, 0.02) 50%,
-        transparent 70%);
+    background: radial-gradient(circle,
+            rgba(124, 58, 237, 0.06) 0%,
+            rgba(37, 99, 235, 0.02) 50%,
+            transparent 70%);
     border-radius: 50%;
     z-index: 0;
 }
 
 .dark-theme .hero {
-    background: linear-gradient(135deg, 
-        var(--bg-secondary) 0%, 
-        var(--bg-primary) 50%,
-        var(--bg-secondary) 100%);
+    background: linear-gradient(135deg,
+            var(--bg-secondary) 0%,
+            var(--bg-primary) 50%,
+            var(--bg-secondary) 100%);
 }
 
 .dark-theme .hero::before {
-    background: radial-gradient(circle, 
-        rgba(37, 99, 235, 0.12) 0%, 
-        rgba(124, 58, 237, 0.06) 50%,
-        transparent 70%);
+    background: radial-gradient(circle,
+            rgba(37, 99, 235, 0.12) 0%,
+            rgba(124, 58, 237, 0.06) 50%,
+            transparent 70%);
 }
 
 .dark-theme .hero::after {
-    background: radial-gradient(circle, 
-        rgba(124, 58, 237, 0.08) 0%, 
-        rgba(37, 99, 235, 0.04) 50%,
-        transparent 70%);
+    background: radial-gradient(circle,
+            rgba(124, 58, 237, 0.08) 0%,
+            rgba(37, 99, 235, 0.04) 50%,
+            transparent 70%);
 }
 
 .hero-content {
@@ -622,8 +622,15 @@ body.modal-open .loading-modal * {
 }
 
 @keyframes blink {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0; }
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
 }
 
 .hero h2 {
@@ -663,7 +670,7 @@ body.modal-open .loading-modal * {
     border-radius: 24px;
     overflow: hidden;
     background: var(--bg-primary);
-    box-shadow: 
+    box-shadow:
         0 20px 40px rgba(0, 0, 0, 0.1),
         0 0 0 1px rgba(255, 255, 255, 0.1);
     transition: var(--transition-slow);
@@ -678,10 +685,10 @@ body.modal-open .loading-modal * {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(135deg, 
-        rgba(37, 99, 235, 0.1) 0%, 
-        transparent 50%,
-        rgba(124, 58, 237, 0.05) 100%);
+    background: linear-gradient(135deg,
+            rgba(37, 99, 235, 0.1) 0%,
+            transparent 50%,
+            rgba(124, 58, 237, 0.05) 100%);
     opacity: 0;
     transition: var(--transition);
     z-index: 1;
@@ -689,7 +696,7 @@ body.modal-open .loading-modal * {
 
 .profile-image:hover {
     transform: perspective(1000px) rotateY(0deg) scale(1.02);
-    box-shadow: 
+    box-shadow:
         0 30px 60px rgba(37, 99, 235, 0.15),
         0 0 0 1px rgba(37, 99, 235, 0.2);
 }
@@ -830,9 +837,9 @@ body.modal-open .loading-modal * {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(135deg, 
-        rgba(37, 99, 235, 0.05), 
-        rgba(124, 58, 237, 0.02));
+    background: linear-gradient(135deg,
+            rgba(37, 99, 235, 0.05),
+            rgba(124, 58, 237, 0.02));
     opacity: 0;
     transition: var(--transition);
 }
@@ -870,7 +877,34 @@ body.modal-open .loading-modal * {
     z-index: 1;
 }
 
-/* Projetos - Cards Premium */
+.skill-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    transition: var(--transition);
+}
+
+.skill-link:hover {
+    text-decoration: none;
+    color: inherit;
+    transform: translateY(-6px);
+}
+
+.skill-link:hover .skill-card {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--primary-color);
+}
+
+.skill-link:hover .skill-card::before {
+    opacity: 1;
+}
+
+.skill-link:hover .skill-card i {
+    transform: scale(1.1);
+    color: var(--primary-dark);
+}
+
 .projects-grid {
     position: relative;
     min-height: 300px;
@@ -898,9 +932,9 @@ body.modal-open .loading-modal * {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(135deg, 
-        rgba(37, 99, 235, 0.02), 
-        rgba(124, 58, 237, 0.01));
+    background: linear-gradient(135deg,
+            rgba(37, 99, 235, 0.02),
+            rgba(124, 58, 237, 0.01));
     opacity: 0;
     transition: var(--transition);
     z-index: 0;
@@ -929,9 +963,9 @@ body.modal-open .loading-modal * {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(180deg, 
-        transparent 0%, 
-        rgba(0, 0, 0, 0.1) 100%);
+    background: linear-gradient(180deg,
+            transparent 0%,
+            rgba(0, 0, 0, 0.1) 100%);
     opacity: 0;
     transition: var(--transition);
 }
@@ -982,9 +1016,9 @@ body.modal-open .loading-modal * {
 }
 
 .project-tech span {
-    background: linear-gradient(135deg, 
-        rgba(37, 99, 235, 0.1), 
-        rgba(124, 58, 237, 0.05));
+    background: linear-gradient(135deg,
+            rgba(37, 99, 235, 0.1),
+            rgba(124, 58, 237, 0.05));
     color: var(--primary-color);
     padding: 6px 14px;
     border-radius: 20px;
@@ -995,9 +1029,9 @@ body.modal-open .loading-modal * {
 }
 
 .project-card:hover .project-tech span {
-    background: linear-gradient(135deg, 
-        var(--primary-color), 
-        var(--accent-color));
+    background: linear-gradient(135deg,
+            var(--primary-color),
+            var(--accent-color));
     color: white;
     border-color: transparent;
     transform: translateY(-1px);
@@ -1017,10 +1051,10 @@ body.modal-open .loading-modal * {
     top: 0;
     bottom: 0;
     width: 2px;
-    background: linear-gradient(180deg, 
-        var(--border-color) 0%, 
-        var(--primary-color) 50%, 
-        var(--border-color) 100%);
+    background: linear-gradient(180deg,
+            var(--border-color) 0%,
+            var(--primary-color) 50%,
+            var(--border-color) 100%);
     transform: translateX(-50%);
 }
 
@@ -1083,9 +1117,9 @@ body.modal-open .loading-modal * {
 .education-icon {
     width: 60px;
     height: 60px;
-    background: linear-gradient(135deg, 
-        rgba(37, 99, 235, 0.1), 
-        rgba(124, 58, 237, 0.05));
+    background: linear-gradient(135deg,
+            rgba(37, 99, 235, 0.1),
+            rgba(124, 58, 237, 0.05));
     border-radius: var(--border-radius-lg);
     display: flex;
     align-items: center;
@@ -1098,9 +1132,9 @@ body.modal-open .loading-modal * {
 }
 
 .education-item:hover .education-icon {
-    background: linear-gradient(135deg, 
-        var(--primary-color), 
-        var(--accent-color));
+    background: linear-gradient(135deg,
+            var(--primary-color),
+            var(--accent-color));
     color: white;
     transform: scale(1.05);
     border-color: transparent;
