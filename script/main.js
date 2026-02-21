@@ -302,8 +302,8 @@ document.addEventListener('DOMContentLoaded', function () {
                 const elapsed = currentTime - startTime;
                 const progress = Math.min(elapsed / duration, 1);
 
-                const easeOutQuart = 1 - Math.pow(1 - progress, 4);
-                const currentValue = Math.floor(startValue + (targetValue - startValue) * easeOutQuart);
+                const easeOutCubic = 1 - Math.pow(1 - progress, 3);
+                const currentValue = Math.floor(startValue + (targetValue - startValue) * easeOutCubic);
 
                 if (isLargeNumber) {
                     element.textContent = currentValue.toLocaleString('pt-BR');
@@ -319,11 +319,15 @@ document.addEventListener('DOMContentLoaded', function () {
             };
 
             element.classList.add('counting');
-            requestAnimationFrame(updateCounter);
+            element.textContent = '0';
+            
+            setTimeout(() => {
+                requestAnimationFrame(updateCounter);
+            }, 100);
 
             setTimeout(() => {
                 element.classList.remove('counting');
-            }, duration);
+            }, duration + 100);
         }
 
         updateAllStatistics() {
@@ -334,22 +338,22 @@ document.addEventListener('DOMContentLoaded', function () {
 
             if (projectsElement) {
                 const projectCount = this.countProjects();
-                this.animateCounter(projectsElement, projectCount, 1500);
+                this.animateCounter(projectsElement, projectCount, 3000);
             }
 
             if (certificationsElement) {
                 const certificationCount = this.countCertifications();
-                this.animateCounter(certificationsElement, certificationCount, 1800);
+                this.animateCounter(certificationsElement, certificationCount, 3500);
             }
 
             if (hoursElement) {
                 const codingHours = this.calculateCodingHours();
-                this.animateCounter(hoursElement, codingHours, 2500);
+                this.animateCounter(hoursElement, codingHours, 4500);
             }
 
             if (yearsElement) {
                 const yearsExperience = this.calculateYearsOfExperience();
-                this.animateCounter(yearsElement, yearsExperience, 1200);
+                this.animateCounter(yearsElement, yearsExperience, 2500);
             }
         }
 
