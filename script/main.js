@@ -158,7 +158,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const elements = section.querySelectorAll('h2, .about-content, .skills-grid, .project-card, .education-item, .course-card, .contact-container');
         elements.forEach((element, index) => {
             element.classList.add('fadeInUp');
-            element.style.transition = `opacity 0.6s ease-out ${index * 0.1}s, transform 0.6s ease-out ${index * 0.1}s`;
+            element.style.transition = `opacity 0.4s ease-out ${index * 0.08}s, transform 0.4s ease-out ${index * 0.08}s`;
         });
     });
 
