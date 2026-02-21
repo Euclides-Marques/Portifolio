@@ -47,7 +47,6 @@ function showToast(message, type = 'success', duration = 5000) {
     return toast;
 }
 
-// Função para remover toast
 function removeToast(toast) {
     if (toast) {
         toast.style.animation = 'fadeOut 0.3s ease-out forwards';

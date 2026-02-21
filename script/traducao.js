@@ -39,7 +39,7 @@ function cleanupOldCache() {
         const expiryTime = now - (CACHE_EXPIRY_DAYS * 24 * 60 * 60 * 1000);
 
         const cacheSize = JSON.stringify(cache).length;
-        if (cacheSize > 5 * 1024 * 1024) { // 5MB
+        if (cacheSize > 5 * 1024 * 1024) {
             localStorage.setItem(TRANSLATION_CACHE_KEY, JSON.stringify({}));
             return;
         }

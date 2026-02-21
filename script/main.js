@@ -154,32 +154,44 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
-    const animateOnScroll = () => {
-        const elements = document.querySelectorAll('.fadeInUp');
-
-        elements.forEach(element => {
-            const elementTop = element.getBoundingClientRect().top;
-            const windowHeight = window.innerHeight;
-
-            if (elementTop < windowHeight - 100) {
-                element.style.opacity = '1';
-                element.style.transform = 'translateY(0)';
-            }
-        });
-    };
-
     document.querySelectorAll('section').forEach(section => {
         const elements = section.querySelectorAll('h2, .about-content, .skills-grid, .project-card, .education-item, .course-card, .contact-container');
         elements.forEach((element, index) => {
             element.classList.add('fadeInUp');
-            element.style.opacity = '0';
-            element.style.transform = 'translateY(30px)';
             element.style.transition = `opacity 0.6s ease-out ${index * 0.1}s, transform 0.6s ease-out ${index * 0.1}s`;
         });
     });
 
-    window.addEventListener('load', animateOnScroll);
-    window.addEventListener('scroll', animateOnScroll);
+    const fadeElements = document.querySelectorAll('.fadeInUp');
+
+    if ('IntersectionObserver' in window) {
+        const fadeObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.2
+        });
+
+        fadeElements.forEach(el => fadeObserver.observe(el));
+    } else {
+        const animateOnScrollFallback = () => {
+            fadeElements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+
+                if (elementTop < windowHeight - 100) {
+                    element.classList.add('is-visible');
+                }
+            });
+        };
+
+        window.addEventListener('load', animateOnScrollFallback);
+        window.addEventListener('scroll', animateOnScrollFallback);
+    }
 
     const filterButtons = document.querySelectorAll('.filter-btn');
     const skillLinks = document.querySelectorAll('.skill-link');

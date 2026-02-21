@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const reposPerPage = 4;
     let currentPage = 1;
     let allRepos = [];
-    // Tornar allRepos acessível globalmente
+    
     window.allRepos = allRepos;
 
     function showLoading() {
