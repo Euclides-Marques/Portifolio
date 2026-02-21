@@ -124,7 +124,34 @@ document.addEventListener('DOMContentLoaded', function () {
         } else {
             backToTop.classList.remove('active');
         }
+
+        addParallaxEffect();
+        addScrollReveal();
     });
+
+    function addParallaxEffect() {
+        const scrolled = window.pageYOffset;
+        const parallaxElements = document.querySelectorAll('.hero::before, .hero::after');
+        
+        parallaxElements.forEach((element, index) => {
+            const speed = index === 0 ? 0.5 : 0.3;
+            const yPos = -(scrolled * speed);
+            element.style.transform = `translateY(${yPos}px)`;
+        });
+    }
+
+    function addScrollReveal() {
+        const reveals = document.querySelectorAll('.detail-item, .skill-card, .project-card, .education-item');
+        
+        reveals.forEach(element => {
+            const elementTop = element.getBoundingClientRect().top;
+            const elementVisible = 150;
+            
+            if (elementTop < window.innerHeight - elementVisible) {
+                element.classList.add('revealed');
+            }
+        });
+    }
 
     backToTop.addEventListener('click', (e) => {
         e.preventDefault();
@@ -349,7 +376,39 @@ document.addEventListener('DOMContentLoaded', function () {
         resetarEstatisticas();
         iniciarAnimacaoEstatisticas();
     }
+
+    addAdvancedInteractions();
 });
+
+function addAdvancedInteractions() {
+    const cards = document.querySelectorAll('.skill-card, .project-card, .detail-item, .education-item, .course-card');
+    
+    cards.forEach(card => {
+        card.addEventListener('mouseenter', function() {
+            this.style.transform = 'translateY(-8px) scale(1.02)';
+            this.style.boxShadow = '0 20px 40px rgba(37, 99, 235, 0.15)';
+        });
+        
+        card.addEventListener('mouseleave', function() {
+            this.style.transform = 'translateY(0) scale(1)';
+            this.style.boxShadow = '';
+        });
+        
+        card.addEventListener('mousemove', function(e) {
+            const rect = this.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
+            
+            const rotateX = (y - centerY) / 10;
+            const rotateY = (centerX - x) / 10;
+            
+            this.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-8px) scale(1.02)`;
+        });
+    });
+}
 
 document.addEventListener('DOMContentLoaded', function () {
     const year = new Date().getFullYear();
