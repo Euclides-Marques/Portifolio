@@ -315,16 +315,17 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
+    let statsJaAnimadas = false;
     const statsSection = document.getElementById('estatisticas');
 
     if (statsSection && 'IntersectionObserver' in window) {
         const statsObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
-                if (entry.isIntersecting) {
+                if (entry.isIntersecting && !statsJaAnimadas) {
                     resetarEstatisticas();
                     iniciarAnimacaoEstatisticas();
-                } else {
-                    resetarEstatisticas();
+                    statsJaAnimadas = true;
+                    statsObserver.unobserve(statsSection);
                 }
             });
         }, {
