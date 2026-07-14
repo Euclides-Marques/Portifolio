@@ -3,6 +3,8 @@ function showToast(message, type = 'success', duration = 5000) {
     if (!container) {
         container = document.createElement('div');
         container.className = 'toast-container';
+        container.setAttribute('role', 'status');
+        container.setAttribute('aria-live', 'polite');
         document.body.appendChild(container);
     }
 
@@ -21,6 +23,7 @@ function showToast(message, type = 'success', duration = 5000) {
     const closeBtn = document.createElement('button');
     closeBtn.className = 'close-btn';
     closeBtn.innerHTML = '&times;';
+    closeBtn.setAttribute('aria-label', 'Fechar');
     closeBtn.onclick = () => removeToast(toast);
 
     const content = document.createElement('div');

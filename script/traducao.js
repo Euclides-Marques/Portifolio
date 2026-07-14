@@ -56,32 +56,6 @@ const EXCLUDE_SELECTORS = [
     '.no-translate', '.language-selector', '.theme-toggle', '.menu-toggle', '.logo'
 ].join(',');
 
-function shouldSkipElement(element) {
-    if (!element || !element.nodeType) return true;
-
-    const tagName = element.tagName?.toUpperCase();
-    const ignoreTags = ['SCRIPT', 'STYLE', 'META', 'LINK', 'NOSCRIPT', 'CODE', 'PRE', 'INPUT', 'TEXTAREA', 'SELECT', 'OPTION', 'BUTTON', 'FORM'];
-
-    if (tagName && ignoreTags.includes(tagName)) {
-        return true;
-    }
-
-    if (element.classList) {
-        const ignoreClasses = ['no-translate', 'language-selector', 'theme-toggle', 'menu-toggle', 'logo'];
-        for (const cls of ignoreClasses) {
-            if (element.classList.contains(cls)) return true;
-        }
-    }
-
-    for (const selector of EXCLUDE_SELECTORS) {
-        if (element.closest && element.closest(selector)) {
-            return true;
-        }
-    }
-
-    return false;
-}
-
 function decodeHtmlEntities(text) {
     if (!text) return text;
 
@@ -427,27 +401,6 @@ async function translatePage(targetLang) {
     }
 }
 
-function showToast(message, type = 'info', duration = 3000) {
-    const toast = document.createElement('div');
-    toast.className = `toast show ${type}`;
-    toast.textContent = message;
-
-    document.body.appendChild(toast);
-
-    if (duration > 0) {
-        setTimeout(() => {
-            toast.classList.remove('show');
-            setTimeout(() => {
-                if (toast.parentNode) {
-                    toast.parentNode.removeChild(toast);
-                }
-            }, 300);
-        }, duration);
-    }
-
-    return toast;
-}
-
 function loadLanguage() {
     const savedLang = localStorage.getItem('preferredLanguage') || 'pt';
     document.getElementById('language-select').value = savedLang;
@@ -455,79 +408,7 @@ function loadLanguage() {
     return savedLang;
 }
 
-function createLoadingModal() {
-    if (document.getElementById('loadingModal')) return;
-
-    const modal = document.createElement('div');
-    modal.id = 'loadingModal';
-    modal.style.display = 'none';
-    modal.style.position = 'fixed';
-    modal.style.top = '0';
-    modal.style.left = '0';
-    modal.style.width = '100%';
-    modal.style.height = '100%';
-    modal.style.backgroundColor = 'rgba(0, 0, 0, 0.8)';
-    modal.style.zIndex = '9999';
-    modal.style.justifyContent = 'center';
-    modal.style.alignItems = 'center';
-    modal.style.flexDirection = 'column';
-    modal.style.color = 'white';
-
-    modal.innerHTML = `
-        <div class="loading">
-            <div class="spinner"></div>
-            <h3>Traduzindo...</h3>
-            <div class="progress-container">
-                <div id="translation-progress" class="progress-bar"></div>
-            </div>
-            <div id="translation-progress-text" class="progress-text">Iniciando tradução...</div>
-        </div>
-    `;
-
-    document.body.appendChild(modal);
-}
-
-const style = document.createElement('style');
-style.textContent = `
-    .loading {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        height: 200px;
-        font-size: 1.2rem;
-        color: var(--text-color);
-        padding: 20px;
-        text-align: center;
-    }
-    
-    .progress-container {
-        width: 80%;
-        max-width: 400px;
-        height: 20px;
-        background-color: #f0f0f0;
-        border-radius: 10px;
-        margin: 20px 0;
-        overflow: hidden;
-    }
-    
-    .progress-bar {
-        height: 100%;
-        background-color: #4CAF50;
-        width: 0%;
-        transition: width 0.3s ease;
-    }
-    
-    .progress-text {
-        margin-top: 10px;
-        font-size: 0.9rem;
-        color: #666;
-    }
-`;
-document.head.appendChild(style);
-
 document.addEventListener('DOMContentLoaded', async () => {
-    createLoadingModal();
     const languageSelect = document.getElementById('language-select');
 
     const savedLang = localStorage.getItem('preferredLanguage') || 'pt';

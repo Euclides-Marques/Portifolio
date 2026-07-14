@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     if (!projectsContainer) return;
 
-    const reposPerPage = 4;
+    const reposPerPage = 8;
     let currentPage = 1;
     let allRepos = [];
     
@@ -76,11 +76,10 @@ document.addEventListener('DOMContentLoaded', function () {
         return `
             <div class="project-card">
                 <div class="project-image">
-                    <div style="display: flex; justify-content: center; align-items: center; width: 100%; height: 200px; background-color: ${bgColor}22; padding: 20px;">
-                        <img src="${imageUrl}" 
+                    <div class="project-image-fallback" style="background-color: ${bgColor}22;">
+                        <img src="${imageUrl}"
                              alt="${language} logo"
                              loading="lazy"
-                             style="max-width: 80%; max-height: 80%; object-fit: contain;"
                              onerror="this.onerror=null; this.src='${languageImages['default']}'">
                     </div>
                 </div>
@@ -88,10 +87,10 @@ document.addEventListener('DOMContentLoaded', function () {
                     <h3>${repo.name}</h3>
                     <p>${truncatedDesc}</p>
                     <div class="project-tech">
-                        <span><i class="${iconClass}"></i> ${language}</span>
+                        <span><i class="${iconClass}" aria-hidden="true"></i> ${language}</span>
                     </div>
                     <a href="${repo.html_url}" class="btn btn-outline" target="_blank" rel="noopener noreferrer">
-                        <i class="fab fa-github"></i> Ver no GitHub
+                        <i class="fab fa-github" aria-hidden="true"></i> Ver no GitHub
                     </a>
                 </div>
             </div>

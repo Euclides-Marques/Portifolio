@@ -2,7 +2,6 @@ document.addEventListener('DOMContentLoaded', function () {
     const themeToggle = document.querySelector('.theme-toggle');
     const menuToggle = document.querySelector('.menu-toggle');
     const navLinks = document.querySelector('.nav-links');
-    const backToTop = document.querySelector('.back-to-top');
 
     const typingText = document.getElementById('typing-text');
     let text = "Olá, eu sou Euclides Marques";
@@ -80,51 +79,20 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     menuToggle.addEventListener('click', () => {
-        menuToggle.classList.toggle('active');
+        const isActive = menuToggle.classList.toggle('active');
         navLinks.classList.toggle('active');
+        menuToggle.setAttribute('aria-expanded', isActive);
     });
 
     document.querySelectorAll('.nav-links a').forEach(link => {
         link.addEventListener('click', () => {
             menuToggle.classList.remove('active');
             navLinks.classList.remove('active');
+            menuToggle.setAttribute('aria-expanded', 'false');
         });
     });
 
-    function scrollToTop(duration) {
-        const start = window.pageYOffset;
-        const startTime = performance.now();
-
-        function scrollStep(timestamp) {
-            const currentTime = timestamp - startTime;
-            const progress = Math.min(currentTime / duration, 1);
-
-            window.scrollTo(0, start * (1 - easeInOutCubic(progress)));
-
-            if (currentTime < duration) {
-                window.requestAnimationFrame(scrollStep);
-            }
-        }
-
-        function easeInOutCubic(t) {
-            return t < 0.5
-                ? 4 * t * t * t
-                : (t - 1) * (2 * t - 2) * (2 * t - 2) + 1;
-        }
-
-        window.requestAnimationFrame(scrollStep);
-    }
-
     window.addEventListener('scroll', () => {
-        const scrollPosition = window.scrollY + window.innerHeight;
-        const pageHeight = document.documentElement.scrollHeight - 100;
-
-        if (scrollPosition >= pageHeight) {
-            backToTop.classList.add('active');
-        } else {
-            backToTop.classList.remove('active');
-        }
-
         addParallaxEffect();
         addScrollReveal();
     });
@@ -152,13 +120,6 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         });
     }
-
-    backToTop.addEventListener('click', (e) => {
-        e.preventDefault();
-        const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-        const scrollDuration = isMobile ? 100 : 5000;
-        scrollToTop(scrollDuration);
-    });
 
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
@@ -377,38 +338,7 @@ document.addEventListener('DOMContentLoaded', function () {
         iniciarAnimacaoEstatisticas();
     }
 
-    addAdvancedInteractions();
 });
-
-function addAdvancedInteractions() {
-    const cards = document.querySelectorAll('.skill-card, .project-card, .detail-item, .education-item, .course-card');
-    
-    cards.forEach(card => {
-        card.addEventListener('mouseenter', function() {
-            this.style.transform = 'translateY(-8px) scale(1.02)';
-            this.style.boxShadow = '0 20px 40px rgba(37, 99, 235, 0.15)';
-        });
-        
-        card.addEventListener('mouseleave', function() {
-            this.style.transform = 'translateY(0) scale(1)';
-            this.style.boxShadow = '';
-        });
-        
-        card.addEventListener('mousemove', function(e) {
-            const rect = this.getBoundingClientRect();
-            const x = e.clientX - rect.left;
-            const y = e.clientY - rect.top;
-            
-            const centerX = rect.width / 2;
-            const centerY = rect.height / 2;
-            
-            const rotateX = (y - centerY) / 10;
-            const rotateY = (centerX - x) / 10;
-            
-            this.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-8px) scale(1.02)`;
-        });
-    });
-}
 
 document.addEventListener('DOMContentLoaded', function () {
     const year = new Date().getFullYear();
