@@ -1519,12 +1519,27 @@ body.dark-theme {
 
 .contact-info {
     flex: 1;
+    position: relative;
 }
 
 .contact-info h3 {
+    position: relative;
     font-size: 1.8rem;
     margin-bottom: 20px;
     color: var(--primary-color);
+}
+
+.contact-info h3::before {
+    content: '"';
+    position: absolute;
+    top: -0.6em;
+    left: -0.5em;
+    font-family: var(--font-mono);
+    font-size: 4rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    opacity: 0.12;
+    z-index: -1;
 }
 
 .contact-info p {
