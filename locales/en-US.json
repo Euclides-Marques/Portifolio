@@ -1,0 +1,128 @@
+{
+  "common": {
+    "skipToContent": "Skip to content",
+    "close": "Close"
+  },
+  "nav": {
+    "about": "About",
+    "stats": "Stats",
+    "skills": "Skills",
+    "projects": "Projects",
+    "education": "Education",
+    "contact": "Contact"
+  },
+  "hero": {
+    "greeting": "Hi, I'm Euclides Marques",
+    "role": ".NET Developer",
+    "tagline": "Turning ideas into efficient digital solutions",
+    "ctaContact": "Get in Touch",
+    "ctaDownloadCV": "Download Resume"
+  },
+  "about": {
+    "title": "About Me",
+    "paragraph1": "I'm a Junior Full Stack Developer focused on .NET and C# on the back-end, and AngularJS and ReactJS on the front-end. I have experience with SQL Server, MySQL, and Oracle, building complete, integrated applications with an emphasis on clean code, best practices, and responsiveness.",
+    "paragraph2": "I work on projects involving ASP.NET Core, REST APIs, relational databases, and modern front-end technologies, always looking to learn new tools and agile methodologies to deliver quality solutions. My goal is to contribute to challenging projects as a Full Stack Developer, applying my knowledge while growing alongside my team and company.",
+    "educationLabel": "Education",
+    "educationValue": "B.Sc. in Computer Science | Postgraduate student in Software Architecture",
+    "experienceLabel": "Experience",
+    "experienceValue": ".NET Developer at Certponto",
+    "locationLabel": "Location",
+    "locationValue": "Agudos, SP - Brazil"
+  },
+  "stats": {
+    "title": "Stats",
+    "projects": "Projects",
+    "certifications": "Certifications",
+    "yearsExperience": "Years of Experience"
+  },
+  "skills": {
+    "title": "Skills",
+    "filters": {
+      "all": "All",
+      "frontend": "Front-end",
+      "backend": "Back-end",
+      "database": "Database",
+      "tools": "Tools"
+    }
+  },
+  "projects": {
+    "title": "Projects",
+    "viewOnGithub": "View on GitHub",
+    "noDescription": "No description available",
+    "defaultDescription": "{name} project built with {language}",
+    "errorRateLimit": "Request limit exceeded. Please try again later.",
+    "errorAuth": "Authentication error. Please check the access token.",
+    "errorNotFound": "User not found. Please check the GitHub username.",
+    "errorGeneric": "Unable to load projects. Please check your connection and try again.",
+    "errorNone": "No projects found on GitHub."
+  },
+  "education": {
+    "title": "Education & Courses",
+    "items": {
+      "postgrad": {
+        "title": "Postgraduate Program in Software Architecture",
+        "institution": "Unyleya - In progress",
+        "period": "Jul 2026 - Mar 2027"
+      },
+      "bachelor": {
+        "title": "B.Sc. in Computer Science",
+        "institution": "FIB - Faculdades Integradas de Bauru - Completed",
+        "period": "Feb 2022 - Dec 2025"
+      },
+      "technical": {
+        "title": "Technical Degree in Information Technology",
+        "institution": "Preve Objetivo - Completed",
+        "period": "Feb 2019 - Dec 2021"
+      }
+    },
+    "coursesTitle": "Additional Courses",
+    "courses": {
+      "mysql": { "title": "MySQL Databases", "description": "Introduction to MySQL" },
+      "html": { "title": "HTML5", "description": "Introduction to the language" },
+      "python": { "title": "Python", "description": "Introduction to the language" },
+      "css": { "title": "CSS3", "description": "Introduction to the language" },
+      "dataScience": { "title": "Data Science", "description": "Fundamentals" },
+      "laravel": { "title": "Laravel 10", "description": "Basics to advanced" },
+      "agile": { "title": "Agile Management", "description": "Scrum methodology" },
+      "csharp": { "title": "C# Complete", "description": "Object-Oriented Programming" },
+      "aspnetMvc": { "title": "ASP.NET Core MVC", "description": "Web development" },
+      "cleanCode": { "title": "Clean Code", "description": "Programming best practices" },
+      "jsTs": { "title": "JavaScript & TypeScript", "description": "From the basics to advanced JS/TS" },
+      "aspnetLayers": { "title": "ASP.NET (C#)", "description": "Layered architecture - full CRUD" },
+      "awsLambda": { "title": "AWS Lambda for .NET Developers", "description": "Serverless functions with .NET" }
+    }
+  },
+  "contact": {
+    "title": "Get in Touch",
+    "subtitle": "Let's talk!",
+    "description": "I'm open to opportunities and collaborations. If you have any questions or just want to chat, feel free to reach out!",
+    "emailLabel": "Email",
+    "linkedinLabel": "LinkedIn",
+    "githubLabel": "GitHub",
+    "locationLabel": "Location",
+    "form": {
+      "name": "Name",
+      "namePlaceholder": "Your full name",
+      "email": "Email",
+      "emailPlaceholder": "your@email.com",
+      "subject": "Subject",
+      "subjectPlaceholder": "Message subject",
+      "message": "Message",
+      "messagePlaceholder": "Write your message here...",
+      "send": "Send Message"
+    }
+  },
+  "footer": {
+    "tagline": ".NET Developer passionate about building innovative solutions.",
+    "quickLinks": "Quick Links",
+    "socialLinks": "Social Links",
+    "copyright": "All rights reserved."
+  },
+  "toast": {
+    "emailSuccess": "Message sent successfully! I'll get back to you soon.",
+    "emailInvalid": "Please enter a valid email address",
+    "emailErrorConnection": "There was an error sending your message. Please check your internet connection and try again.",
+    "emailErrorGeneric": "There was an error sending your message. Please try again later.",
+    "emailServiceUnavailable": "Unable to load the email service"
+  }
+}

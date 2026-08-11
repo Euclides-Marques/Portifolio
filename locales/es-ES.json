@@ -1,0 +1,128 @@
+{
+  "common": {
+    "skipToContent": "Saltar al contenido",
+    "close": "Cerrar"
+  },
+  "nav": {
+    "about": "Sobre mí",
+    "stats": "Estadísticas",
+    "skills": "Habilidades",
+    "projects": "Proyectos",
+    "education": "Formación",
+    "contact": "Contacto"
+  },
+  "hero": {
+    "greeting": "Hola, soy Euclides Marques",
+    "role": "Desarrollador .NET",
+    "tagline": "Transformando ideas en soluciones digitales eficientes",
+    "ctaContact": "Contáctame",
+    "ctaDownloadCV": "Descargar CV"
+  },
+  "about": {
+    "title": "Sobre mí",
+    "paragraph1": "Soy Desarrollador Full Stack Junior enfocado en .NET y C# en el back-end, y en AngularJS y ReactJS en el front-end. Tengo experiencia con SQL Server, MySQL y Oracle, desarrollando aplicaciones completas e integradas, con atención al código limpio, las buenas prácticas y la responsividad.",
+    "paragraph2": "Trabajo en proyectos que involucran ASP.NET Core, APIs REST, bases de datos relacionales y front-end moderno, siempre buscando aprender nuevas tecnologías y metodologías ágiles para entregar soluciones de calidad. Mi objetivo es contribuir en proyectos desafiantes como Full Stack Developer, aplicando mis conocimientos y creciendo junto con el equipo y la empresa.",
+    "educationLabel": "Formación",
+    "educationValue": "Licenciado en Ciencias de la Computación | Posgrado en curso en Arquitectura de Software",
+    "experienceLabel": "Experiencia",
+    "experienceValue": "Desarrollador .NET en Certponto",
+    "locationLabel": "Ubicación",
+    "locationValue": "Agudos, SP - Brasil"
+  },
+  "stats": {
+    "title": "Estadísticas",
+    "projects": "Proyectos",
+    "certifications": "Certificaciones",
+    "yearsExperience": "Años de Experiencia"
+  },
+  "skills": {
+    "title": "Habilidades",
+    "filters": {
+      "all": "Todos",
+      "frontend": "Front-end",
+      "backend": "Back-end",
+      "database": "Bases de Datos",
+      "tools": "Herramientas"
+    }
+  },
+  "projects": {
+    "title": "Proyectos",
+    "viewOnGithub": "Ver en GitHub",
+    "noDescription": "Sin descripción disponible",
+    "defaultDescription": "Proyecto {name} desarrollado con {language}",
+    "errorRateLimit": "Límite de solicitudes excedido. Por favor, inténtalo de nuevo más tarde.",
+    "errorAuth": "Error de autenticación. Verifica el token de acceso.",
+    "errorNotFound": "Usuario no encontrado. Verifica el nombre de usuario de GitHub.",
+    "errorGeneric": "No fue posible cargar los proyectos. Verifica tu conexión e inténtalo de nuevo.",
+    "errorNone": "No se encontraron proyectos en GitHub."
+  },
+  "education": {
+    "title": "Formación y Cursos",
+    "items": {
+      "postgrad": {
+        "title": "Posgrado en Arquitectura de Software",
+        "institution": "Unyleya - En curso",
+        "period": "Jul 2026 - Mar 2027"
+      },
+      "bachelor": {
+        "title": "Licenciatura en Ciencias de la Computación",
+        "institution": "FIB - Faculdades Integradas de Bauru - Finalizado",
+        "period": "Feb 2022 - Dic 2025"
+      },
+      "technical": {
+        "title": "Técnico en Informática",
+        "institution": "Preve Objetivo - Finalizado",
+        "period": "Feb 2019 - Dic 2021"
+      }
+    },
+    "coursesTitle": "Cursos Complementarios",
+    "courses": {
+      "mysql": { "title": "Bases de Datos MySQL", "description": "Introducción a MySQL" },
+      "html": { "title": "HTML5", "description": "Introducción al lenguaje" },
+      "python": { "title": "Python", "description": "Introducción al lenguaje" },
+      "css": { "title": "CSS3", "description": "Introducción al lenguaje" },
+      "dataScience": { "title": "Ciencia de Datos", "description": "Fundamentos" },
+      "laravel": { "title": "Laravel 10", "description": "Básico a avanzado" },
+      "agile": { "title": "Gestión Ágil", "description": "Metodología Scrum" },
+      "csharp": { "title": "C# Completo", "description": "Programación Orientada a Objetos" },
+      "aspnetMvc": { "title": "ASP.NET Core MVC", "description": "Desarrollo web" },
+      "cleanCode": { "title": "Clean Code", "description": "Buenas prácticas de programación" },
+      "jsTs": { "title": "JavaScript y TypeScript", "description": "De lo básico a avanzado en JS/TS" },
+      "aspnetLayers": { "title": "ASP.NET (C#)", "description": "Programación en capas - CRUD completo" },
+      "awsLambda": { "title": "AWS Lambda para Desarrolladores .NET", "description": "Funciones Serverless con .NET" }
+    }
+  },
+  "contact": {
+    "title": "Contáctame",
+    "subtitle": "¡Hablemos!",
+    "description": "Estoy abierto a oportunidades y colaboraciones. Si tienes alguna duda o quieres charlar, ¡solo tienes que escribirme!",
+    "emailLabel": "Correo",
+    "linkedinLabel": "LinkedIn",
+    "githubLabel": "GitHub",
+    "locationLabel": "Ubicación",
+    "form": {
+      "name": "Nombre",
+      "namePlaceholder": "Tu nombre completo",
+      "email": "Correo",
+      "emailPlaceholder": "tu@correo.com",
+      "subject": "Asunto",
+      "subjectPlaceholder": "Asunto del mensaje",
+      "message": "Mensaje",
+      "messagePlaceholder": "Escribe tu mensaje aquí...",
+      "send": "Enviar Mensaje"
+    }
+  },
+  "footer": {
+    "tagline": "Desarrollador .NET apasionado por crear soluciones innovadoras.",
+    "quickLinks": "Enlaces Rápidos",
+    "socialLinks": "Redes Sociales",
+    "copyright": "Todos los derechos reservados."
+  },
+  "toast": {
+    "emailSuccess": "¡Mensaje enviado con éxito! Me pondré en contacto pronto.",
+    "emailInvalid": "Por favor, introduce un correo electrónico válido",
+    "emailErrorConnection": "Ocurrió un error al enviar el mensaje. Verifica tu conexión a internet e inténtalo de nuevo.",
+    "emailErrorGeneric": "Ocurrió un error al enviar el mensaje. Por favor, inténtalo de nuevo más tarde.",
+    "emailServiceUnavailable": "No fue posible cargar el servicio de correo"
+  }
+}

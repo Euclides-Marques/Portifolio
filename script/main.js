@@ -10,20 +10,13 @@ document.addEventListener('DOMContentLoaded', function () {
     let typingSpeed = 100;
     let typeWriterTimeout;
 
-    const welcomeTexts = {
-        'pt': 'Olá, eu sou Euclides Marques',
-        'en': 'Hello, I am Euclides Marques',
-        'es': 'Hola, soy Euclides Marques',
-        'fr': 'Bonjour, je suis Euclides Marques'
-    };
-
-    function updateWelcomeText(lang = 'pt') {
+    function updateWelcomeText(translations) {
         if (typeWriterTimeout) {
             clearTimeout(typeWriterTimeout);
             typeWriterTimeout = null;
         }
 
-        text = welcomeTexts[lang] || welcomeTexts['pt'];
+        text = translations?.hero?.greeting || text;
 
         charIndex = 0;
         isDeleting = false;
@@ -52,15 +45,10 @@ document.addEventListener('DOMContentLoaded', function () {
     typeWriterTimeout = setTimeout(typeWriter, 1000);
 
     document.addEventListener('languageChanged', (event) => {
-        if (event.detail && event.detail.lang) {
-            updateWelcomeText(event.detail.lang);
+        if (event.detail && event.detail.translations) {
+            updateWelcomeText(event.detail.translations);
         }
     });
-
-    const savedLang = localStorage.getItem('preferredLanguage') || 'pt';
-    if (savedLang !== 'pt') {
-        updateWelcomeText(savedLang);
-    }
 
     const savedTheme = localStorage.getItem('theme') || 'light';
     document.body.classList.toggle('dark-theme', savedTheme === 'dark');
@@ -343,7 +331,16 @@ document.addEventListener('DOMContentLoaded', function () {
 document.addEventListener('DOMContentLoaded', function () {
     const year = new Date().getFullYear();
     const yearElement = document.querySelector('.footer-bottom p');
-    if (yearElement) {
-        yearElement.textContent = `© ${year} Euclides Marques. Todos os direitos reservados.`;
+    if (!yearElement) return;
+
+    function updateCopyright(translations) {
+        const copyrightText = translations?.footer?.copyright || 'Todos os direitos reservados.';
+        yearElement.textContent = `© ${year} Euclides Marques. ${copyrightText}`;
     }
+
+    document.addEventListener('languageChanged', (event) => {
+        if (event.detail && event.detail.translations) {
+            updateCopyright(event.detail.translations);
+        }
+    });
 });

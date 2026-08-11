@@ -23,7 +23,7 @@ function showToast(message, type = 'success', duration = 5000) {
     const closeBtn = document.createElement('button');
     closeBtn.className = 'close-btn';
     closeBtn.innerHTML = '&times;';
-    closeBtn.setAttribute('aria-label', 'Fechar');
+    closeBtn.setAttribute('aria-label', window.t('common.close', 'Fechar'));
     closeBtn.onclick = () => removeToast(toast);
 
     const content = document.createElement('div');
@@ -65,7 +65,7 @@ function removeToast(toast) {
 
 (function () {
     if (typeof emailjs === 'undefined') {
-        showToast('Erro ao carregar o serviço de e-mail', 'error');
+        showToast(window.t('toast.emailServiceUnavailable', 'Erro ao carregar o serviço de e-mail'), 'error');
         return;
     }
 
@@ -101,22 +101,22 @@ function removeToast(toast) {
             };
 
             if (!templateParams.email.includes('@') || !templateParams.email.includes('.')) {
-                throw { message: 'Por favor, insira um email válido' };
+                throw { message: window.t('toast.emailInvalid', 'Por favor, insira um email válido') };
             }
 
             await emailjs.send('service_f6iroa9', 'template_d7lny7m', templateParams);
 
-            showToast('Mensagem enviada com sucesso! Em breve entrarei em contato.', 'success');
+            showToast(window.t('toast.emailSuccess', 'Mensagem enviada com sucesso! Em breve entrarei em contato.'), 'success');
             e.target.reset();
         } catch (error) {
-            let errorMessage = 'Ocorreu um erro ao enviar a mensagem. ';
+            let errorMessage;
 
             if (error.status === 0) {
-                errorMessage += 'Verifique sua conexão com a internet e tente novamente.';
+                errorMessage = window.t('toast.emailErrorConnection', 'Ocorreu um erro ao enviar a mensagem. Verifique sua conexão com a internet e tente novamente.');
             } else if (error.message) {
                 errorMessage = error.message;
             } else {
-                errorMessage += 'Por favor, tente novamente mais tarde.';
+                errorMessage = window.t('toast.emailErrorGeneric', 'Ocorreu um erro ao enviar a mensagem. Por favor, tente novamente mais tarde.');
             }
 
             showToast(errorMessage, 'error');

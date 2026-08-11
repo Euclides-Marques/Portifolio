@@ -37,7 +37,7 @@
 </head>
 
 <body class="light-theme">
-    <a href="#main-content" class="skip-link">Pular para o conteúdo</a>
+    <a href="#main-content" class="skip-link" data-translate="common.skipToContent">Pular para o conteúdo</a>
     <header class="header">
         <div class="container">
             <nav class="navbar">
@@ -48,12 +48,12 @@
                     <span></span>
                 </button>
                 <ul class="nav-links" id="nav-links">
-                    <li><a href="#sobre" data-translate="about">Sobre</a></li>
-                    <li><a href="#estatisticas" data-translate="stats">Estatísticas</a></li>
-                    <li><a href="#habilidades" data-translate="skills">Habilidades</a></li>
-                    <li><a href="#projetos" data-translate="projects">Projetos</a></li>
-                    <li><a href="#formacao" data-translate="education">Formação</a></li>
-                    <li><a href="#contato" data-translate="contact">Contato</a></li>
+                    <li><a href="#sobre" data-translate="nav.about">Sobre</a></li>
+                    <li><a href="#estatisticas" data-translate="nav.stats">Estatísticas</a></li>
+                    <li><a href="#habilidades" data-translate="nav.skills">Habilidades</a></li>
+                    <li><a href="#projetos" data-translate="nav.projects">Projetos</a></li>
+                    <li><a href="#formacao" data-translate="nav.education">Formação</a></li>
+                    <li><a href="#contato" data-translate="nav.contact">Contato</a></li>
                 </ul>
                 <div class="language-selector">
                     <select id="language-select" aria-label="Selecionar idioma">
@@ -74,11 +74,12 @@
             <div class="container">
                 <div class="hero-content">
                     <h1><span id="typing-text"></span><span class="cursor">|</span></h1>
-                    <h2>Desenvolvedor .NET</h2>
-                    <p>Transformando ideias em soluções digitais eficientes</p>
+                    <h2 data-translate="hero.role">Desenvolvedor .NET</h2>
+                    <p data-translate="hero.tagline">Transformando ideias em soluções digitais eficientes</p>
                     <div class="cta-buttons">
-                        <a href="#contato" class="btn btn-primary">Entre em Contato</a>
-                        <a href="curriculo/CV - Euclides Marques.pdf" download class="btn btn-secondary">Baixar
+                        <a href="#contato" class="btn btn-primary" data-translate="hero.ctaContact">Entre em Contato</a>
+                        <a href="curriculo/CV - Euclides Marques.pdf" download class="btn btn-secondary"
+                            data-translate="hero.ctaDownloadCV">Baixar
                             Currículo</a>
                     </div>
                 </div>
@@ -92,14 +93,14 @@
 
         <section id="sobre" class="section">
             <div class="container">
-                <h2 class="section-title">Sobre Mim</h2>
+                <h2 class="section-title" data-translate="about.title">Sobre Mim</h2>
                 <div class="about-content">
                     <div class="about-text">
-                        <p>Sou Desenvolvedor Full Stack Júnior com foco em .NET e C# no back-end e em AngularJS e
+                        <p data-translate="about.paragraph1">Sou Desenvolvedor Full Stack Júnior com foco em .NET e C# no back-end e em AngularJS e
                             ReactJS no front-end. Tenho experiência em SQL Server, MySQL, Oracle, desenvolvendo
                             aplicações completas e integradas, com atenção a código limpo, boas práticas e
                             responsividade.</p>
-                        <p>Atuo em projetos que envolvem ASP.NET Core, APIs REST, bancos de dados relacionais e
+                        <p data-translate="about.paragraph2">Atuo em projetos que envolvem ASP.NET Core, APIs REST, bancos de dados relacionais e
                             front-end moderno, sempre buscando aprender novas tecnologias e metodologias ágeis para
                             entregar soluções de qualidade. Tenho como objetivo contribuir em projetos desafiadores como
                             Full Stack Developer, aplicando meus conhecimentos e crescendo junto com a equipe e a
@@ -109,22 +110,22 @@
                         <div class="detail-item">
                             <i class="fas fa-user-graduate" aria-hidden="true"></i>
                             <div>
-                                <h3>Formação</h3>
-                                <p>Bacharel em Ciência da Computação | Pós-graduando em Arquitetura de Software</p>
+                                <h3 data-translate="about.educationLabel">Formação</h3>
+                                <p data-translate="about.educationValue">Bacharel em Ciência da Computação | Pós-graduando em Arquitetura de Software</p>
                             </div>
                         </div>
                         <div class="detail-item">
                             <i class="fas fa-briefcase" aria-hidden="true"></i>
                             <div>
-                                <h3>Experiência</h3>
-                                <p>Desenvolvedor .NET na Certponto</p>
+                                <h3 data-translate="about.experienceLabel">Experiência</h3>
+                                <p data-translate="about.experienceValue">Desenvolvedor .NET na Certponto</p>
                             </div>
                         </div>
                         <div class="detail-item">
                             <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
                             <div>
-                                <h3>Localização</h3>
-                                <p>Agudos, SP - Brasil</p>
+                                <h3 data-translate="about.locationLabel">Localização</h3>
+                                <p data-translate="about.locationValue">Agudos, SP - Brasil</p>
                             </div>
                         </div>
                     </div>
@@ -134,7 +135,7 @@
 
         <section id="estatisticas" class="section bg-light">
             <div class="container">
-                <h2 class="section-title">Estatísticas</h2>
+                <h2 class="section-title" data-translate="stats.title">Estatísticas</h2>
                 <div class="stats-grid">
                     <div class="stat-card">
                         <div class="stat-icon">
@@ -142,7 +143,7 @@
                         </div>
                         <div class="stat-content">
                             <h3 class="stat-number" id="total-projetos">0</h3>
-                            <p class="stat-label">Projetos</p>
+                            <p class="stat-label" data-translate="stats.projects">Projetos</p>
                         </div>
                     </div>
                     <div class="stat-card">
@@ -151,7 +152,7 @@
                         </div>
                         <div class="stat-content">
                             <h3 class="stat-number" id="total-certificados">0</h3>
-                            <p class="stat-label">Certificações</p>
+                            <p class="stat-label" data-translate="stats.certifications">Certificações</p>
                         </div>
                     </div>
                     <div class="stat-card">
@@ -160,7 +161,7 @@
                         </div>
                         <div class="stat-content">
                             <h3 class="stat-number" id="total-anos">0</h3>
-                            <p class="stat-label">Anos de Experiência</p>
+                            <p class="stat-label" data-translate="stats.yearsExperience">Anos de Experiência</p>
                         </div>
                     </div>
                 </div>
@@ -169,13 +170,13 @@
 
         <section id="habilidades" class="section bg-light">
             <div class="container">
-                <h2 class="section-title">Habilidades</h2>
+                <h2 class="section-title" data-translate="skills.title">Habilidades</h2>
                 <div class="skills-filter">
-                    <button class="filter-btn active" data-filter="all">Todos</button>
-                    <button class="filter-btn" data-filter="frontend">Front-end</button>
-                    <button class="filter-btn" data-filter="backend">Back-end</button>
-                    <button class="filter-btn" data-filter="database">Banco de Dados</button>
-                    <button class="filter-btn" data-filter="tools">Ferramentas</button>
+                    <button class="filter-btn active" data-filter="all" data-translate="skills.filters.all">Todos</button>
+                    <button class="filter-btn" data-filter="frontend" data-translate="skills.filters.frontend">Front-end</button>
+                    <button class="filter-btn" data-filter="backend" data-translate="skills.filters.backend">Back-end</button>
+                    <button class="filter-btn" data-filter="database" data-translate="skills.filters.database">Banco de Dados</button>
+                    <button class="filter-btn" data-filter="tools" data-translate="skills.filters.tools">Ferramentas</button>
                 </div>
                 <div class="skills-grid">
                     <a href="https://developer.mozilla.org/pt-BR/docs/Web/HTML" target="_blank"
@@ -282,23 +283,23 @@
 
         <section id="projetos" class="section">
             <div class="container">
-                <h2 class="section-title">Projetos</h2>
+                <h2 class="section-title" data-translate="projects.title">Projetos</h2>
                 <div class="projects-grid"></div>
             </div>
         </section>
 
         <section id="formacao" class="section bg-light">
             <div class="container">
-                <h2 class="section-title">Formação e Cursos</h2>
+                <h2 class="section-title" data-translate="education.title">Formação e Cursos</h2>
                 <div class="education-container">
                     <div class="education-item">
                         <div class="education-icon">
                             <i class="fas fa-sitemap" aria-hidden="true"></i>
                         </div>
                         <div class="education-content">
-                            <h3>Pós-graduação em Arquitetura de Software</h3>
-                            <p class="institution">Unyleya - Cursando</p>
-                            <p class="period">Jul 2026 - Mar 2027</p>
+                            <h3 data-translate="education.items.postgrad.title">Pós-graduação em Arquitetura de Software</h3>
+                            <p class="institution" data-translate="education.items.postgrad.institution">Unyleya - Cursando</p>
+                            <p class="period" data-translate="education.items.postgrad.period">Jul 2026 - Mar 2027</p>
                         </div>
                     </div>
                     <div class="education-item">
@@ -306,9 +307,9 @@
                             <i class="fas fa-graduation-cap" aria-hidden="true"></i>
                         </div>
                         <div class="education-content">
-                            <h3>Bacharelado em Ciência da Computação</h3>
-                            <p class="institution">FIB - Faculdades Integradas de Bauru - Concluído</p>
-                            <p class="period">Fev 2022 - Dez 2025</p>
+                            <h3 data-translate="education.items.bachelor.title">Bacharelado em Ciência da Computação</h3>
+                            <p class="institution" data-translate="education.items.bachelor.institution">FIB - Faculdades Integradas de Bauru - Concluído</p>
+                            <p class="period" data-translate="education.items.bachelor.period">Fev 2022 - Dez 2025</p>
                         </div>
                     </div>
                     <div class="education-item">
@@ -316,79 +317,79 @@
                             <i class="fas fa-certificate" aria-hidden="true"></i>
                         </div>
                         <div class="education-content">
-                            <h3>Técnico em Informática</h3>
-                            <p class="institution">Preve Objetivo - Concluído</p>
-                            <p class="period">Fev 2019 - Dez 2021</p>
+                            <h3 data-translate="education.items.technical.title">Técnico em Informática</h3>
+                            <p class="institution" data-translate="education.items.technical.institution">Preve Objetivo - Concluído</p>
+                            <p class="period" data-translate="education.items.technical.period">Fev 2019 - Dez 2021</p>
                         </div>
                     </div>
                 </div>
 
-                <h3 class="courses-title">Cursos Complementares</h3>
+                <h3 class="courses-title" data-translate="education.coursesTitle">Cursos Complementares</h3>
                 <div class="courses-grid">
                     <div class="course-card">
                         <i class="fas fa-database" aria-hidden="true"></i>
-                        <h4>Banco de Dados MySQL</h4>
-                        <p>Introdução ao MySQL</p>
+                        <h4 data-translate="education.courses.mysql.title">Banco de Dados MySQL</h4>
+                        <p data-translate="education.courses.mysql.description">Introdução ao MySQL</p>
                     </div>
                     <div class="course-card">
                         <i class="fab fa-html5" aria-hidden="true"></i>
-                        <h4>HTML5</h4>
-                        <p>Introdução à Linguagem</p>
+                        <h4 data-translate="education.courses.html.title">HTML5</h4>
+                        <p data-translate="education.courses.html.description">Introdução à Linguagem</p>
                     </div>
                     <div class="course-card">
                         <i class="fab fa-python" aria-hidden="true"></i>
-                        <h4>Python</h4>
-                        <p>Introdução à Linguagem</p>
+                        <h4 data-translate="education.courses.python.title">Python</h4>
+                        <p data-translate="education.courses.python.description">Introdução à Linguagem</p>
                     </div>
                     <div class="course-card">
                         <i class="fab fa-css3-alt" aria-hidden="true"></i>
-                        <h4>CSS3</h4>
-                        <p>Introdução à Linguagem</p>
+                        <h4 data-translate="education.courses.css.title">CSS3</h4>
+                        <p data-translate="education.courses.css.description">Introdução à Linguagem</p>
                     </div>
                     <div class="course-card">
                         <i class="fas fa-chart-line" aria-hidden="true"></i>
-                        <h4>Ciência de Dados</h4>
-                        <p>Fundamentos</p>
+                        <h4 data-translate="education.courses.dataScience.title">Ciência de Dados</h4>
+                        <p data-translate="education.courses.dataScience.description">Fundamentos</p>
                     </div>
                     <div class="course-card">
                         <i class="fab fa-laravel" aria-hidden="true"></i>
-                        <h4>Laravel 10</h4>
-                        <p>Básico ao Avançado</p>
+                        <h4 data-translate="education.courses.laravel.title">Laravel 10</h4>
+                        <p data-translate="education.courses.laravel.description">Básico ao Avançado</p>
                     </div>
                     <div class="course-card">
                         <i class="fas fa-project-diagram" aria-hidden="true"></i>
-                        <h4>Gestão Ágil</h4>
-                        <p>Metodologia Scrum</p>
+                        <h4 data-translate="education.courses.agile.title">Gestão Ágil</h4>
+                        <p data-translate="education.courses.agile.description">Metodologia Scrum</p>
                     </div>
                     <div class="course-card">
                         <i class="fas fa-code" aria-hidden="true"></i>
-                        <h4>C# Completo</h4>
-                        <p>Programação Orientada a Objetos</p>
+                        <h4 data-translate="education.courses.csharp.title">C# Completo</h4>
+                        <p data-translate="education.courses.csharp.description">Programação Orientada a Objetos</p>
                     </div>
                     <div class="course-card">
                         <i class="fab fa-microsoft" aria-hidden="true"></i>
-                        <h4>ASP.NET Core MVC</h4>
-                        <p>Desenvolvimento Web</p>
+                        <h4 data-translate="education.courses.aspnetMvc.title">ASP.NET Core MVC</h4>
+                        <p data-translate="education.courses.aspnetMvc.description">Desenvolvimento Web</p>
                     </div>
                     <div class="course-card">
                         <i class="fas fa-broom" aria-hidden="true"></i>
-                        <h4>Clean Code</h4>
-                        <p>Boas Práticas de Programação</p>
+                        <h4 data-translate="education.courses.cleanCode.title">Clean Code</h4>
+                        <p data-translate="education.courses.cleanCode.description">Boas Práticas de Programação</p>
                     </div>
                     <div class="course-card">
                         <i class="fab fa-js" aria-hidden="true"></i>
-                        <h4>JavaScript e TypeScript</h4>
-                        <p>Do básico ao avançado JS/TS</p>
+                        <h4 data-translate="education.courses.jsTs.title">JavaScript e TypeScript</h4>
+                        <p data-translate="education.courses.jsTs.description">Do básico ao avançado JS/TS</p>
                     </div>
                     <div class="course-card">
                         <i class="fas fa-layer-group" aria-hidden="true"></i>
-                        <h4>ASP.NET (C#)</h4>
-                        <p>Programação em Camadas - CRUD completo</p>
+                        <h4 data-translate="education.courses.aspnetLayers.title">ASP.NET (C#)</h4>
+                        <p data-translate="education.courses.aspnetLayers.description">Programação em Camadas - CRUD completo</p>
                     </div>
                     <div class="course-card">
                         <i class="fab fa-aws" aria-hidden="true"></i>
-                        <h4>AWS Lambda For The .NET Developer</h4>
-                        <p>Função Serverless com .NET</p>
+                        <h4 data-translate="education.courses.awsLambda.title">AWS Lambda For The .NET Developer</h4>
+                        <p data-translate="education.courses.awsLambda.description">Função Serverless com .NET</p>
                     </div>
                 </div>
             </div>
@@ -396,25 +397,25 @@
 
         <section id="contato" class="section">
             <div class="container">
-                <h2 class="section-title">Entre em Contato</h2>
+                <h2 class="section-title" data-translate="contact.title">Entre em Contato</h2>
                 <div class="contact-container">
                     <div class="contact-info">
-                        <h3>Vamos conversar!</h3>
-                        <p>Estou aberto a oportunidades e colaborações. Se tiver alguma dúvida ou quiser bater um papo,
+                        <h3 data-translate="contact.subtitle">Vamos conversar!</h3>
+                        <p data-translate="contact.description">Estou aberto a oportunidades e colaborações. Se tiver alguma dúvida ou quiser bater um papo,
                             é só me chamar!</p>
 
                         <div class="contact-details">
                             <div class="contact-item">
                                 <i class="fas fa-envelope" aria-hidden="true"></i>
                                 <div>
-                                    <h4>Email</h4>
+                                    <h4 data-translate="contact.emailLabel">Email</h4>
                                     <a href="mailto:euclidesmarques270@gmail.com">euclidesmarques270@gmail.com</a>
                                 </div>
                             </div>
                             <div class="contact-item">
                                 <i class="fab fa-linkedin" aria-hidden="true"></i>
                                 <div>
-                                    <h4>LinkedIn</h4>
+                                    <h4 data-translate="contact.linkedinLabel">LinkedIn</h4>
                                     <a href="https://linkedin.com/in/euclides-marques" target="_blank"
                                         rel="noopener noreferrer">linkedin.com/in/euclides-marques</a>
                                 </div>
@@ -422,7 +423,7 @@
                             <div class="contact-item">
                                 <i class="fab fa-github" aria-hidden="true"></i>
                                 <div>
-                                    <h4>GitHub</h4>
+                                    <h4 data-translate="contact.githubLabel">GitHub</h4>
                                     <a href="https://github.com/Euclides-Marques" target="_blank"
                                         rel="noopener noreferrer">github.com/euclidesmarques</a>
                                 </div>
@@ -430,32 +431,32 @@
                             <div class="contact-item">
                                 <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
                                 <div>
-                                    <h4>Localização</h4>
-                                    <p>Agudos, SP - Brasil</p>
+                                    <h4 data-translate="contact.locationLabel">Localização</h4>
+                                    <p data-translate="about.locationValue">Agudos, SP - Brasil</p>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <form class="contact-form" id="form-contato">
                         <div class="form-group">
-                            <label for="name" data-translate="name">Nome</label>
-                            <input type="text" id="name" name="name" data-translate="name_placeholder" required>
+                            <label for="name" data-translate="contact.form.name">Nome</label>
+                            <input type="text" id="name" name="name" data-translate-placeholder="contact.form.namePlaceholder" required>
                         </div>
                         <div class="form-group">
-                            <label for="email" data-translate="email">Email</label>
-                            <input type="email" id="email" name="email" data-translate="email_placeholder" required>
+                            <label for="email" data-translate="contact.form.email">Email</label>
+                            <input type="email" id="email" name="email" data-translate-placeholder="contact.form.emailPlaceholder" required>
                         </div>
                         <div class="form-group">
-                            <label for="subject" data-translate="subject">Assunto</label>
-                            <input type="text" id="subject" name="subject" data-translate="subject_placeholder"
+                            <label for="subject" data-translate="contact.form.subject">Assunto</label>
+                            <input type="text" id="subject" name="subject" data-translate-placeholder="contact.form.subjectPlaceholder"
                                 required>
                         </div>
                         <div class="form-group">
-                            <label for="message" data-translate="message">Mensagem</label>
-                            <textarea id="message" name="message" rows="5" data-translate="message_placeholder"
+                            <label for="message" data-translate="contact.form.message">Mensagem</label>
+                            <textarea id="message" name="message" rows="5" data-translate-placeholder="contact.form.messagePlaceholder"
                                 required></textarea>
                         </div>
-                        <button type="submit" class="btn btn-primary" data-translate="send_message">Enviar
+                        <button type="submit" class="btn btn-primary" data-translate="contact.form.send">Enviar
                             Mensagem</button>
                     </form>
                 </div>
@@ -468,21 +469,21 @@
             <div class="footer-content">
                 <div class="footer-logo">
                     <a href="#" class="logo">Euclides Marques</a>
-                    <p>Desenvolvedor .NET apaixonado por criar soluções inovadoras.</p>
+                    <p data-translate="footer.tagline">Desenvolvedor .NET apaixonado por criar soluções inovadoras.</p>
                 </div>
                 <div class="footer-links">
-                    <h4>Links Rápidos</h4>
+                    <h4 data-translate="footer.quickLinks">Links Rápidos</h4>
                     <ul>
-                        <li><a href="#sobre">Sobre</a></li>
-                        <li><a href="#estatisticas">Estatísticas</a></li>
-                        <li><a href="#habilidades">Habilidades</a></li>
-                        <li><a href="#projetos">Projetos</a></li>
-                        <li><a href="#formacao">Formação</a></li>
-                        <li><a href="#contato">Contato</a></li>
+                        <li><a href="#sobre" data-translate="nav.about">Sobre</a></li>
+                        <li><a href="#estatisticas" data-translate="nav.stats">Estatísticas</a></li>
+                        <li><a href="#habilidades" data-translate="nav.skills">Habilidades</a></li>
+                        <li><a href="#projetos" data-translate="nav.projects">Projetos</a></li>
+                        <li><a href="#formacao" data-translate="nav.education">Formação</a></li>
+                        <li><a href="#contato" data-translate="nav.contact">Contato</a></li>
                     </ul>
                 </div>
                 <div class="footer-social">
-                    <h4>Redes Sociais</h4>
+                    <h4 data-translate="footer.socialLinks">Redes Sociais</h4>
                     <div class="social-links">
                         <a href="https://linkedin.com/in/euclides-marques" target="_blank" rel="noopener noreferrer"
                             aria-label="LinkedIn">
@@ -505,18 +506,11 @@
     </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script src="script/traducao.js"></script>
     <script src="script/email.js"></script>
     <script src="script/main.js"></script>
-    <script src="script/traducao.js"></script>
     <script src="script/config.js"></script>
     <script src="script/projetos.js"></script>
-
-    <div id="loadingModal" class="loading-modal">
-        <div class="loading-content">
-            <div class="spinner"></div>
-            <p class="loading-text">Traduzindo...</p>
-        </div>
-    </div>
 </body>
 
 </html>

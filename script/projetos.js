@@ -48,7 +48,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
         const description = (repo.description ?
             repo.description.replace(/[^\x00-\x7F]/g, '') :
-            `Projeto ${repo.name} desenvolvido com ${language}`);
+            window.t('projects.defaultDescription', 'Projeto {name} desenvolvido com {language}')
+                .replace('{name}', repo.name)
+                .replace('{language}', language));
 
         const truncatedDesc = description.substring(0, 117) + (description.length > 117 ? '...' : '');
 
@@ -90,7 +92,7 @@ document.addEventListener('DOMContentLoaded', function () {
                         <span><i class="${iconClass}" aria-hidden="true"></i> ${language}</span>
                     </div>
                     <a href="${repo.html_url}" class="btn btn-outline" target="_blank" rel="noopener noreferrer">
-                        <i class="fab fa-github" aria-hidden="true"></i> Ver no GitHub
+                        <i class="fab fa-github" aria-hidden="true"></i> ${window.t('projects.viewOnGithub', 'Ver no GitHub')}
                     </a>
                 </div>
             </div>
@@ -101,7 +103,7 @@ document.addEventListener('DOMContentLoaded', function () {
         projectsContainer.innerHTML = `
             <div class="error-message">
                 <i class="fas fa-exclamation-triangle"></i>
-                <p>${message || 'Ocorreu um erro ao carregar os projetos.'}</p>
+                <p>${message || window.t('projects.errorGeneric', 'Ocorreu um erro ao carregar os projetos.')}</p>
             </div>
         `;
         paginationContainer.style.display = 'none';
@@ -177,11 +179,11 @@ document.addEventListener('DOMContentLoaded', function () {
             if (allRepos.length === 0) {
                 allRepos = repos.map(repo => ({
                     ...repo,
-                    description: repo.description || 'Sem descrição disponível'
+                    description: repo.description || window.t('projects.noDescription', 'Sem descrição disponível')
                 }));
 
                 if (allRepos.length === 0) {
-                    showError('Nenhum projeto encontrado no GitHub.');
+                    showError(window.t('projects.errorNone', 'Nenhum projeto encontrado no GitHub.'));
                     return;
                 }
             }
@@ -195,13 +197,19 @@ document.addEventListener('DOMContentLoaded', function () {
         .catch(error => {
             console.error('Erro ao carregar projetos:', error);
             if (error.message.includes('rate limit')) {
-                showError('Limite de requisições excedido. Por favor, tente novamente mais tarde.');
+                showError(window.t('projects.errorRateLimit', 'Limite de requisições excedido. Por favor, tente novamente mais tarde.'));
             } else if (error.message.includes('401') || error.message.includes('403')) {
-                showError('Erro de autenticação. Verifique o token de acesso.');
+                showError(window.t('projects.errorAuth', 'Erro de autenticação. Verifique o token de acesso.'));
             } else if (error.message.includes('404')) {
-                showError('Usuário não encontrado. Verifique o nome de usuário do GitHub.');
+                showError(window.t('projects.errorNotFound', 'Usuário não encontrado. Verifique o nome de usuário do GitHub.'));
             } else {
-                showError('Não foi possível carregar os projetos. Verifique sua conexão e tente novamente.');
+                showError(window.t('projects.errorGeneric', 'Não foi possível carregar os projetos. Verifique sua conexão e tente novamente.'));
             }
         });
+
+    document.addEventListener('languageChanged', () => {
+        if (allRepos.length > 0) {
+            displayRepos();
+        }
+    });
 });
