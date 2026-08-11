@@ -71,8 +71,13 @@
 
     <main id="main-content">
         <section class="hero">
-            <div class="container">
+            <span class="hero-glyph" aria-hidden="true">&lt;/&gt;</span>
+            <div class="container hero-grid">
                 <div class="hero-content">
+                    <span class="hero-badge">
+                        <span class="hero-badge-dot" aria-hidden="true"></span>
+                        <span data-translate="hero.availability">Disponível para novas oportunidades</span>
+                    </span>
                     <h1><span id="typing-text"></span><span class="cursor">|</span></h1>
                     <h2 data-translate="hero.role">Desenvolvedor .NET</h2>
                     <p data-translate="hero.tagline">Transformando ideias em soluções digitais eficientes</p>
@@ -82,13 +87,27 @@
                             data-translate="hero.ctaDownloadCV">Baixar
                             Currículo</a>
                     </div>
+                    <ul class="hero-stack">
+                        <li>.NET</li>
+                        <li>C#</li>
+                        <li>ReactJS</li>
+                        <li>SQL Server</li>
+                    </ul>
                 </div>
                 <div class="hero-image">
+                    <div class="hero-image-frame" aria-hidden="true"></div>
                     <div class="profile-image">
                         <img src="images/euclidesMarques.png" alt="Euclides Marques" fetchpriority="high">
                     </div>
+                    <div class="hero-stat-badge">
+                        <span class="hero-stat-number" id="hero-years">0</span>
+                        <span class="hero-stat-label" data-translate="stats.yearsExperience">Anos de Experiência</span>
+                    </div>
                 </div>
             </div>
+            <a href="#sobre" class="hero-scroll-cue" aria-label="Rolar para a próxima seção">
+                <span></span>
+            </a>
         </section>
 
         <section id="sobre" class="section">

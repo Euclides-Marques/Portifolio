@@ -1,5 +1,13 @@
+function calcularAnosExperiencia() {
+    const anoInicio = 2019;
+    const anoFim = 2025;
+    const anoAtual = new Date().getFullYear();
+    return Math.min(anoAtual, anoFim) - anoInicio + 1;
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     initHeroTyping();
+    initHeroStatBadge();
     initThemeToggle();
     initMobileMenu();
     initSmoothScroll();
@@ -49,6 +57,13 @@ function initHeroTyping() {
             updateWelcomeText(event.detail.translations);
         }
     });
+}
+
+function initHeroStatBadge() {
+    const heroYears = document.getElementById('hero-years');
+    if (heroYears) {
+        heroYears.textContent = `${calcularAnosExperiencia()}+`;
+    }
 }
 
 function initThemeToggle() {
@@ -179,13 +194,6 @@ function initSkillsFilter() {
 function initStatsCounters() {
     const statsSection = document.getElementById('estatisticas');
     if (!statsSection) return;
-
-    function calcularAnosExperiencia() {
-        const anoInicio = 2019;
-        const anoFim = 2025;
-        const anoAtual = new Date().getFullYear();
-        return Math.min(anoAtual, anoFim) - anoInicio + 1;
-    }
 
     function contarCertificacoes() {
         return document.querySelectorAll('.course-card').length;

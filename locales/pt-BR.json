@@ -12,6 +12,7 @@
     "contact": "Contato"
   },
   "hero": {
+    "availability": "Disponível para novas oportunidades",
     "greeting": "Olá, eu sou Euclides Marques",
     "role": "Desenvolvedor .NET",
     "tagline": "Transformando ideias em soluções digitais eficientes",

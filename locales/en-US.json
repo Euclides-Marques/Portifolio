@@ -12,6 +12,7 @@
     "contact": "Contact"
   },
   "hero": {
+    "availability": "Open to new opportunities",
     "greeting": "Hi, I'm Euclides Marques",
     "role": ".NET Developer",
     "tagline": "Turning ideas into efficient digital solutions",
