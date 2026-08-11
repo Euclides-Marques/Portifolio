@@ -29,22 +29,22 @@ document.addEventListener('DOMContentLoaded', function () {
 
     showLoading();
 
+    const LANGUAGE_META = {
+        'C#': { icon: 'fas fa-code', image: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg', color: '#239120' },
+        'JavaScript': { icon: 'fab fa-js', image: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg', color: '#f7df1e' },
+        'HTML': { icon: 'fab fa-html5', image: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original-wordmark.svg', color: '#e34f26' },
+        'CSS': { icon: 'fab fa-css3-alt', image: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original-wordmark.svg', color: '#1572b6' },
+        'PHP': { icon: 'fab fa-php', image: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg', color: '#777bb4' },
+        'default': { icon: 'fas fa-code-branch', image: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original-wordmark.svg', color: '#f0f0f0' }
+    };
+
     function createProjectCard(repo) {
         if (!repo) return '';
 
         if (repo.is_template) return '';
 
-        const languageIcons = {
-            'C#': 'fas fa-code',
-            'JavaScript': 'fab fa-js',
-            'HTML': 'fab fa-html5',
-            'CSS': 'fab fa-css3-alt',
-            'PHP': 'fab fa-php',
-            'default': 'fas fa-code-branch'
-        };
-
         const language = repo.language || 'Code';
-        const iconClass = languageIcons[language] || languageIcons['default'];
+        const { icon: iconClass, image: imageUrl, color: bgColor } = LANGUAGE_META[language] || LANGUAGE_META['default'];
 
         const description = (repo.description ?
             repo.description.replace(/[^\x00-\x7F]/g, '') :
@@ -54,27 +54,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
         const truncatedDesc = description.substring(0, 117) + (description.length > 117 ? '...' : '');
 
-        const languageImages = {
-            'JavaScript': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg',
-            'HTML': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original-wordmark.svg',
-            'CSS': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original-wordmark.svg',
-            'C#': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg',
-            'PHP': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg',
-            'default': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original-wordmark.svg'
-        };
-
-        const languageColors = {
-            'JavaScript': '#f7df1e',
-            'HTML': '#e34f26',
-            'CSS': '#1572b6',
-            'C#': '#239120',
-            'PHP': '#777bb4',
-            'default': '#f0f0f0'
-        };
-
-        const imageUrl = languageImages[language] || languageImages['default'];
-        const bgColor = languageColors[language] || languageColors['default'];
-
         return `
             <div class="project-card">
                 <div class="project-image">
@@ -82,7 +61,7 @@ document.addEventListener('DOMContentLoaded', function () {
                         <img src="${imageUrl}"
                              alt="${language} logo"
                              loading="lazy"
-                             onerror="this.onerror=null; this.src='${languageImages['default']}'">
+                             onerror="this.onerror=null; this.src='${LANGUAGE_META.default.image}'">
                     </div>
                 </div>
                 <div class="project-content">
