@@ -12,19 +12,18 @@ document.addEventListener('DOMContentLoaded', function () {
     window.allRepos = allRepos;
 
     function showLoading() {
-        const skeletonCards = Array(4).fill('').map(() => `
-            <div class="skeleton-card">
-                <div class="skeleton-image"></div>
-                <div class="skeleton-content">
+        const skeletonRows = Array(5).fill('').map(() => `
+            <div class="skeleton-row">
+                <div class="skeleton-visual"></div>
+                <div class="skeleton-lines">
                     <div class="skeleton-title"></div>
-                    <div class="skeleton-text"></div>
                     <div class="skeleton-text"></div>
                     <div class="skeleton-text" style="width: 40%;"></div>
                 </div>
             </div>
         `).join('');
-        
-        projectsContainer.innerHTML = skeletonCards;
+
+        projectsContainer.innerHTML = skeletonRows;
     }
 
     showLoading();
@@ -38,7 +37,7 @@ document.addEventListener('DOMContentLoaded', function () {
         'default': { icon: 'fas fa-code-branch', image: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original-wordmark.svg', color: '#f0f0f0' }
     };
 
-    function createProjectCard(repo) {
+    function createProjectCard(repo, position) {
         if (!repo) return '';
 
         if (repo.is_template) return '';
@@ -55,26 +54,24 @@ document.addEventListener('DOMContentLoaded', function () {
         const truncatedDesc = description.substring(0, 117) + (description.length > 117 ? '...' : '');
 
         return `
-            <div class="project-card">
-                <div class="project-image">
-                    <div class="project-image-fallback" style="background-color: ${bgColor}22;">
-                        <img src="${imageUrl}"
-                             alt="${language} logo"
-                             loading="lazy"
-                             onerror="this.onerror=null; this.src='${LANGUAGE_META.default.image}'">
-                    </div>
+            <a href="${repo.html_url}" class="project-row" target="_blank" rel="noopener noreferrer">
+                <span class="project-index">${String(position).padStart(2, '0')}</span>
+                <div class="project-visual" style="background-color: ${bgColor}22;">
+                    <img src="${imageUrl}"
+                         alt="${language} logo"
+                         loading="lazy"
+                         onerror="this.onerror=null; this.src='${LANGUAGE_META.default.image}'">
                 </div>
-                <div class="project-content">
-                    <h3>${repo.name}</h3>
-                    <p>${truncatedDesc}</p>
-                    <div class="project-tech">
-                        <span><i class="${iconClass}" aria-hidden="true"></i> ${language}</span>
-                    </div>
-                    <a href="${repo.html_url}" class="btn btn-outline" target="_blank" rel="noopener noreferrer">
-                        <i class="fab fa-github" aria-hidden="true"></i> ${window.t('projects.viewOnGithub', 'Ver no GitHub')}
-                    </a>
+                <div class="project-body">
+                    <h3 class="project-name">${repo.name}</h3>
+                    <p class="project-desc">${truncatedDesc}</p>
+                    <span class="project-tech"><i class="${iconClass}" aria-hidden="true"></i> ${language}</span>
                 </div>
-            </div>
+                <span class="project-cta">
+                    ${window.t('projects.viewOnGithub', 'Ver no GitHub')}
+                    <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                </span>
+            </a>
         `;
     }
 
@@ -133,7 +130,9 @@ document.addEventListener('DOMContentLoaded', function () {
         const endIndex = startIndex + reposPerPage;
         const paginatedRepos = allRepos.slice(startIndex, endIndex);
 
-        const projectsHTML = paginatedRepos.map(repo => createProjectCard(repo)).join('');
+        const projectsHTML = paginatedRepos
+            .map((repo, i) => createProjectCard(repo, startIndex + i + 1))
+            .join('');
         projectsContainer.innerHTML = projectsHTML;
 
         const totalPages = Math.ceil(allRepos.length / reposPerPage);

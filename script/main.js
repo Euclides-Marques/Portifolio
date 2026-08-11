@@ -132,7 +132,7 @@ function initSmoothScroll() {
 
 function initScrollRevealAnimation() {
     document.querySelectorAll('section').forEach(section => {
-        const elements = section.querySelectorAll('h2, .about-content, .stats-strip, .skills-grid, .project-card, .education-item, .course-card, .contact-container');
+        const elements = section.querySelectorAll('h2, .about-content, .stats-strip, .skills-grid, .project-row, .education-item, .course-card, .contact-container');
         elements.forEach((element, index) => {
             element.classList.add('fadeInUp');
             element.style.transition = `opacity 0.4s ease-out ${index * 0.08}s, transform 0.4s ease-out ${index * 0.08}s`;
