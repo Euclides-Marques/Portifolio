@@ -319,21 +319,6 @@ body.dark-theme {
     border-color: transparent;
 }
 
-.btn-outline {
-    background-color: transparent;
-    color: var(--text-secondary);
-    border: 1px solid var(--border-color);
-    padding: 10px 24px;
-}
-
-.btn-outline:hover {
-    background-color: var(--bg-secondary);
-    color: var(--text-primary);
-    border-color: var(--primary-color);
-    transform: translateY(-1px);
-    box-shadow: var(--shadow);
-}
-
 .header {
     position: fixed;
     top: 0;
@@ -1027,7 +1012,18 @@ body.dark-theme {
 
 .skill-link[data-category].visible {
     display: block;
-    animation: fadeInUp 0.4s ease-out;
+    animation: skillFadeInUp 0.4s ease-out;
+}
+
+@keyframes skillFadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .skill-card {
