@@ -56,7 +56,31 @@
                     <li><a href="#contato" data-translate="nav.contact">Contato</a></li>
                 </ul>
                 <div class="language-selector">
-                    <select id="language-select" aria-label="Selecionar idioma">
+                    <button type="button" class="lang-toggle" id="language-toggle" aria-haspopup="listbox"
+                        aria-expanded="false" aria-controls="language-dropdown" aria-label="Selecionar idioma">
+                        <img class="lang-flag" src="https://flagcdn.com/24x18/br.png" srcset="https://flagcdn.com/48x36/br.png 2x"
+                            width="24" height="18" alt="" data-lang-flag>
+                        <span data-lang-label>Português</span>
+                        <i class="fas fa-chevron-down lang-chevron" aria-hidden="true"></i>
+                    </button>
+                    <ul class="lang-dropdown" id="language-dropdown" role="listbox" aria-label="Idiomas" hidden>
+                        <li role="option" data-value="pt" aria-selected="true">
+                            <img src="https://flagcdn.com/24x18/br.png" srcset="https://flagcdn.com/48x36/br.png 2x"
+                                width="24" height="18" alt="">
+                            <span>Português</span>
+                        </li>
+                        <li role="option" data-value="en" aria-selected="false">
+                            <img src="https://flagcdn.com/24x18/us.png" srcset="https://flagcdn.com/48x36/us.png 2x"
+                                width="24" height="18" alt="">
+                            <span>English</span>
+                        </li>
+                        <li role="option" data-value="es" aria-selected="false">
+                            <img src="https://flagcdn.com/24x18/es.png" srcset="https://flagcdn.com/48x36/es.png 2x"
+                                width="24" height="18" alt="">
+                            <span>Español</span>
+                        </li>
+                    </ul>
+                    <select id="language-select" class="sr-only-select" aria-hidden="true" tabindex="-1">
                         <option value="pt">🇧🇷 Português</option>
                         <option value="en">🇺🇸 English</option>
                         <option value="es">🇪🇸 Español</option>
@@ -520,6 +544,7 @@
 
 <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <script src="script/traducao.js"></script>
+    <script src="script/language-dropdown.js"></script>
     <script src="script/email.js"></script>
     <script src="script/main.js"></script>
     <script src="script/config.js"></script>
