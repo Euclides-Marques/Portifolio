@@ -120,6 +120,10 @@ document.addEventListener('DOMContentLoaded', function () {
                 if (page !== currentPage) {
                     currentPage = page;
                     displayRepos();
+                    const section = document.getElementById('projetos');
+                    if (section) {
+                        section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
                 }
             });
         });
