@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', function () {
     let currentPage = 1;
     let allRepos = [];
     let totalPublicRepos = 0;
+    let fullPageHeight = 0;
     
     window.allRepos = allRepos;
 
@@ -144,6 +145,13 @@ document.addEventListener('DOMContentLoaded', function () {
             .map((repo, i) => createProjectCard(repo, startIndex + i + 1))
             .join('');
         projectsContainer.innerHTML = projectsHTML;
+
+        if (paginatedRepos.length === reposPerPage) {
+            projectsContainer.style.minHeight = '';
+            fullPageHeight = projectsContainer.scrollHeight;
+        } else if (fullPageHeight) {
+            projectsContainer.style.minHeight = `${fullPageHeight}px`;
+        }
 
         const totalPages = Math.ceil(allRepos.length / reposPerPage);
         renderPagination(totalPages);
