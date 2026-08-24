@@ -33,7 +33,7 @@
   },
   "experience": {
     "title": "Experiência Profissional",
-    "current": "Atual",
+    "yearsLede": "{years}+ anos de experiência em desenvolvimento .NET",
     "items": {
       "certponto": {
         "role": "Desenvolvedor .NET Júnior",
@@ -45,6 +45,28 @@
           "Resolução de bugs em produção com foco em minimizar o impacto para o cliente.",
           "Implementação de novas funcionalidades, com cuidado para não comprometer telas e fluxos já existentes.",
           "Manutenção e evolução de um sistema de gestão de ponto, com back-end em .NET, front-end em Angular, banco de dados Oracle e infraestrutura na AWS."
+        ]
+      },
+      "moovefy": {
+        "role": "Desenvolvedor .NET",
+        "company": "Moovefy",
+        "period": "Jul 2024 — Dez 2025",
+        "bullets": [
+          "Desenvolvimento e manutenção de sistemas utilizando C# e .NET.",
+          "Implementação de melhorias e correções em código, com foco em performance e qualidade.",
+          "Participação no levantamento de requisitos com clientes e entrega de soluções personalizadas.",
+          "Suporte técnico e resolução de incidentes em ambiente produtivo.",
+          "Criação e otimização de consultas em SQL Server."
+        ]
+      },
+      "ctrlplay": {
+        "role": "Professor de Programação e Robótica",
+        "company": "Ctrl + Play",
+        "period": "Jul 2022 — Jul 2024",
+        "bullets": [
+          "Ensino de lógica de programação e fundamentos de robótica para alunos.",
+          "Orientação na criação de jogos 2D e 3D utilizando Unity e C#.",
+          "Introdução dos alunos a Arduino, Python, JavaScript, HTML, PHP, CSS e MySQL."
         ]
       }
     }

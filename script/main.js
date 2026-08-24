@@ -6,7 +6,36 @@ document.addEventListener('DOMContentLoaded', () => {
     initScrollRevealAnimation();
     initSkillsFilter();
     initFooterCopyright();
+    initExperienceYears();
 });
+
+function initExperienceYears() {
+    const yearsLede = document.getElementById('experience-years-lede');
+    if (!yearsLede) return;
+
+    const experienceStart = new Date(2024, 6, 1);
+
+    function calcularAnosDesenvolvimento() {
+        const hoje = new Date();
+        let anos = hoje.getFullYear() - experienceStart.getFullYear();
+        const diffMeses = hoje.getMonth() - experienceStart.getMonth();
+        if (diffMeses < 0 || (diffMeses === 0 && hoje.getDate() < experienceStart.getDate())) {
+            anos--;
+        }
+        return Math.max(anos, 0);
+    }
+
+    function updateYearsLede(translations) {
+        const template = translations?.experience?.yearsLede || '{years}+ anos de experiência em desenvolvimento .NET';
+        yearsLede.textContent = template.replace('{years}', calcularAnosDesenvolvimento());
+    }
+
+    document.addEventListener('languageChanged', (event) => {
+        if (event.detail?.translations) {
+            updateYearsLede(event.detail.translations);
+        }
+    });
+}
 
 function initHeroTyping() {
     const typingText = document.getElementById('typing-text');

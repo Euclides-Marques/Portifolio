@@ -1947,6 +1947,15 @@ body.dark-theme {
     margin-bottom: var(--space-6);
 }
 
+.section-lede {
+    text-align: center;
+    color: var(--text-muted);
+    font-size: var(--text-lg);
+    font-weight: 500;
+    margin-top: calc(-1 * var(--space-8));
+    margin-bottom: var(--space-10);
+}
+
 /* Experience */
 
 .experience-list {

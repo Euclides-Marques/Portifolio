@@ -33,7 +33,7 @@
   },
   "experience": {
     "title": "Professional Experience",
-    "current": "Present",
+    "yearsLede": "{years}+ years of experience in .NET development",
     "items": {
       "certponto": {
         "role": "Junior .NET Developer",
@@ -45,6 +45,28 @@
           "Fixing production bugs with a focus on minimizing impact to the client.",
           "Implementing new features while making sure existing screens and flows keep working as expected.",
           "Maintaining and evolving a time & attendance management system, with .NET on the back-end, Angular on the front-end, Oracle as the database, and AWS infrastructure."
+        ]
+      },
+      "moovefy": {
+        "role": ".NET Developer",
+        "company": "Moovefy",
+        "period": "Jul 2024 — Dec 2025",
+        "bullets": [
+          "Developed and maintained systems using C# and .NET.",
+          "Implemented improvements and code fixes, focused on performance and quality.",
+          "Took part in requirements gathering with clients and delivered custom solutions.",
+          "Provided technical support and resolved incidents in a production environment.",
+          "Created and optimized SQL Server queries."
+        ]
+      },
+      "ctrlplay": {
+        "role": "Programming & Robotics Instructor",
+        "company": "Ctrl + Play",
+        "period": "Jul 2022 — Jul 2024",
+        "bullets": [
+          "Taught programming logic and robotics fundamentals to students.",
+          "Guided students in building 2D and 3D games using Unity and C#.",
+          "Introduced students to Arduino, Python, JavaScript, HTML, PHP, CSS, and MySQL."
         ]
       }
     }
