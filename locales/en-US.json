@@ -5,7 +5,7 @@
   },
   "nav": {
     "about": "About",
-    "stats": "Stats",
+    "experience": "Experience",
     "skills": "Skills",
     "projects": "Projects",
     "education": "Education",
@@ -15,47 +15,81 @@
     "availability": "Open to new opportunities",
     "greeting": "Hi, I'm Euclides Marques",
     "role": ".NET Developer",
-    "tagline": "Turning ideas into efficient digital solutions",
+    "tagline": "Back-end development with .NET and C#, building REST APIs and relational database integrations.",
     "ctaContact": "Get in Touch",
-    "ctaDownloadCV": "Download Resume"
+    "ctaDownloadCV": "Download Resume",
+    "currentRole": "Currently at Certponto"
   },
   "about": {
     "title": "About Me",
-    "paragraph1": "I'm a Junior Full Stack Developer focused on .NET and C# on the back-end, and AngularJS and ReactJS on the front-end. I have experience with SQL Server, MySQL, and Oracle, building complete, integrated applications with an emphasis on clean code, best practices, and responsiveness.",
-    "paragraph2": "I work on projects involving ASP.NET Core, REST APIs, relational databases, and modern front-end technologies, always looking to learn new tools and agile methodologies to deliver quality solutions. My goal is to contribute to challenging projects as a Full Stack Developer, applying my knowledge while growing alongside my team and company.",
+    "paragraph1": "I'm a software developer focused on .NET and C# back-end development, also working with Angular and React on the front-end when a project calls for it. I have experience with SQL Server, MySQL, and Oracle, building integrated applications with an emphasis on clean code, best practices, and responsiveness.",
+    "paragraph2": "Day to day, I work with ASP.NET Core, REST APIs, and relational databases, maintaining and evolving systems in production. I'm pursuing a postgraduate degree in Software Architecture to deepen my technical decision-making and engineering practices, aiming to grow as a Software Engineer specialized in .NET.",
     "educationLabel": "Education",
     "educationValue": "B.Sc. in Computer Science | Postgraduate student in Software Architecture",
-    "experienceLabel": "Experience",
-    "experienceValue": ".NET Developer at Certponto",
+    "focusLabel": "Professional Direction",
+    "focusValue": "Deepening software architecture, REST APIs, and back-end best practices in .NET",
     "locationLabel": "Location",
     "locationValue": "Agudos, SP - Brazil"
   },
-  "stats": {
-    "title": "Stats",
-    "projects": "Projects",
-    "certifications": "Certifications",
-    "yearsExperience": "Years of Experience"
+  "experience": {
+    "title": "Professional Experience",
+    "current": "Present",
+    "items": {
+      "certponto": {
+        "role": "Junior .NET Developer",
+        "company": "Certponto",
+        "period": "Dec 2025 — Present",
+        "domain": "Time & Attendance Management System",
+        "bullets": [
+          "Part of the support team, ensuring the system stays available and running smoothly for clients.",
+          "Fixing production bugs with a focus on minimizing impact to the client.",
+          "Implementing new features while making sure existing screens and flows keep working as expected.",
+          "Maintaining and evolving a time & attendance management system, with .NET on the back-end, Angular on the front-end, Oracle as the database, and AWS infrastructure."
+        ]
+      }
+    }
   },
   "skills": {
     "title": "Skills",
     "filters": {
       "all": "All",
-      "frontend": "Front-end",
       "backend": "Back-end",
       "database": "Database",
-      "tools": "Tools"
+      "frontend": "Front-end",
+      "cloud": "Cloud & Tools"
     }
   },
   "projects": {
     "title": "Projects",
+    "featuredTitle": "Featured Projects",
+    "moreTitle": "More Repositories",
+    "repoCount": "{count} public repositories on GitHub",
     "viewOnGithub": "View on GitHub",
+    "sourceOnly": "Source code available",
+    "problemLabel": "Problem",
+    "solutionLabel": "Solution",
+    "challengeLabel": "Technical challenge",
     "noDescription": "No description available",
     "defaultDescription": "{name} project built with {language}",
     "errorRateLimit": "Request limit exceeded. Please try again later.",
     "errorAuth": "Authentication error. Please check the access token.",
     "errorNotFound": "User not found. Please check the GitHub username.",
     "errorGeneric": "Unable to load projects. Please check your connection and try again.",
-    "errorNone": "No projects found on GitHub."
+    "errorNone": "No projects found on GitHub.",
+    "featured": {
+      "lojaRoupas": {
+        "name": "Clothing Store (E-commerce)",
+        "problem": "Simulate the online shopping experience for a clothing store, removing the need to visit a physical store.",
+        "solution": "A platform with user authentication: after logging in, the customer browses the catalog and makes purchases.",
+        "challenge": "Purchase confirmation emails: integrated an external email API to deliver the intended layout and content."
+      },
+      "teamLunch": {
+        "name": "TeamLunch — Restaurant Voting",
+        "problem": "Help teams democratically decide where to have lunch that day.",
+        "solution": "Each employee accesses the list of available restaurants and votes for their favorite of the day.",
+        "challenge": "Automatic vote closing: implemented a background service that closes voting at noon and displays the winning restaurant."
+      }
+    }
   },
   "education": {
     "title": "Education & Courses",

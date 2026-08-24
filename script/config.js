@@ -4,3 +4,5 @@ const fetchOptions = {
         'Accept': 'application/vnd.github.v3+json',
     }
 };
+
+const FEATURED_REPO_NAMES = ['LojaRoupas-CSharp', 'TeamLunch-WebAPI-CSharp-React'];

@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const reposPerPage = 8;
     let currentPage = 1;
     let allRepos = [];
+    let totalPublicRepos = 0;
     
     window.allRepos = allRepos;
 
@@ -73,6 +74,15 @@ document.addEventListener('DOMContentLoaded', function () {
                 </span>
             </a>
         `;
+    }
+
+    function updateRepoCount(count) {
+        const repoCountEl = document.getElementById('repo-count');
+        if (!repoCountEl || !count) return;
+
+        repoCountEl.textContent = window.t('projects.repoCount', '{count} repositórios públicos no GitHub')
+            .replace('{count}', count);
+        repoCountEl.hidden = false;
     }
 
     function showError(message) {
@@ -151,7 +161,14 @@ document.addEventListener('DOMContentLoaded', function () {
             return response.json();
         })
         .then(repos => {
+            totalPublicRepos = repos.length;
+            updateRepoCount(totalPublicRepos);
+
+            const featuredNames = FEATURED_REPO_NAMES.map(name => name.toLowerCase());
+            const notFeatured = repo => !featuredNames.includes(repo.name.toLowerCase());
+
             allRepos = repos
+                .filter(notFeatured)
                 .filter(repo => {
                     const include = !repo.fork || (repo.description && repo.description.trim() !== '');
                     return include;
@@ -159,10 +176,12 @@ document.addEventListener('DOMContentLoaded', function () {
                 .sort((a, b) => a.name.localeCompare(b.name));
 
             if (allRepos.length === 0) {
-                allRepos = repos.map(repo => ({
-                    ...repo,
-                    description: repo.description || window.t('projects.noDescription', 'Sem descrição disponível')
-                }));
+                allRepos = repos
+                    .filter(notFeatured)
+                    .map(repo => ({
+                        ...repo,
+                        description: repo.description || window.t('projects.noDescription', 'Sem descrição disponível')
+                    }));
 
                 if (allRepos.length === 0) {
                     showError(window.t('projects.errorNone', 'Nenhum projeto encontrado no GitHub.'));
@@ -193,5 +212,6 @@ document.addEventListener('DOMContentLoaded', function () {
         if (allRepos.length > 0) {
             displayRepos();
         }
+        updateRepoCount(totalPublicRepos);
     });
 });

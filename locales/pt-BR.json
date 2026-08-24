@@ -5,7 +5,7 @@
   },
   "nav": {
     "about": "Sobre",
-    "stats": "Estatísticas",
+    "experience": "Experiência",
     "skills": "Habilidades",
     "projects": "Projetos",
     "education": "Formação",
@@ -15,47 +15,81 @@
     "availability": "Disponível para novas oportunidades",
     "greeting": "Olá, eu sou Euclides Marques",
     "role": "Desenvolvedor .NET",
-    "tagline": "Transformando ideias em soluções digitais eficientes",
+    "tagline": "Desenvolvimento back-end com .NET e C#, construindo APIs REST e integrações com bancos de dados relacionais.",
     "ctaContact": "Entre em Contato",
-    "ctaDownloadCV": "Baixar Currículo"
+    "ctaDownloadCV": "Baixar Currículo",
+    "currentRole": "Atualmente na Certponto"
   },
   "about": {
     "title": "Sobre Mim",
-    "paragraph1": "Sou Desenvolvedor Full Stack Júnior com foco em .NET e C# no back-end e em AngularJS e ReactJS no front-end. Tenho experiência em SQL Server, MySQL, Oracle, desenvolvendo aplicações completas e integradas, com atenção a código limpo, boas práticas e responsividade.",
-    "paragraph2": "Atuo em projetos que envolvem ASP.NET Core, APIs REST, bancos de dados relacionais e front-end moderno, sempre buscando aprender novas tecnologias e metodologias ágeis para entregar soluções de qualidade. Tenho como objetivo contribuir em projetos desafiadores como Full Stack Developer, aplicando meus conhecimentos e crescendo junto com a equipe e a empresa.",
+    "paragraph1": "Sou desenvolvedor de software com foco em back-end .NET e C#, atuando também com Angular e React no front-end quando o projeto exige. Tenho experiência com SQL Server, MySQL e Oracle, construindo aplicações integradas com atenção a código limpo, boas práticas e responsividade.",
+    "paragraph2": "No dia a dia, trabalho com ASP.NET Core, APIs REST e bancos de dados relacionais, dando manutenção e evoluindo sistemas em produção. Estou em pós-graduação em Arquitetura de Software para aprofundar decisões técnicas e boas práticas de engenharia, com o objetivo de crescer como Software Engineer especializado em .NET.",
     "educationLabel": "Formação",
     "educationValue": "Bacharel em Ciência da Computação | Pós-graduando em Arquitetura de Software",
-    "experienceLabel": "Experiência",
-    "experienceValue": "Desenvolvedor .NET na Certponto",
+    "focusLabel": "Direção Profissional",
+    "focusValue": "Aprofundar arquitetura de software, APIs REST e boas práticas de back-end em .NET",
     "locationLabel": "Localização",
     "locationValue": "Agudos, SP - Brasil"
   },
-  "stats": {
-    "title": "Estatísticas",
-    "projects": "Projetos",
-    "certifications": "Certificações",
-    "yearsExperience": "Anos de Experiência"
+  "experience": {
+    "title": "Experiência Profissional",
+    "current": "Atual",
+    "items": {
+      "certponto": {
+        "role": "Desenvolvedor .NET Júnior",
+        "company": "Certponto",
+        "period": "Dez 2025 — Atual",
+        "domain": "Sistema de Gestão de Ponto",
+        "bullets": [
+          "Atuação na equipe de sustentação, garantindo a disponibilidade e o bom funcionamento do sistema para os clientes.",
+          "Resolução de bugs em produção com foco em minimizar o impacto para o cliente.",
+          "Implementação de novas funcionalidades, com cuidado para não comprometer telas e fluxos já existentes.",
+          "Manutenção e evolução de um sistema de gestão de ponto, com back-end em .NET, front-end em Angular, banco de dados Oracle e infraestrutura na AWS."
+        ]
+      }
+    }
   },
   "skills": {
     "title": "Habilidades",
     "filters": {
       "all": "Todos",
-      "frontend": "Front-end",
       "backend": "Back-end",
       "database": "Banco de Dados",
-      "tools": "Ferramentas"
+      "frontend": "Front-end",
+      "cloud": "Cloud & Ferramentas"
     }
   },
   "projects": {
     "title": "Projetos",
+    "featuredTitle": "Projetos em Destaque",
+    "moreTitle": "Mais Repositórios",
+    "repoCount": "{count} repositórios públicos no GitHub",
     "viewOnGithub": "Ver no GitHub",
+    "sourceOnly": "Código-fonte disponível",
+    "problemLabel": "Problema",
+    "solutionLabel": "Solução",
+    "challengeLabel": "Desafio técnico",
     "noDescription": "Sem descrição disponível",
     "defaultDescription": "Projeto {name} desenvolvido com {language}",
     "errorRateLimit": "Limite de requisições excedido. Por favor, tente novamente mais tarde.",
     "errorAuth": "Erro de autenticação. Verifique o token de acesso.",
     "errorNotFound": "Usuário não encontrado. Verifique o nome de usuário do GitHub.",
     "errorGeneric": "Não foi possível carregar os projetos. Verifique sua conexão e tente novamente.",
-    "errorNone": "Nenhum projeto encontrado no GitHub."
+    "errorNone": "Nenhum projeto encontrado no GitHub.",
+    "featured": {
+      "lojaRoupas": {
+        "name": "Loja de Roupas (E-commerce)",
+        "problem": "Simular a experiência de compra online de uma loja de roupas, eliminando a necessidade de ir até a loja física.",
+        "solution": "Plataforma com autenticação de usuário: após o login, o cliente navega pelo catálogo e realiza compras.",
+        "challenge": "Envio de e-mail de confirmação de compra: integração com uma API externa de e-mail para entregar o layout e o conteúdo desejados."
+      },
+      "teamLunch": {
+        "name": "TeamLunch — Votação de Restaurante",
+        "problem": "Ajudar equipes a decidir, de forma democrática, onde almoçar no dia.",
+        "solution": "Cada colaborador acessa a lista de restaurantes disponíveis e vota no favorito do dia.",
+        "challenge": "Encerramento automático da votação: implementação de um serviço em background que finaliza a votação ao meio-dia e exibe o restaurante vencedor."
+      }
+    }
   },
   "education": {
     "title": "Formação e Cursos",

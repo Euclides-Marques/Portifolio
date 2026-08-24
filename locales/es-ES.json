@@ -5,7 +5,7 @@
   },
   "nav": {
     "about": "Sobre mí",
-    "stats": "Estadísticas",
+    "experience": "Experiencia",
     "skills": "Habilidades",
     "projects": "Proyectos",
     "education": "Formación",
@@ -15,47 +15,81 @@
     "availability": "Disponible para nuevas oportunidades",
     "greeting": "Hola, soy Euclides Marques",
     "role": "Desarrollador .NET",
-    "tagline": "Transformando ideas en soluciones digitales eficientes",
+    "tagline": "Desarrollo back-end con .NET y C#, creando APIs REST e integraciones con bases de datos relacionales.",
     "ctaContact": "Contáctame",
-    "ctaDownloadCV": "Descargar CV"
+    "ctaDownloadCV": "Descargar CV",
+    "currentRole": "Actualmente en Certponto"
   },
   "about": {
     "title": "Sobre mí",
-    "paragraph1": "Soy Desarrollador Full Stack Junior enfocado en .NET y C# en el back-end, y en AngularJS y ReactJS en el front-end. Tengo experiencia con SQL Server, MySQL y Oracle, desarrollando aplicaciones completas e integradas, con atención al código limpio, las buenas prácticas y la responsividad.",
-    "paragraph2": "Trabajo en proyectos que involucran ASP.NET Core, APIs REST, bases de datos relacionales y front-end moderno, siempre buscando aprender nuevas tecnologías y metodologías ágiles para entregar soluciones de calidad. Mi objetivo es contribuir en proyectos desafiantes como Full Stack Developer, aplicando mis conocimientos y creciendo junto con el equipo y la empresa.",
+    "paragraph1": "Soy desarrollador de software enfocado en back-end con .NET y C#, trabajando también con Angular y React en el front-end cuando el proyecto lo requiere. Tengo experiencia con SQL Server, MySQL y Oracle, construyendo aplicaciones integradas con atención al código limpio, las buenas prácticas y la responsividad.",
+    "paragraph2": "En el día a día trabajo con ASP.NET Core, APIs REST y bases de datos relacionales, dando mantenimiento y evolucionando sistemas en producción. Estoy cursando un posgrado en Arquitectura de Software para profundizar en decisiones técnicas y buenas prácticas de ingeniería, con el objetivo de crecer como Software Engineer especializado en .NET.",
     "educationLabel": "Formación",
     "educationValue": "Licenciado en Ciencias de la Computación | Posgrado en curso en Arquitectura de Software",
-    "experienceLabel": "Experiencia",
-    "experienceValue": "Desarrollador .NET en Certponto",
+    "focusLabel": "Dirección Profesional",
+    "focusValue": "Profundizar en arquitectura de software, APIs REST y buenas prácticas de back-end en .NET",
     "locationLabel": "Ubicación",
     "locationValue": "Agudos, SP - Brasil"
   },
-  "stats": {
-    "title": "Estadísticas",
-    "projects": "Proyectos",
-    "certifications": "Certificaciones",
-    "yearsExperience": "Años de Experiencia"
+  "experience": {
+    "title": "Experiencia Profesional",
+    "current": "Actual",
+    "items": {
+      "certponto": {
+        "role": "Desarrollador .NET Junior",
+        "company": "Certponto",
+        "period": "Dic 2025 — Actual",
+        "domain": "Sistema de Gestión de Control Horario",
+        "bullets": [
+          "Parte del equipo de soporte, garantizando la disponibilidad y el buen funcionamiento del sistema para los clientes.",
+          "Resolución de errores en producción, minimizando el impacto para el cliente.",
+          "Implementación de nuevas funcionalidades, cuidando de no afectar pantallas y flujos ya existentes.",
+          "Mantenimiento y evolución de un sistema de gestión de control horario, con back-end en .NET, front-end en Angular, base de datos Oracle e infraestructura en AWS."
+        ]
+      }
+    }
   },
   "skills": {
     "title": "Habilidades",
     "filters": {
       "all": "Todos",
-      "frontend": "Front-end",
       "backend": "Back-end",
       "database": "Bases de Datos",
-      "tools": "Herramientas"
+      "frontend": "Front-end",
+      "cloud": "Cloud y Herramientas"
     }
   },
   "projects": {
     "title": "Proyectos",
+    "featuredTitle": "Proyectos Destacados",
+    "moreTitle": "Más Repositorios",
+    "repoCount": "{count} repositorios públicos en GitHub",
     "viewOnGithub": "Ver en GitHub",
+    "sourceOnly": "Código fuente disponible",
+    "problemLabel": "Problema",
+    "solutionLabel": "Solución",
+    "challengeLabel": "Desafío técnico",
     "noDescription": "Sin descripción disponible",
     "defaultDescription": "Proyecto {name} desarrollado con {language}",
     "errorRateLimit": "Límite de solicitudes excedido. Por favor, inténtalo de nuevo más tarde.",
     "errorAuth": "Error de autenticación. Verifica el token de acceso.",
     "errorNotFound": "Usuario no encontrado. Verifica el nombre de usuario de GitHub.",
     "errorGeneric": "No fue posible cargar los proyectos. Verifica tu conexión e inténtalo de nuevo.",
-    "errorNone": "No se encontraron proyectos en GitHub."
+    "errorNone": "No se encontraron proyectos en GitHub.",
+    "featured": {
+      "lojaRoupas": {
+        "name": "Tienda de Ropa (E-commerce)",
+        "problem": "Simular la experiencia de compra online de una tienda de ropa, eliminando la necesidad de ir a la tienda física.",
+        "solution": "Plataforma con autenticación de usuario: tras iniciar sesión, el cliente navega por el catálogo y realiza compras.",
+        "challenge": "Envío de correo de confirmación de compra: integración con una API externa de correo para entregar el diseño y el contenido deseados."
+      },
+      "teamLunch": {
+        "name": "TeamLunch — Votación de Restaurante",
+        "problem": "Ayudar a los equipos a decidir, de forma democrática, dónde almorzar ese día.",
+        "solution": "Cada colaborador accede a la lista de restaurantes disponibles y vota por su favorito del día.",
+        "challenge": "Cierre automático de la votación: implementación de un servicio en segundo plano que finaliza la votación al mediodía y muestra el restaurante ganador."
+      }
+    }
   },
   "education": {
     "title": "Formación y Cursos",

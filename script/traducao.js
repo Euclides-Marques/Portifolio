@@ -55,6 +55,13 @@ function applyTranslations(translations) {
             element.setAttribute('placeholder', value);
         }
     });
+
+    document.querySelectorAll('[data-translate-list]').forEach(element => {
+        const value = getTranslation(translations, element.getAttribute('data-translate-list'));
+        if (Array.isArray(value)) {
+            element.innerHTML = value.map(item => `<li>${item}</li>`).join('');
+        }
+    });
 }
 
 async function setLanguage(lang) {

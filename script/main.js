@@ -1,19 +1,10 @@
-function calcularAnosExperiencia() {
-    const anoInicio = 2019;
-    const anoFim = 2025;
-    const anoAtual = new Date().getFullYear();
-    return Math.min(anoAtual, anoFim) - anoInicio + 1;
-}
-
 document.addEventListener('DOMContentLoaded', () => {
     initHeroTyping();
-    initHeroStatBadge();
     initThemeToggle();
     initMobileMenu();
     initSmoothScroll();
     initScrollRevealAnimation();
     initSkillsFilter();
-    initStatsCounters();
     initFooterCopyright();
 });
 
@@ -57,13 +48,6 @@ function initHeroTyping() {
             updateWelcomeText(event.detail.translations);
         }
     });
-}
-
-function initHeroStatBadge() {
-    const heroYears = document.getElementById('hero-years');
-    if (heroYears) {
-        heroYears.textContent = `${calcularAnosExperiencia()}+`;
-    }
 }
 
 function initThemeToggle() {
@@ -132,7 +116,7 @@ function initSmoothScroll() {
 
 function initScrollRevealAnimation() {
     document.querySelectorAll('section').forEach(section => {
-        const elements = section.querySelectorAll('h2, .about-content, .stats-strip, .skills-grid, .project-row, .education-item, .course-card, .contact-container');
+        const elements = section.querySelectorAll('h2, .about-content, .experience-card, .featured-project-card, .skills-grid, .project-row, .education-item, .course-card, .contact-container');
         elements.forEach((element, index) => {
             element.classList.add('fadeInUp');
             element.style.transition = `opacity 0.4s ease-out ${index * 0.08}s, transform 0.4s ease-out ${index * 0.08}s`;
@@ -189,97 +173,6 @@ function initSkillsFilter() {
     });
 
     filterSkills('all');
-}
-
-function initStatsCounters() {
-    const statsSection = document.getElementById('estatisticas');
-    if (!statsSection) return;
-
-    function contarCertificacoes() {
-        return document.querySelectorAll('.course-card').length;
-    }
-
-    function aguardarProjetosCarregados(timeoutMs = 5000, intervalMs = 200) {
-        return new Promise(resolve => {
-            const start = performance.now();
-
-            function check() {
-                if (Array.isArray(window.allRepos) && window.allRepos.length > 0) {
-                    resolve(window.allRepos.length);
-                    return;
-                }
-
-                if (performance.now() - start >= timeoutMs) {
-                    resolve(0);
-                    return;
-                }
-
-                setTimeout(check, intervalMs);
-            }
-
-            check();
-        });
-    }
-
-    function animateCounter(elementId, targetValue, duration = 2500) {
-        const element = document.getElementById(elementId);
-        if (!element) return;
-
-        const startTime = performance.now();
-
-        function updateCounter(currentTime) {
-            const progress = Math.min((currentTime - startTime) / duration, 1);
-            element.textContent = Math.floor(targetValue * progress);
-
-            if (progress < 1) {
-                requestAnimationFrame(updateCounter);
-            } else {
-                element.textContent = targetValue;
-            }
-        }
-
-        requestAnimationFrame(updateCounter);
-    }
-
-    function resetarEstatisticas() {
-        ['total-anos', 'total-certificados', 'total-projetos'].forEach(id => {
-            const element = document.getElementById(id);
-            if (element) element.textContent = '0';
-        });
-    }
-
-    async function iniciarAnimacaoEstatisticas() {
-        const anosExperiencia = calcularAnosExperiencia();
-        const totalCertificacoes = contarCertificacoes();
-        const totalProjetos = await aguardarProjetosCarregados();
-
-        animateCounter('total-anos', anosExperiencia);
-        animateCounter('total-certificados', totalCertificacoes);
-
-        if (totalProjetos > 0) {
-            animateCounter('total-projetos', totalProjetos);
-        }
-    }
-
-    let statsJaAnimadas = false;
-
-    if ('IntersectionObserver' in window) {
-        const statsObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting && !statsJaAnimadas) {
-                    resetarEstatisticas();
-                    iniciarAnimacaoEstatisticas();
-                    statsJaAnimadas = true;
-                    statsObserver.unobserve(statsSection);
-                }
-            });
-        }, { threshold: 0.3 });
-
-        statsObserver.observe(statsSection);
-    } else {
-        resetarEstatisticas();
-        iniciarAnimacaoEstatisticas();
-    }
 }
 
 function initFooterCopyright() {
