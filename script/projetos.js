@@ -130,9 +130,11 @@ document.addEventListener('DOMContentLoaded', function () {
                 if (page !== currentPage) {
                     currentPage = page;
                     displayRepos();
-                    const section = document.getElementById('projetos');
-                    if (section) {
-                        section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    const anchor = document.querySelector('.projects-more-header') || document.getElementById('projetos');
+                    if (anchor) {
+                        const headerOffset = 96;
+                        const offsetPosition = anchor.getBoundingClientRect().top + window.pageYOffset - headerOffset;
+                        window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
                     }
                 }
             });
