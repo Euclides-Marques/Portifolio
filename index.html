@@ -20,51 +20,54 @@
 
     <link rel="canonical" href="https://euclidesmarques-dev.netlify.app/">
     <link rel="icon" type="image/png" href="images/favicon.png">
-    <meta name="theme-color" content="#2563eb">
+    <meta name="theme-color" content="#0a0a0f">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
-        rel="stylesheet">
-
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="style/main.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
+
     <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
     <link rel="dns-prefetch" href="//fonts.googleapis.com">
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
+
+    <script>
+        document.documentElement.classList.add('js');
+        try {
+            if (localStorage.getItem('theme') === 'light') document.documentElement.classList.add('pre-light');
+        } catch (e) { }
+    </script>
 </head>
 
-<body class="light-theme">
+<body class="is-loading">
     <a href="#main-content" class="skip-link" data-translate="common.skipToContent">Pular para o conteúdo</a>
+
+    <!-- Preloader: "compilando" -->
+    <div class="loader" aria-hidden="true">
+        <p class="loader-code"><span class="loader-brace">{</span> compiling <span class="loader-brace">}</span></p>
+        <div class="loader-bar"><span class="loader-fill"></span></div>
+        <span class="loader-count">0%</span>
+    </div>
+
     <header class="header">
-        <div class="container">
-            <nav class="navbar">
-                <a href="#" class="logo">Euclides Marques</a>
-                <button class="menu-toggle" aria-label="Menu" aria-expanded="false" aria-controls="nav-links">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
-                <ul class="nav-links" id="nav-links">
-                    <li><a href="#sobre" data-translate="nav.about">Sobre</a></li>
-                    <li><a href="#experiencia" data-translate="nav.experience">Experiência</a></li>
-                    <li><a href="#habilidades" data-translate="nav.skills">Habilidades</a></li>
-                    <li><a href="#projetos" data-translate="nav.projects">Projetos</a></li>
-                    <li><a href="#formacao" data-translate="nav.education">Formação</a></li>
-                    <li><a href="#contato" data-translate="nav.contact">Contato</a></li>
-                </ul>
+        <nav class="navbar">
+            <a href="#top" class="logo" aria-label="Euclides Marques">
+                <span class="logo-strong">EUCLIDES</span>
+                <span class="logo-sep">/</span>
+                <span class="logo-light">MARQUES</span>
+            </a>
+            <div class="nav-actions">
                 <div class="language-selector">
                     <button type="button" class="lang-toggle" id="language-toggle" aria-haspopup="listbox"
-                        aria-expanded="false" aria-controls="language-dropdown" aria-label="Selecionar idioma">
+                        aria-expanded="false" aria-controls="language-dropdown" data-translate-aria="common.selectLanguage" aria-label="Selecionar idioma">
                         <img class="lang-flag" src="https://flagcdn.com/24x18/br.png" srcset="https://flagcdn.com/48x36/br.png 2x"
                             width="24" height="18" alt="" data-lang-flag>
                         <span data-lang-label>Português</span>
                         <i class="fas fa-chevron-down lang-chevron" aria-hidden="true"></i>
                     </button>
-                    <ul class="lang-dropdown" id="language-dropdown" role="listbox" aria-label="Idiomas" hidden>
+                    <ul class="lang-dropdown" id="language-dropdown" role="listbox" data-translate-aria="common.languages" aria-label="Idiomas" hidden>
                         <li role="option" data-value="pt" aria-selected="true">
                             <img src="https://flagcdn.com/24x18/br.png" srcset="https://flagcdn.com/48x36/br.png 2x"
                                 width="24" height="18" alt="">
@@ -87,64 +90,222 @@
                         <option value="es">🇪🇸 Español</option>
                     </select>
                 </div>
-                <button class="theme-toggle" aria-label="Alternar tema">
-                    <i class="fas fa-moon" aria-hidden="true"></i>
+                <button class="icon-btn theme-toggle" data-translate-aria="common.toggleTheme" aria-label="Alternar tema">
+                    <i class="fas fa-sun" aria-hidden="true"></i>
                 </button>
-            </nav>
+                <a href="#contato" class="pill pill-accent nav-cta" data-translate="nav.contact">Contato</a>
+                <button class="icon-btn menu-toggle" data-translate-aria="common.menu" aria-label="Menu" aria-expanded="false" aria-controls="nav-links">
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </nav>
+
+        <div class="nav-links" id="nav-links">
+            <ul class="menu-list">
+                <li><a href="#sobre"><span class="menu-num">01</span><span data-translate="nav.about">Sobre</span></a></li>
+                <li><a href="#experiencia"><span class="menu-num">02</span><span data-translate="nav.experience">Experiência</span></a></li>
+                <li><a href="#habilidades"><span class="menu-num">03</span><span data-translate="nav.skills">Habilidades</span></a></li>
+                <li><a href="#projetos"><span class="menu-num">04</span><span data-translate="nav.projects">Projetos</span></a></li>
+                <li><a href="#formacao"><span class="menu-num">05</span><span data-translate="nav.education">Formação</span></a></li>
+                <li><a href="#contato"><span class="menu-num">06</span><span data-translate="nav.contact">Contato</span></a></li>
+            </ul>
+            <div class="menu-footer">
+                <a href="mailto:euclidesmarques270@gmail.com">euclidesmarques270@gmail.com</a>
+                <div class="menu-social">
+                    <a href="https://linkedin.com/in/euclides-marques" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                    <a href="https://github.com/Euclides-Marques" target="_blank" rel="noopener noreferrer">GitHub</a>
+                </div>
+            </div>
         </div>
     </header>
 
-    <main id="main-content">
-        <section class="hero">
-            <span class="hero-glyph" aria-hidden="true">&lt;/&gt;</span>
-            <div class="container hero-grid">
-                <div class="hero-content">
-                    <span class="hero-badge">
-                        <span class="hero-badge-dot" aria-hidden="true"></span>
-                        <span data-translate="hero.availability">Disponível para novas oportunidades</span>
-                    </span>
-                    <h1><span id="typing-text"></span><span class="cursor">|</span></h1>
-                    <h2 data-translate="hero.role">Desenvolvedor .NET</h2>
-                    <p data-translate="hero.tagline">Desenvolvimento back-end com .NET e C#, construindo APIs REST e integrações com bancos de dados relacionais.</p>
-                    <div class="cta-buttons">
-                        <a href="#contato" class="btn btn-primary" data-translate="hero.ctaContact">Entre em Contato</a>
-                        <a href="curriculo/CV - Euclides Marques.pdf" download class="btn btn-secondary"
-                            data-translate="hero.ctaDownloadCV">Baixar
-                            Currículo</a>
-                    </div>
-                    <ul class="hero-stack">
-                        <li>.NET</li>
-                        <li>C#</li>
-                        <li>SQL Server</li>
-                        <li>Oracle</li>
-                        <li>AWS</li>
-                        <li>Angular</li>
-                        <li>React</li>
-                        <li>JavaScript</li>
-                        <li>MySQL</li>
-                    </ul>
+    <main id="main-content" tabindex="-1">
+        <!-- ===================== STORY: CODE → BUILD → DEPLOY → RUN ===================== -->
+        <section class="story" id="top">
+            <div class="story-stage">
+                <div class="story-bg" aria-hidden="true"></div>
+
+                <div class="story-words" aria-hidden="true">
+                    <span class="sw sw-code">CODE</span>
+                    <span class="sw sw-net">.NET</span>
+                    <span class="sw sw-build">BUILD</span>
+                    <span class="sw sw-deploy">DEPLOY</span>
                 </div>
-                <div class="hero-image">
-                    <div class="hero-image-frame" aria-hidden="true"></div>
-                    <div class="profile-image">
-                        <img src="images/euclidesMarques.png" alt="Euclides Marques" fetchpriority="high">
+
+                <div class="story-dust" aria-hidden="true"></div>
+
+                <!-- Objeto central: janelas de código que viram camadas da arquitetura -->
+                <div class="story-object" aria-hidden="true">
+                    <div class="layers">
+                        <div class="win" data-layer="presentation">
+                            <div class="win-bar"><i></i><i></i><i></i><span>pedidos.component.ts</span></div>
+<pre><code><span class="k">@Component</span>({ selector: <span class="s">'app-pedidos'</span> })
+<span class="k">export class</span> <span class="t">PedidosComponent</span> {
+  pedidos$ = <span class="k">this</span>.api.<span class="f">listar</span>();
+  <span class="k">constructor</span>(<span class="k">private</span> api: <span class="t">PedidosApi</span>) {}
+}</code></pre>
+                            <span class="win-tag">Presentation</span>
+                        </div>
+                        <div class="win" data-layer="api">
+                            <div class="win-bar"><i></i><i></i><i></i><span>PedidosController.cs</span></div>
+<pre><code>[<span class="t">ApiController</span>, <span class="t">Route</span>(<span class="s">"api/pedidos"</span>)]
+<span class="k">public class</span> <span class="t">PedidosController</span> : <span class="t">ControllerBase</span>
+{
+    [<span class="t">HttpGet</span>]
+    <span class="k">public async</span> <span class="t">Task</span>&lt;<span class="t">IActionResult</span>&gt; <span class="f">Get</span>()
+        =&gt; <span class="f">Ok</span>(<span class="k">await</span> _service.<span class="f">ListarAsync</span>());
+}<span class="caret"></span></code></pre>
+                            <span class="win-tag">API</span>
+                        </div>
+                        <div class="win" data-layer="domain">
+                            <div class="win-bar"><i></i><i></i><i></i><span>PedidoService.cs</span></div>
+<pre><code><span class="k">public async</span> <span class="t">Task</span>&lt;<span class="t">IEnumerable</span>&lt;<span class="t">Pedido</span>&gt;&gt; <span class="f">ListarAsync</span>()
+{
+    <span class="k">var</span> pedidos = <span class="k">await</span> _repo.<span class="f">ObterAsync</span>();
+    <span class="k">return</span> pedidos.<span class="f">Where</span>(p =&gt; p.Ativo);
+}</code></pre>
+                            <span class="win-tag">Domain</span>
+                        </div>
+                        <div class="win" data-layer="data">
+                            <div class="win-bar"><i></i><i></i><i></i><span>pedidos.sql</span></div>
+<pre><code><span class="k">SELECT</span> p.Id, p.Cliente, p.Total
+  <span class="k">FROM</span> Pedidos p
+ <span class="k">WHERE</span> p.Ativo = <span class="n">1</span>
+ <span class="k">ORDER BY</span> p.CriadoEm <span class="k">DESC</span>;</code></pre>
+                            <span class="win-tag">Data</span>
+                        </div>
                     </div>
-                    <div class="hero-status-badge">
-                        <i class="fas fa-briefcase" aria-hidden="true"></i>
-                        <span data-translate="hero.currentRole">Atualmente na Certponto</span>
+                    <div class="package">
+                        <i class="fas fa-cube"></i>
+                        <span>release.zip</span>
                     </div>
+                </div>
+
+                <!-- Servidor que recebe o deploy -->
+                <div class="story-server" aria-hidden="true">
+                    <div class="rack">
+                        <div class="rack-unit"><span class="led"></span><span class="led"></span><span class="slots"></span></div>
+                        <div class="rack-unit"><span class="led"></span><span class="led"></span><span class="slots"></span></div>
+                        <div class="rack-unit"><span class="led"></span><span class="led"></span><span class="slots"></span></div>
+                    </div>
+                    <span class="rack-label"><i class="fab fa-aws"></i> production</span>
+                </div>
+
+                <canvas class="story-stream" aria-hidden="true"></canvas>
+
+                <ul class="deploy-log" aria-hidden="true">
+                    <li><span class="prompt">$</span> dotnet build <b>✓</b></li>
+                    <li><span class="prompt">$</span> dotnet test <b>✓ passed</b></li>
+                    <li><span class="prompt">$</span> git push origin main</li>
+                    <li><span class="prompt">→</span> deploy aws <b>✓ live</b></li>
+                </ul>
+
+                <!-- Frame 1: hero -->
+                <div class="frame frame-1">
+                    <p class="crumbs" data-translate="hero.greeting">Olá, eu sou Euclides Marques</p>
+                    <h1 class="sr-only"><span data-translate="hero.greeting">Olá, eu sou Euclides Marques</span> — <span data-translate="hero.role">Desenvolvedor .NET</span></h1>
+                    <p class="frame-role" data-translate="hero.role">Desenvolvedor .NET</p>
+                    <p class="frame-text" data-translate="hero.tagline">Desenvolvimento back-end com .NET e C#, construindo APIs REST e integrações com bancos de dados relacionais.</p>
+                    <div class="frame-actions">
+                        <a href="#contato" class="pill pill-accent" data-translate="hero.ctaContact">Entre em Contato</a>
+                        <a href="curriculo/CV - Euclides Marques.pdf" download class="circle-btn" data-translate-aria="hero.ctaDownloadCV" aria-label="Baixar Currículo">
+                            <i class="fas fa-arrow-down" aria-hidden="true"></i>
+                        </a>
+                        <span class="circle-label" data-translate="hero.ctaDownloadCV">Baixar Currículo</span>
+                    </div>
+                </div>
+
+                <!-- Frame 2: build -->
+                <div class="frame frame-2">
+                    <p class="frame-label">02 — Build</p>
+                    <h2 class="frame-title" data-translate="story.buildTitle">Arquitetura em camadas</h2>
+                    <p class="frame-text" data-translate="story.build">Arquitetura em camadas, APIs REST com ASP.NET Core e Entity Framework — cada peça encaixada com propósito.</p>
+                </div>
+
+                <!-- Frame 3: deploy -->
+                <div class="frame frame-3">
+                    <p class="frame-label">03 — Deploy</p>
+                    <h2 class="frame-title" data-translate="story.deployTitle">Do commit à produção</h2>
+                    <p class="frame-text" data-translate="story.deploy">Integrações com SQL Server e Oracle, entregues na AWS com atenção a performance e estabilidade.</p>
+                </div>
+
+                <!-- Frame 4: run -->
+                <div class="story-flood">
+                    <span class="flood-edge" aria-hidden="true"></span>
+                    <div class="frame frame-4">
+                        <div class="run-copy">
+                            <p class="frame-label">04 — Run</p>
+                            <p class="run-word" aria-hidden="true">RUN<span class="run-caret">_</span></p>
+                            <p class="frame-text" data-translate="story.run">Sustentação de sistemas em produção: bugs resolvidos com rapidez e novas funcionalidades sem quebrar o que já funciona.</p>
+                        </div>
+                        <div class="run-terminal" aria-hidden="true">
+                            <div class="win-bar"><i></i><i></i><i></i><span>logs — production</span></div>
+                            <ul class="run-log"></ul>
+                        </div>
+                    </div>
+                </div>
+
+                <ol class="story-progress" aria-hidden="true">
+                    <li class="is-active">01</li>
+                    <li>02</li>
+                    <li>03</li>
+                    <li>04</li>
+                </ol>
+
+                <div class="scroll-cue" aria-hidden="true">
+                    <span class="scroll-cue-line"></span>
+                    <span data-translate="story.scroll">Role para ver o processo</span>
                 </div>
             </div>
-            <a href="#sobre" class="hero-scroll-cue" aria-label="Rolar para a próxima seção">
-                <span></span>
-            </a>
         </section>
 
-        <section id="sobre" class="section">
-            <div class="container">
-                <h2 class="section-title" data-translate="about.title">Sobre Mim</h2>
-                <div class="about-content">
-                    <div class="about-text">
+        <!-- ===================== TECNOLOGIAS (marquee) ===================== -->
+        <section class="marquee" aria-labelledby="marquee-title">
+            <p class="marquee-title" id="marquee-title" data-translate="skills.marquee">Tecnologias do meu dia a dia</p>
+            <div class="marquee-track">
+                <ul class="marquee-row">
+                    <li><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/csharp/csharp-original.svg" alt="" loading="lazy"><span>C#</span></li>
+                    <li><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/dotnetcore/dotnetcore-original.svg" alt="" loading="lazy"><span>.NET</span></li>
+                    <li><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/microsoftsqlserver/microsoftsqlserver-original.svg" alt="" loading="lazy"><span>SQL Server</span></li>
+                    <li><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/oracle/oracle-original.svg" alt="" loading="lazy"><span>Oracle</span></li>
+                    <li><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/angularjs/angularjs-original.svg" alt="" loading="lazy"><span>Angular</span></li>
+                    <li><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/react/react-original.svg" alt="" loading="lazy"><span>React</span></li>
+                    <li><i class="fab fa-aws marquee-fa" aria-hidden="true"></i><span>AWS</span></li>
+                    <li><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/mysql/mysql-original.svg" alt="" loading="lazy"><span>MySQL</span></li>
+                    <li><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/javascript/javascript-original.svg" alt="" loading="lazy"><span>JavaScript</span></li>
+                    <li><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/git/git-original.svg" alt="" loading="lazy"><span>Git</span></li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- ===================== SOBRE ===================== -->
+        <section id="sobre" class="section section-dark about">
+            <span class="ghost-word" aria-hidden="true">&lt;about/&gt;</span>
+            <div class="container about-grid">
+                <div class="about-photo" data-reveal>
+                    <div class="arch">
+                        <img src="images/euclidesMarques.png" alt="Euclides Marques" loading="lazy">
+                    </div>
+                    <svg class="badge-ring" viewBox="0 0 200 200" aria-hidden="true">
+                        <defs>
+                            <path id="ring-path" d="M100 100 m-78 0 a78 78 0 1 1 156 0 a78 78 0 1 1 -156 0" />
+                        </defs>
+                        <circle cx="100" cy="100" r="96" />
+                        <text><textPath href="#ring-path">.NET DEVELOPER • C# • ASP.NET CORE • SQL •</textPath></text>
+                        <text x="100" y="112" text-anchor="middle" class="badge-cup">&lt;/&gt;</text>
+                    </svg>
+                    <span class="photo-tag">
+                        <i class="fas fa-briefcase" aria-hidden="true"></i>
+                        <span data-translate="hero.currentRole">Atualmente na Certponto</span>
+                    </span>
+                </div>
+                <div class="about-body">
+                    <div class="section-head">
+                        <span class="section-index">01</span>
+                        <h2 class="section-title" data-split data-translate="about.title">Sobre Mim</h2>
+                    </div>
+                    <div class="about-text" data-reveal>
                         <p data-translate="about.paragraph1">Sou desenvolvedor de software com foco em back-end .NET e C#, atuando também com Angular e
                             React no front-end quando o projeto exige. Tenho experiência com SQL Server, MySQL e
                             Oracle, construindo aplicações integradas com atenção a código limpo, boas práticas e
@@ -154,253 +315,245 @@
                             Software para aprofundar decisões técnicas e boas práticas de engenharia, com o objetivo
                             de crescer como Software Engineer especializado em .NET.</p>
                     </div>
-                    <div class="about-details">
-                        <div class="detail-item">
+                    <ul class="about-details">
+                        <li class="detail-item" data-reveal>
                             <span class="icon-chip"><i class="fas fa-user-graduate" aria-hidden="true"></i></span>
                             <div>
                                 <h3 data-translate="about.educationLabel">Formação</h3>
                                 <p data-translate="about.educationValue">Bacharel em Ciência da Computação | Pós-graduando em Arquitetura de Software</p>
                             </div>
-                        </div>
-                        <div class="detail-item">
+                        </li>
+                        <li class="detail-item" data-reveal>
                             <span class="icon-chip"><i class="fas fa-compass" aria-hidden="true"></i></span>
                             <div>
                                 <h3 data-translate="about.focusLabel">Direção Profissional</h3>
                                 <p data-translate="about.focusValue">Aprofundar arquitetura de software, APIs REST e boas práticas de back-end em .NET</p>
                             </div>
-                        </div>
-                        <div class="detail-item">
+                        </li>
+                        <li class="detail-item" data-reveal>
                             <span class="icon-chip"><i class="fas fa-map-marker-alt" aria-hidden="true"></i></span>
                             <div>
                                 <h3 data-translate="about.locationLabel">Localização</h3>
                                 <p data-translate="about.locationValue">Agudos, SP - Brasil</p>
                             </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===================== EXPERIÊNCIA ===================== -->
+        <section id="experiencia" class="section">
+            <span class="ghost-word" aria-hidden="true">career()</span>
+            <div class="container">
+                <div class="section-head">
+                    <span class="section-index">02</span>
+                    <h2 class="section-title" data-split data-translate="experience.title">Experiência Profissional</h2>
+                </div>
+                <p class="section-lede" id="experience-years-lede" data-reveal>2+ anos de experiência em desenvolvimento .NET</p>
+                <div class="experience-list">
+                    <article class="experience-card" data-reveal>
+                        <span class="experience-num" aria-hidden="true">01</span>
+                        <div class="experience-meta">
+                            <span class="experience-period" data-translate="experience.items.certponto.period">Dez 2025 — Atual</span>
+                            <p class="experience-company" data-translate="experience.items.certponto.company">Certponto</p>
+                        </div>
+                        <div class="experience-main">
+                            <h3 data-translate="experience.items.certponto.role">Desenvolvedor .NET Júnior</h3>
+                            <p class="experience-domain" data-translate="experience.items.certponto.domain">Sistema de Gestão de Ponto</p>
+                            <ul class="experience-bullets" data-translate-list="experience.items.certponto.bullets">
+                                <li>Atuação na equipe de sustentação, garantindo a disponibilidade e o bom funcionamento do sistema para os clientes.</li>
+                                <li>Resolução de bugs em produção com foco em minimizar o impacto para o cliente.</li>
+                                <li>Implementação de novas funcionalidades, com cuidado para não comprometer telas e fluxos já existentes.</li>
+                                <li>Manutenção e evolução de um sistema de gestão de ponto, com back-end em .NET, front-end em Angular, banco de dados Oracle e infraestrutura na AWS.</li>
+                            </ul>
+                            <ul class="chips">
+                                <li>.NET</li>
+                                <li>Angular</li>
+                                <li>Oracle</li>
+                                <li>AWS</li>
+                            </ul>
+                        </div>
+                    </article>
+
+                    <article class="experience-card" data-reveal>
+                        <span class="experience-num" aria-hidden="true">02</span>
+                        <div class="experience-meta">
+                            <span class="experience-period" data-translate="experience.items.moovefy.period">Jul 2024 — Dez 2025</span>
+                            <p class="experience-company" data-translate="experience.items.moovefy.company">Moovefy</p>
+                        </div>
+                        <div class="experience-main">
+                            <h3 data-translate="experience.items.moovefy.role">Desenvolvedor .NET</h3>
+                            <ul class="experience-bullets" data-translate-list="experience.items.moovefy.bullets">
+                                <li>Desenvolvimento e manutenção de sistemas utilizando C# e .NET.</li>
+                                <li>Implementação de melhorias e correções em código, com foco em performance e qualidade.</li>
+                                <li>Participação no levantamento de requisitos com clientes e entrega de soluções personalizadas.</li>
+                                <li>Suporte técnico e resolução de incidentes em ambiente produtivo.</li>
+                                <li>Criação e otimização de consultas em SQL Server.</li>
+                            </ul>
+                            <ul class="chips">
+                                <li>.NET</li>
+                                <li>C#</li>
+                                <li>SQL Server</li>
+                            </ul>
+                        </div>
+                    </article>
+
+                    <article class="experience-card" data-reveal>
+                        <span class="experience-num" aria-hidden="true">03</span>
+                        <div class="experience-meta">
+                            <span class="experience-period" data-translate="experience.items.ctrlplay.period">Jul 2022 — Jul 2024</span>
+                            <p class="experience-company" data-translate="experience.items.ctrlplay.company">Ctrl + Play</p>
+                        </div>
+                        <div class="experience-main">
+                            <h3 data-translate="experience.items.ctrlplay.role">Professor de Programação e Robótica</h3>
+                            <ul class="experience-bullets" data-translate-list="experience.items.ctrlplay.bullets">
+                                <li>Ensino de lógica de programação e fundamentos de robótica para alunos.</li>
+                                <li>Orientação na criação de jogos 2D e 3D utilizando Unity e C#.</li>
+                                <li>Introdução dos alunos a Arduino, Python, JavaScript, HTML, PHP, CSS e MySQL.</li>
+                            </ul>
+                            <ul class="chips">
+                                <li>C#</li>
+                                <li>Unity</li>
+                                <li>Arduino</li>
+                                <li>Python</li>
+                            </ul>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===================== HABILIDADES: módulos ao redor do terminal ===================== -->
+        <section id="habilidades" class="section stack">
+            <div class="container">
+                <div class="stack-head">
+                    <span class="section-index">03</span>
+                    <h2 class="section-title stack-title" data-split data-translate="skills.title">Habilidades</h2>
+                    <p class="stack-lede" data-translate="skills.lede">As ferramentas que uso para levar uma ideia do código até a produção.</p>
+                </div>
+
+                <div class="stack-stage">
+                    <div class="stack-core" aria-hidden="true">
+                        <div class="core-glow"></div>
+                        <div class="core-term">
+                            <div class="win-bar"><i></i><i></i><i></i><span>terminal</span></div>
+                            <pre><code><span class="prompt">$</span> dotnet new webapi
+<span class="ok">✓</span> The template was created
+<span class="prompt">$</span> dotnet run<span class="caret"></span></code></pre>
                         </div>
                     </div>
+
+                    <div class="stack-cards">
+                        <article class="stack-card" data-slot="0">
+                            <header>
+                                <span class="stack-cat" data-translate="skills.filters.backend">Back-end</span>
+                                <span class="stack-idx">01</span>
+                            </header>
+                            <div class="module module--violet" aria-hidden="true">
+                                <span class="module-dots"><i></i><i></i><i></i></span>
+                                <code><span class="k">using</span> Microsoft.AspNetCore;</code>
+                                <code><span class="k">var</span> app = builder.<span class="f">Build</span>();</code>
+                                <code>app.<span class="f">MapControllers</span>();</code>
+                                <i class="fas fa-server module-icon"></i>
+                            </div>
+                            <ul class="skill-chips">
+                                <li><a href="https://learn.microsoft.com/pt-br/dotnet/csharp/" target="_blank" rel="noopener noreferrer"><i class="fas fa-code" aria-hidden="true"></i>C#</a></li>
+                                <li><a href="https://learn.microsoft.com/pt-br/dotnet/" target="_blank" rel="noopener noreferrer"><i class="fas fa-laptop-code" aria-hidden="true"></i>.NET</a></li>
+                                <li><a href="https://learn.microsoft.com/pt-br/aspnet/core/" target="_blank" rel="noopener noreferrer"><i class="fas fa-server" aria-hidden="true"></i>ASP.NET Core</a></li>
+                                <li><a href="https://learn.microsoft.com/pt-br/ef/" target="_blank" rel="noopener noreferrer"><i class="fas fa-layer-group" aria-hidden="true"></i>Entity Framework</a></li>
+                            </ul>
+                        </article>
+
+                        <article class="stack-card" data-slot="1">
+                            <header>
+                                <span class="stack-cat" data-translate="skills.filters.database">Banco de Dados</span>
+                                <span class="stack-idx">02</span>
+                            </header>
+                            <div class="module module--blue" aria-hidden="true">
+                                <span class="module-dots"><i></i><i></i><i></i></span>
+                                <code><span class="k">SELECT</span> * <span class="k">FROM</span> Pedidos</code>
+                                <code><span class="k">WHERE</span> Ativo = <span class="n">1</span></code>
+                                <code><span class="k">ORDER BY</span> Id <span class="k">DESC</span>;</code>
+                                <i class="fas fa-database module-icon"></i>
+                            </div>
+                            <ul class="skill-chips">
+                                <li><a href="https://learn.microsoft.com/pt-br/sql/sql-server/" target="_blank" rel="noopener noreferrer"><i class="fas fa-database" aria-hidden="true"></i>SQL Server</a></li>
+                                <li><a href="https://docs.oracle.com/pt-br/" target="_blank" rel="noopener noreferrer"><i class="fas fa-database" aria-hidden="true"></i>Oracle</a></li>
+                                <li><a href="https://dev.mysql.com/doc/" target="_blank" rel="noopener noreferrer"><i class="fas fa-database" aria-hidden="true"></i>MySQL</a></li>
+                            </ul>
+                        </article>
+
+                        <article class="stack-card" data-slot="2">
+                            <header>
+                                <span class="stack-cat" data-translate="skills.filters.frontend">Front-end</span>
+                                <span class="stack-idx">03</span>
+                            </header>
+                            <div class="module module--rose" aria-hidden="true">
+                                <span class="module-dots"><i></i><i></i><i></i></span>
+                                <code>&lt;<span class="t">app-pedidos</span>&gt;</code>
+                                <code>  {{ pedido.<span class="f">total</span> }}</code>
+                                <code>&lt;/<span class="t">app-pedidos</span>&gt;</code>
+                                <i class="fas fa-palette module-icon"></i>
+                            </div>
+                            <ul class="skill-chips">
+                                <li><a href="https://angular.io/docs" target="_blank" rel="noopener noreferrer"><i class="fab fa-angular" aria-hidden="true"></i>Angular</a></li>
+                                <li><a href="https://react.dev/" target="_blank" rel="noopener noreferrer"><i class="fab fa-react" aria-hidden="true"></i>React</a></li>
+                                <li><a href="https://vuejs.org/guide/introduction.html" target="_blank" rel="noopener noreferrer"><i class="fab fa-vuejs" aria-hidden="true"></i>VueJS</a></li>
+                                <li><a href="https://developer.mozilla.org/pt-BR/docs/Web/JavaScript" target="_blank" rel="noopener noreferrer"><i class="fab fa-js" aria-hidden="true"></i>JavaScript</a></li>
+                                <li><a href="https://developer.mozilla.org/pt-BR/docs/Web/HTML" target="_blank" rel="noopener noreferrer"><i class="fab fa-html5" aria-hidden="true"></i>HTML5</a></li>
+                                <li><a href="https://developer.mozilla.org/pt-BR/docs/Web/CSS" target="_blank" rel="noopener noreferrer"><i class="fab fa-css3-alt" aria-hidden="true"></i>CSS3</a></li>
+                                <li><a href="https://tailwindcss.com/docs" target="_blank" rel="noopener noreferrer"><i class="fas fa-wind" aria-hidden="true"></i>TailwindCSS</a></li>
+                                <li><a href="https://getbootstrap.com/docs/" target="_blank" rel="noopener noreferrer"><i class="fab fa-bootstrap" aria-hidden="true"></i>Bootstrap</a></li>
+                            </ul>
+                        </article>
+
+                        <article class="stack-card" data-slot="3">
+                            <header>
+                                <span class="stack-cat" data-translate="skills.filters.cloud">Cloud & Ferramentas</span>
+                                <span class="stack-idx">04</span>
+                            </header>
+                            <div class="module module--green" aria-hidden="true">
+                                <span class="module-dots"><i></i><i></i><i></i></span>
+                                <code><span class="prompt">$</span> git commit -m <span class="s">"feat"</span></code>
+                                <code><span class="prompt">$</span> git push origin main</code>
+                                <code><span class="ok">✓</span> deployed to aws</code>
+                                <i class="fas fa-cloud module-icon"></i>
+                            </div>
+                            <ul class="skill-chips">
+                                <li><a href="https://aws.amazon.com/what-is-aws/" target="_blank" rel="noopener noreferrer"><i class="fab fa-aws" aria-hidden="true"></i>AWS</a></li>
+                                <li><a href="https://git-scm.com/doc" target="_blank" rel="noopener noreferrer"><i class="fab fa-git-alt" aria-hidden="true"></i>Git</a></li>
+                            </ul>
+                        </article>
+                    </div>
+                </div>
+
+                <div class="stack-controls">
+                    <button class="circle-btn stack-prev" data-translate-aria="common.previous" aria-label="Anterior"><i class="fas fa-arrow-left" aria-hidden="true"></i></button>
+                    <div class="stack-dots" role="tablist" data-translate-aria="skills.categories" aria-label="Categorias"></div>
+                    <button class="circle-btn stack-next" data-translate-aria="common.next" aria-label="Próximo"><i class="fas fa-arrow-right" aria-hidden="true"></i></button>
                 </div>
             </div>
         </section>
 
-        <section id="experiencia" class="section bg-light">
-            <div class="container">
-                <h2 class="section-title" data-translate="experience.title">Experiência Profissional</h2>
-                <p class="section-lede" id="experience-years-lede">2+ anos de experiência em desenvolvimento .NET</p>
-                <div class="experience-list">
-                    <article class="experience-card">
-                        <div class="experience-header">
-                            <div class="experience-heading">
-                                <h3 data-translate="experience.items.certponto.role">Desenvolvedor .NET Júnior</h3>
-                                <p class="experience-company" data-translate="experience.items.certponto.company">Certponto</p>
-                            </div>
-                            <span class="experience-period" data-translate="experience.items.certponto.period">Dez 2025 — Atual</span>
-                        </div>
-                        <p class="experience-domain" data-translate="experience.items.certponto.domain">Sistema de Gestão de Ponto</p>
-                        <ul class="experience-bullets" data-translate-list="experience.items.certponto.bullets">
-                            <li>Atuação na equipe de sustentação, garantindo a disponibilidade e o bom funcionamento do sistema para os clientes.</li>
-                            <li>Resolução de bugs em produção com foco em minimizar o impacto para o cliente.</li>
-                            <li>Implementação de novas funcionalidades, com cuidado para não comprometer telas e fluxos já existentes.</li>
-                            <li>Manutenção e evolução de um sistema de gestão de ponto, com back-end em .NET, front-end em Angular, banco de dados Oracle e infraestrutura na AWS.</li>
-                        </ul>
-                        <ul class="experience-tech">
-                            <li>.NET</li>
-                            <li>Angular</li>
-                            <li>Oracle</li>
-                            <li>AWS</li>
-                        </ul>
-                    </article>
-
-                    <article class="experience-card">
-                        <div class="experience-header">
-                            <div class="experience-heading">
-                                <h3 data-translate="experience.items.moovefy.role">Desenvolvedor .NET</h3>
-                                <p class="experience-company" data-translate="experience.items.moovefy.company">Moovefy</p>
-                            </div>
-                            <span class="experience-period" data-translate="experience.items.moovefy.period">Jul 2024 — Dez 2025</span>
-                        </div>
-                        <ul class="experience-bullets" data-translate-list="experience.items.moovefy.bullets">
-                            <li>Desenvolvimento e manutenção de sistemas utilizando C# e .NET.</li>
-                            <li>Implementação de melhorias e correções em código, com foco em performance e qualidade.</li>
-                            <li>Participação no levantamento de requisitos com clientes e entrega de soluções personalizadas.</li>
-                            <li>Suporte técnico e resolução de incidentes em ambiente produtivo.</li>
-                            <li>Criação e otimização de consultas em SQL Server.</li>
-                        </ul>
-                        <ul class="experience-tech">
-                            <li>.NET</li>
-                            <li>C#</li>
-                            <li>SQL Server</li>
-                        </ul>
-                    </article>
-
-                    <article class="experience-card">
-                        <div class="experience-header">
-                            <div class="experience-heading">
-                                <h3 data-translate="experience.items.ctrlplay.role">Professor de Programação e Robótica</h3>
-                                <p class="experience-company" data-translate="experience.items.ctrlplay.company">Ctrl + Play</p>
-                            </div>
-                            <span class="experience-period" data-translate="experience.items.ctrlplay.period">Jul 2022 — Jul 2024</span>
-                        </div>
-                        <ul class="experience-bullets" data-translate-list="experience.items.ctrlplay.bullets">
-                            <li>Ensino de lógica de programação e fundamentos de robótica para alunos.</li>
-                            <li>Orientação na criação de jogos 2D e 3D utilizando Unity e C#.</li>
-                            <li>Introdução dos alunos a Arduino, Python, JavaScript, HTML, PHP, CSS e MySQL.</li>
-                        </ul>
-                        <ul class="experience-tech">
-                            <li>C#</li>
-                            <li>Unity</li>
-                            <li>Arduino</li>
-                            <li>Python</li>
-                        </ul>
-                    </article>
-                </div>
-            </div>
-        </section>
-
-        <section id="habilidades" class="section bg-light">
-            <div class="container">
-                <h2 class="section-title" data-translate="skills.title">Habilidades</h2>
-                <div class="skills-filter">
-                    <button class="filter-btn active" data-filter="all" data-translate="skills.filters.all">Todos</button>
-                    <button class="filter-btn" data-filter="backend" data-translate="skills.filters.backend">Back-end</button>
-                    <button class="filter-btn" data-filter="database" data-translate="skills.filters.database">Banco de Dados</button>
-                    <button class="filter-btn" data-filter="frontend" data-translate="skills.filters.frontend">Front-end</button>
-                    <button class="filter-btn" data-filter="cloud" data-translate="skills.filters.cloud">Cloud & Ferramentas</button>
-                </div>
-                <div class="skills-grid">
-                    <a href="https://learn.microsoft.com/pt-br/dotnet/csharp/" target="_blank" rel="noopener noreferrer"
-                        class="skill-link" data-category="backend">
-                        <div class="skill-card skill-card--primary">
-                            <i class="fas fa-code" aria-hidden="true"></i>
-                            <span class="skill-name">C#</span>
-                        </div>
-                    </a>
-                    <a href="https://learn.microsoft.com/pt-br/dotnet/" target="_blank" rel="noopener noreferrer"
-                        class="skill-link" data-category="backend">
-                        <div class="skill-card skill-card--primary">
-                            <i class="fas fa-laptop-code" aria-hidden="true"></i>
-                            <span class="skill-name">.NET</span>
-                        </div>
-                    </a>
-                    <a href="https://learn.microsoft.com/pt-br/aspnet/core/" target="_blank" rel="noopener noreferrer"
-                        class="skill-link" data-category="backend">
-                        <div class="skill-card skill-card--primary">
-                            <i class="fas fa-server" aria-hidden="true"></i>
-                            <span class="skill-name">ASP.NET Core</span>
-                        </div>
-                    </a>
-                    <a href="https://learn.microsoft.com/pt-br/ef/" target="_blank" rel="noopener noreferrer"
-                        class="skill-link" data-category="backend">
-                        <div class="skill-card skill-card--primary">
-                            <i class="fas fa-layer-group" aria-hidden="true"></i>
-                            <span class="skill-name">Entity Framework</span>
-                        </div>
-                    </a>
-                    <a href="https://learn.microsoft.com/pt-br/sql/sql-server/" target="_blank"
-                        rel="noopener noreferrer" class="skill-link" data-category="database">
-                        <div class="skill-card skill-card--primary">
-                            <i class="fas fa-database" aria-hidden="true"></i>
-                            <span class="skill-name">SQL Server</span>
-                        </div>
-                    </a>
-                    <a href="https://docs.oracle.com/pt-br/" target="_blank" rel="noopener noreferrer"
-                        class="skill-link" data-category="database">
-                        <div class="skill-card skill-card--primary">
-                            <i class="fas fa-database" aria-hidden="true"></i>
-                            <span class="skill-name">Oracle</span>
-                        </div>
-                    </a>
-                    <a href="https://dev.mysql.com/doc/" target="_blank" rel="noopener noreferrer" class="skill-link"
-                        data-category="database">
-                        <div class="skill-card">
-                            <i class="fas fa-database" aria-hidden="true"></i>
-                            <span class="skill-name">MySQL</span>
-                        </div>
-                    </a>
-                    <a href="https://angular.io/docs" target="_blank" rel="noopener noreferrer" class="skill-link"
-                        data-category="frontend">
-                        <div class="skill-card">
-                            <i class="fab fa-angular" aria-hidden="true"></i>
-                            <span class="skill-name">Angular</span>
-                        </div>
-                    </a>
-                    <a href="https://react.dev/" target="_blank" rel="noopener noreferrer" class="skill-link"
-                        data-category="frontend">
-                        <div class="skill-card">
-                            <i class="fab fa-react" aria-hidden="true"></i>
-                            <span class="skill-name">React</span>
-                        </div>
-                    </a>
-                    <a href="https://vuejs.org/guide/introduction.html" target="_blank" rel="noopener noreferrer"
-                        class="skill-link" data-category="frontend">
-                        <div class="skill-card">
-                            <i class="fab fa-vuejs" aria-hidden="true"></i>
-                            <span class="skill-name">VueJS</span>
-                        </div>
-                    </a>
-                    <a href="https://developer.mozilla.org/pt-BR/docs/Web/JavaScript" target="_blank"
-                        rel="noopener noreferrer" class="skill-link" data-category="frontend">
-                        <div class="skill-card">
-                            <i class="fab fa-js" aria-hidden="true"></i>
-                            <span class="skill-name">JavaScript</span>
-                        </div>
-                    </a>
-                    <a href="https://developer.mozilla.org/pt-BR/docs/Web/HTML" target="_blank"
-                        rel="noopener noreferrer" class="skill-link" data-category="frontend">
-                        <div class="skill-card">
-                            <i class="fab fa-html5" aria-hidden="true"></i>
-                            <span class="skill-name">HTML5</span>
-                        </div>
-                    </a>
-                    <a href="https://developer.mozilla.org/pt-BR/docs/Web/CSS" target="_blank" rel="noopener noreferrer"
-                        class="skill-link" data-category="frontend">
-                        <div class="skill-card">
-                            <i class="fab fa-css3-alt" aria-hidden="true"></i>
-                            <span class="skill-name">CSS3</span>
-                        </div>
-                    </a>
-                    <a href="https://tailwindcss.com/docs" target="_blank" rel="noopener noreferrer" class="skill-link"
-                        data-category="frontend">
-                        <div class="skill-card">
-                            <i class="fas fa-wind" aria-hidden="true"></i>
-                            <span class="skill-name">TailwindCSS</span>
-                        </div>
-                    </a>
-                    <a href="https://getbootstrap.com/docs/" target="_blank" rel="noopener noreferrer"
-                        class="skill-link" data-category="frontend">
-                        <div class="skill-card">
-                            <i class="fab fa-bootstrap" aria-hidden="true"></i>
-                            <span class="skill-name">Bootstrap</span>
-                        </div>
-                    </a>
-                    <a href="https://aws.amazon.com/what-is-aws/" target="_blank" rel="noopener noreferrer"
-                        class="skill-link" data-category="cloud">
-                        <div class="skill-card">
-                            <i class="fab fa-aws" aria-hidden="true"></i>
-                            <span class="skill-name">AWS</span>
-                        </div>
-                    </a>
-                    <a href="https://git-scm.com/doc" target="_blank" rel="noopener noreferrer" class="skill-link"
-                        data-category="cloud">
-                        <div class="skill-card">
-                            <i class="fab fa-git-alt" aria-hidden="true"></i>
-                            <span class="skill-name">Git</span>
-                        </div>
-                    </a>
-                </div>
-            </div>
-        </section>
-
+        <!-- ===================== PROJETOS ===================== -->
         <section id="projetos" class="section">
+            <span class="ghost-word" aria-hidden="true">git push</span>
             <div class="container">
-                <h2 class="section-title" data-translate="projects.title">Projetos</h2>
+                <div class="section-head">
+                    <span class="section-index">04</span>
+                    <h2 class="section-title" data-split data-translate="projects.title">Projetos</h2>
+                </div>
 
                 <h3 class="section-subtitle" data-translate="projects.featuredTitle">Projetos em Destaque</h3>
                 <div class="featured-projects">
-                    <article class="featured-project-card">
+                    <article class="featured-project-card" data-reveal data-tilt>
+                        <span class="featured-num" aria-hidden="true">01</span>
                         <header class="featured-project-header">
                             <h4 data-translate="projects.featured.lojaRoupas.name">Loja de Roupas (E-commerce)</h4>
                             <span class="project-status" data-translate="projects.sourceOnly">Código-fonte disponível</span>
                         </header>
-                        <ul class="featured-project-tech">
+                        <ul class="chips">
                             <li>.NET</li>
                             <li>C#</li>
                         </ul>
@@ -419,18 +572,19 @@
                             </div>
                         </dl>
                         <a href="https://github.com/Euclides-Marques/LojaRoupas-CSharp" target="_blank"
-                            rel="noopener noreferrer" class="featured-project-link">
+                            rel="noopener noreferrer" class="pill pill-accent featured-project-link">
                             <i class="fab fa-github" aria-hidden="true"></i>
                             <span data-translate="projects.viewOnGithub">Ver no GitHub</span>
                         </a>
                     </article>
 
-                    <article class="featured-project-card">
+                    <article class="featured-project-card" data-reveal data-tilt>
+                        <span class="featured-num" aria-hidden="true">02</span>
                         <header class="featured-project-header">
                             <h4 data-translate="projects.featured.teamLunch.name">TeamLunch — Votação de Restaurante</h4>
                             <span class="project-status" data-translate="projects.sourceOnly">Código-fonte disponível</span>
                         </header>
-                        <ul class="featured-project-tech">
+                        <ul class="chips">
                             <li>.NET</li>
                             <li>React</li>
                             <li>Vite</li>
@@ -450,7 +604,7 @@
                             </div>
                         </dl>
                         <a href="https://github.com/Euclides-Marques/TeamLunch-WebAPI-CSharp-React" target="_blank"
-                            rel="noopener noreferrer" class="featured-project-link">
+                            rel="noopener noreferrer" class="pill pill-accent featured-project-link">
                             <i class="fab fa-github" aria-hidden="true"></i>
                             <span data-translate="projects.viewOnGithub">Ver no GitHub</span>
                         </a>
@@ -465,105 +619,111 @@
             </div>
         </section>
 
-        <section id="formacao" class="section bg-light">
+        <!-- ===================== FORMAÇÃO ===================== -->
+        <section id="formacao" class="section section-alt">
+            <span class="ghost-word" aria-hidden="true">learn++</span>
             <div class="container">
-                <h2 class="section-title" data-translate="education.title">Formação e Cursos</h2>
+                <div class="section-head">
+                    <span class="section-index">05</span>
+                    <h2 class="section-title" data-split data-translate="education.title">Formação e Cursos</h2>
+                </div>
                 <div class="education-container">
-                    <div class="education-item">
+                    <span class="timeline-line" aria-hidden="true"><span class="timeline-fill"></span></span>
+                    <div class="education-item" data-reveal>
                         <div class="education-icon">
                             <i class="fas fa-sitemap" aria-hidden="true"></i>
                         </div>
                         <div class="education-content">
+                            <p class="period" data-translate="education.items.postgrad.period">Jul 2026 - Mar 2027</p>
                             <h3 data-translate="education.items.postgrad.title">Pós-graduação em Arquitetura de Software</h3>
                             <p class="institution" data-translate="education.items.postgrad.institution">Unyleya - Cursando</p>
-                            <p class="period" data-translate="education.items.postgrad.period">Jul 2026 - Mar 2027</p>
                         </div>
                     </div>
-                    <div class="education-item">
+                    <div class="education-item" data-reveal>
                         <div class="education-icon">
                             <i class="fas fa-graduation-cap" aria-hidden="true"></i>
                         </div>
                         <div class="education-content">
+                            <p class="period" data-translate="education.items.bachelor.period">Fev 2022 - Dez 2025</p>
                             <h3 data-translate="education.items.bachelor.title">Bacharelado em Ciência da Computação</h3>
                             <p class="institution" data-translate="education.items.bachelor.institution">FIB - Faculdades Integradas de Bauru - Concluído</p>
-                            <p class="period" data-translate="education.items.bachelor.period">Fev 2022 - Dez 2025</p>
                         </div>
                     </div>
-                    <div class="education-item">
+                    <div class="education-item" data-reveal>
                         <div class="education-icon">
                             <i class="fas fa-certificate" aria-hidden="true"></i>
                         </div>
                         <div class="education-content">
+                            <p class="period" data-translate="education.items.technical.period">Fev 2019 - Dez 2021</p>
                             <h3 data-translate="education.items.technical.title">Técnico em Informática</h3>
                             <p class="institution" data-translate="education.items.technical.institution">Preve Objetivo - Concluído</p>
-                            <p class="period" data-translate="education.items.technical.period">Fev 2019 - Dez 2021</p>
                         </div>
                     </div>
                 </div>
 
-                <h3 class="courses-title" data-translate="education.coursesTitle">Cursos Complementares</h3>
+                <h3 class="section-subtitle courses-title" data-translate="education.coursesTitle">Cursos Complementares</h3>
                 <div class="courses-grid">
-                    <div class="course-card">
+                    <div class="course-card" data-reveal>
                         <span class="icon-chip"><i class="fas fa-database" aria-hidden="true"></i></span>
                         <h4 data-translate="education.courses.mysql.title">Banco de Dados MySQL</h4>
                         <p data-translate="education.courses.mysql.description">Introdução ao MySQL</p>
                     </div>
-                    <div class="course-card">
+                    <div class="course-card" data-reveal>
                         <span class="icon-chip"><i class="fab fa-html5" aria-hidden="true"></i></span>
                         <h4 data-translate="education.courses.html.title">HTML5</h4>
                         <p data-translate="education.courses.html.description">Introdução à Linguagem</p>
                     </div>
-                    <div class="course-card">
+                    <div class="course-card" data-reveal>
                         <span class="icon-chip"><i class="fab fa-python" aria-hidden="true"></i></span>
                         <h4 data-translate="education.courses.python.title">Python</h4>
                         <p data-translate="education.courses.python.description">Introdução à Linguagem</p>
                     </div>
-                    <div class="course-card">
+                    <div class="course-card" data-reveal>
                         <span class="icon-chip"><i class="fab fa-css3-alt" aria-hidden="true"></i></span>
                         <h4 data-translate="education.courses.css.title">CSS3</h4>
                         <p data-translate="education.courses.css.description">Introdução à Linguagem</p>
                     </div>
-                    <div class="course-card">
+                    <div class="course-card" data-reveal>
                         <span class="icon-chip"><i class="fas fa-chart-line" aria-hidden="true"></i></span>
                         <h4 data-translate="education.courses.dataScience.title">Ciência de Dados</h4>
                         <p data-translate="education.courses.dataScience.description">Fundamentos</p>
                     </div>
-                    <div class="course-card">
+                    <div class="course-card" data-reveal>
                         <span class="icon-chip"><i class="fab fa-laravel" aria-hidden="true"></i></span>
                         <h4 data-translate="education.courses.laravel.title">Laravel 10</h4>
                         <p data-translate="education.courses.laravel.description">Básico ao Avançado</p>
                     </div>
-                    <div class="course-card">
+                    <div class="course-card" data-reveal>
                         <span class="icon-chip"><i class="fas fa-project-diagram" aria-hidden="true"></i></span>
                         <h4 data-translate="education.courses.agile.title">Gestão Ágil</h4>
                         <p data-translate="education.courses.agile.description">Metodologia Scrum</p>
                     </div>
-                    <div class="course-card">
+                    <div class="course-card" data-reveal>
                         <span class="icon-chip"><i class="fas fa-code" aria-hidden="true"></i></span>
                         <h4 data-translate="education.courses.csharp.title">C# Completo</h4>
                         <p data-translate="education.courses.csharp.description">Programação Orientada a Objetos</p>
                     </div>
-                    <div class="course-card">
+                    <div class="course-card" data-reveal>
                         <span class="icon-chip"><i class="fab fa-microsoft" aria-hidden="true"></i></span>
                         <h4 data-translate="education.courses.aspnetMvc.title">ASP.NET Core MVC</h4>
                         <p data-translate="education.courses.aspnetMvc.description">Desenvolvimento Web</p>
                     </div>
-                    <div class="course-card">
+                    <div class="course-card" data-reveal>
                         <span class="icon-chip"><i class="fas fa-broom" aria-hidden="true"></i></span>
                         <h4 data-translate="education.courses.cleanCode.title">Clean Code</h4>
                         <p data-translate="education.courses.cleanCode.description">Boas Práticas de Programação</p>
                     </div>
-                    <div class="course-card">
+                    <div class="course-card" data-reveal>
                         <span class="icon-chip"><i class="fab fa-js" aria-hidden="true"></i></span>
                         <h4 data-translate="education.courses.jsTs.title">JavaScript e TypeScript</h4>
                         <p data-translate="education.courses.jsTs.description">Do básico ao avançado JS/TS</p>
                     </div>
-                    <div class="course-card">
+                    <div class="course-card" data-reveal>
                         <span class="icon-chip"><i class="fas fa-layer-group" aria-hidden="true"></i></span>
                         <h4 data-translate="education.courses.aspnetLayers.title">ASP.NET (C#)</h4>
                         <p data-translate="education.courses.aspnetLayers.description">Programação em Camadas - CRUD completo</p>
                     </div>
-                    <div class="course-card">
+                    <div class="course-card" data-reveal>
                         <span class="icon-chip"><i class="fab fa-aws" aria-hidden="true"></i></span>
                         <h4 data-translate="education.courses.awsLambda.title">AWS Lambda For The .NET Developer</h4>
                         <p data-translate="education.courses.awsLambda.description">Função Serverless com .NET</p>
@@ -572,11 +732,16 @@
             </div>
         </section>
 
-        <section id="contato" class="section">
+        <!-- ===================== CONTATO ===================== -->
+        <section id="contato" class="section section-dark contact">
+            <span class="ghost-word" aria-hidden="true">hello()</span>
             <div class="container">
-                <h2 class="section-title" data-translate="contact.title">Entre em Contato</h2>
+                <div class="section-head">
+                    <span class="section-index">06</span>
+                    <h2 class="section-title" data-split data-translate="contact.title">Entre em Contato</h2>
+                </div>
                 <div class="contact-container">
-                    <div class="contact-info">
+                    <div class="contact-info" data-reveal>
                         <h3 data-translate="contact.subtitle">Vamos conversar!</h3>
                         <p data-translate="contact.description">Estou aberto a oportunidades e colaborações. Se tiver alguma dúvida ou quiser bater um papo,
                             é só me chamar!</p>
@@ -614,7 +779,7 @@
                             </div>
                         </div>
                     </div>
-                    <form class="contact-form" id="form-contato">
+                    <form class="contact-form" id="form-contato" data-reveal>
                         <div class="form-group">
                             <label for="name" data-translate="contact.form.name">Nome</label>
                             <input type="text" id="name" name="name" autocomplete="name" data-translate-placeholder="contact.form.namePlaceholder" required>
@@ -630,10 +795,10 @@
                         </div>
                         <div class="form-group">
                             <label for="message" data-translate="contact.form.message">Mensagem</label>
-                            <textarea id="message" name="message" rows="5" data-translate-placeholder="contact.form.messagePlaceholder"
+                            <textarea id="message" name="message" rows="4" data-translate-placeholder="contact.form.messagePlaceholder"
                                 required></textarea>
                         </div>
-                        <button type="submit" class="btn btn-primary" data-translate="contact.form.send">Enviar
+                        <button type="submit" class="pill pill-accent btn-primary" data-translate="contact.form.send">Enviar
                             Mensagem</button>
                     </form>
                 </div>
@@ -645,7 +810,6 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-logo">
-                    <a href="#" class="logo">Euclides Marques</a>
                     <p data-translate="footer.tagline">Desenvolvedor .NET apaixonado por criar soluções inovadoras.</p>
                 </div>
                 <div class="footer-links">
@@ -676,17 +840,24 @@
                     </div>
                 </div>
             </div>
+            <a href="#top" class="footer-wordmark" data-translate-aria="common.backToTop" aria-label="Voltar ao topo">
+                <span>EUCLIDES</span><span class="logo-sep">/</span><span class="logo-light">MARQUES</span>
+            </a>
             <div class="footer-bottom">
                 <p>&copy; 2025 Euclides Marques. Todos os direitos reservados.</p>
             </div>
         </div>
     </footer>
 
-<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" integrity="sha384-g4NTh/Iv5PPU4xPyhEWqPcwtNXOvdaDI8LLnyYfyNZOjKJeYQyjzQ9X5275eBjpt" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" integrity="sha384-Z3REaz79l2IaAZqJsSABtTbhjgOUYyV3p90XNnAPCSHg3EMTz1fouunq9WZRtj3d" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js" integrity="sha384-B2WBjDzEjJpYvhmi2UyEn7rektqkf5suS6sNoyyrf0EBAwBHdkiXxIlU0V5Ru2ed" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <script src="script/traducao.js"></script>
     <script src="script/language-dropdown.js"></script>
     <script src="script/email.js"></script>
     <script src="script/main.js"></script>
+    <script src="script/story.js"></script>
     <script src="script/config.js"></script>
     <script src="script/projetos.js"></script>
 </body>

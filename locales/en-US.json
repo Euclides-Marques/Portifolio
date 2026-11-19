@@ -1,7 +1,14 @@
 {
   "common": {
     "skipToContent": "Skip to content",
-    "close": "Close"
+    "close": "Close",
+    "selectLanguage": "Select language",
+    "languages": "Languages",
+    "toggleTheme": "Toggle theme",
+    "menu": "Menu",
+    "previous": "Previous",
+    "next": "Next",
+    "backToTop": "Back to top"
   },
   "nav": {
     "about": "About",
@@ -12,13 +19,20 @@
     "contact": "Contact"
   },
   "hero": {
-    "availability": "Open to new opportunities",
     "greeting": "Hi, I'm Euclides Marques",
     "role": ".NET Developer",
     "tagline": "Back-end development with .NET and C#, building REST APIs and relational database integrations.",
     "ctaContact": "Get in Touch",
     "ctaDownloadCV": "Download Resume",
     "currentRole": "Currently at Certponto"
+  },
+  "story": {
+    "buildTitle": "Layered architecture",
+    "deployTitle": "From commit to production",
+    "build": "Layered architecture, REST APIs with ASP.NET Core and Entity Framework — every piece fitted with purpose.",
+    "deploy": "SQL Server and Oracle integrations, shipped on AWS with attention to performance and stability.",
+    "run": "Keeping production systems healthy: bugs fixed fast and new features shipped without breaking what already works.",
+    "scroll": "Scroll to see the process"
   },
   "about": {
     "title": "About Me",
@@ -74,12 +88,14 @@
   "skills": {
     "title": "Skills",
     "filters": {
-      "all": "All",
       "backend": "Back-end",
       "database": "Database",
       "frontend": "Front-end",
       "cloud": "Cloud & Tools"
-    }
+    },
+    "lede": "The tools I use to take an idea from code to production.",
+    "marquee": "Technologies I use every day",
+    "categories": "Categories"
   },
   "projects": {
     "title": "Projects",

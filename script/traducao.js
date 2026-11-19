@@ -56,6 +56,13 @@ function applyTranslations(translations) {
         }
     });
 
+    document.querySelectorAll('[data-translate-aria]').forEach(element => {
+        const value = getTranslation(translations, element.getAttribute('data-translate-aria'));
+        if (typeof value === 'string') {
+            element.setAttribute('aria-label', value);
+        }
+    });
+
     document.querySelectorAll('[data-translate-list]').forEach(element => {
         const value = getTranslation(translations, element.getAttribute('data-translate-list'));
         if (Array.isArray(value)) {

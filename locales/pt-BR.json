@@ -1,7 +1,14 @@
 {
   "common": {
     "skipToContent": "Pular para o conteúdo",
-    "close": "Fechar"
+    "close": "Fechar",
+    "selectLanguage": "Selecionar idioma",
+    "languages": "Idiomas",
+    "toggleTheme": "Alternar tema",
+    "menu": "Menu",
+    "previous": "Anterior",
+    "next": "Próximo",
+    "backToTop": "Voltar ao topo"
   },
   "nav": {
     "about": "Sobre",
@@ -12,13 +19,20 @@
     "contact": "Contato"
   },
   "hero": {
-    "availability": "Disponível para novas oportunidades",
     "greeting": "Olá, eu sou Euclides Marques",
     "role": "Desenvolvedor .NET",
     "tagline": "Desenvolvimento back-end com .NET e C#, construindo APIs REST e integrações com bancos de dados relacionais.",
     "ctaContact": "Entre em Contato",
     "ctaDownloadCV": "Baixar Currículo",
     "currentRole": "Atualmente na Certponto"
+  },
+  "story": {
+    "buildTitle": "Arquitetura em camadas",
+    "deployTitle": "Do commit à produção",
+    "build": "Arquitetura em camadas, APIs REST com ASP.NET Core e Entity Framework — cada peça encaixada com propósito.",
+    "deploy": "Integrações com SQL Server e Oracle, entregues na AWS com atenção a performance e estabilidade.",
+    "run": "Sustentação de sistemas em produção: bugs resolvidos com rapidez e novas funcionalidades sem quebrar o que já funciona.",
+    "scroll": "Role para ver o processo"
   },
   "about": {
     "title": "Sobre Mim",
@@ -74,12 +88,14 @@
   "skills": {
     "title": "Habilidades",
     "filters": {
-      "all": "Todos",
       "backend": "Back-end",
       "database": "Banco de Dados",
       "frontend": "Front-end",
       "cloud": "Cloud & Ferramentas"
-    }
+    },
+    "lede": "As ferramentas que uso para levar uma ideia do código até a produção.",
+    "marquee": "Tecnologias do meu dia a dia",
+    "categories": "Categorias"
   },
   "projects": {
     "title": "Projetos",
