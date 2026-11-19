@@ -31,12 +31,12 @@ document.addEventListener('DOMContentLoaded', function () {
     showLoading();
 
     const LANGUAGE_META = {
-        'C#': { icon: 'fas fa-code', image: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg', color: '#239120' },
-        'JavaScript': { icon: 'fab fa-js', image: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg', color: '#f7df1e' },
-        'HTML': { icon: 'fab fa-html5', image: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original-wordmark.svg', color: '#e34f26' },
-        'CSS': { icon: 'fab fa-css3-alt', image: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original-wordmark.svg', color: '#1572b6' },
-        'PHP': { icon: 'fab fa-php', image: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg', color: '#777bb4' },
-        'default': { icon: 'fas fa-code-branch', image: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original-wordmark.svg', color: '#f0f0f0' }
+        'C#': { icon: 'fas fa-code', image: 'https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/csharp/csharp-original.svg', color: '#239120' },
+        'JavaScript': { icon: 'fab fa-js', image: 'https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/javascript/javascript-original.svg', color: '#f7df1e' },
+        'HTML': { icon: 'fab fa-html5', image: 'https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/html5/html5-original-wordmark.svg', color: '#e34f26' },
+        'CSS': { icon: 'fab fa-css3-alt', image: 'https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/css3/css3-original-wordmark.svg', color: '#1572b6' },
+        'PHP': { icon: 'fab fa-php', image: 'https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/php/php-original.svg', color: '#777bb4' },
+        'default': { icon: 'fas fa-code-branch', image: 'https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/github/github-original-wordmark.svg', color: '#f0f0f0' }
     };
 
     function createProjectCard(repo, position) {
